@@ -17,15 +17,26 @@ class HtmlParser(object):
     
     def _get_new_data(self, page_url, soup):
         res_data = {}
-        
+
         res_data['url'] = page_url
-        
-        title_node = soup.find('dd', class_= "lemmaWgt-lemmaTitle-title").find("h1")
+
+        title_node = soup.find('dd',class_="lemmaWgt-lemmaTitle-title").find('h1')
         res_data['title'] = title_node.get_text()
-         
+        #print (catalog_node)
+
+        #m目录
+        catalog_node = soup.find('div',class_="lemma-catalog")
+        res_data['catalog'] = catalog_node
+        #print (catalog_node)
+
+        #基本信息
+        basic_node = soup.find('div', class_= "basic-info cmn-clearfix")
+        res_data['basic_node'] = basic_node
+
         summary_node = soup.find('div',class_="lemma-summary")
-        res_data['summary'] = summary_node.get_text()
-        
+        res_data['summary_node'] = summary_node
+        #print (summary_node)
+
         return res_data
     
     def parse(self,page_url, html_cont):
