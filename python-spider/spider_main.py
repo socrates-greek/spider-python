@@ -1,4 +1,4 @@
-from baike_spider import url_manager, html_downloader, html_outputer, html_parser
+from baike_spider import url_manager, html_downloader, html_outputer, html_parser,db_handler,sql_utils
 
 class SpiderMain(object):
     def __init__(self):
@@ -31,7 +31,8 @@ class SpiderMain(object):
 
 if __name__=="__main__":
     #http://baike.baidu.com/view/21087.html
-    root_url = "https://baike.baidu.com/item/%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6"
+   # root_url = "http://www.365essay.com/?tag=%E9%9D%92%E6%98%A5"
+    root_url = "http://www.365essay.com/?tag=%E7%88%B1%E6%83%85"
     #root_url = "http://baike.baidu.com/"
     obj_spider = SpiderMain() 
     obj_spider.craw(root_url)

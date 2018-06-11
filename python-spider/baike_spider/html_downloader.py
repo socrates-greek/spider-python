@@ -5,12 +5,13 @@ class HtmlDownloader(object):
         if url is None:
             return None   
         
-        response = urllib.request.urlopen(url)
-        
-        if response.getcode() != 200:
-            return None
-        
-        return response.read()
-    
+        with urllib.request.urlopen(url,timeout=30) as req:
+            if req.getcode() != 200:
+                return None
+            return req.read()
+
+
+
+
     
 
