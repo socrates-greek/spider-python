@@ -1,4 +1,4 @@
-package com.godzilla.cn.godzilla.bean;
+package com.example.administrator.myapplication.dao;
 
 public class User {
     private Long id;

@@ -30,6 +30,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.administrator.myapplication.commom.Constants;
+import com.example.administrator.myapplication.dao.User;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,7 +98,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         });
 
         mLoginFormView = findViewById(R.id.login_form);
-        mProgressView = findViewById(R.id.login_progress);
     }
 
     private void populateAutoComplete() {
@@ -172,25 +177,48 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mEmailView.setError(getString(R.string.error_field_required));
             focusView = mEmailView;
             cancel = true;
-        } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
-            cancel = true;
         }
+//        else if (!isEmailValid(email)) {
+//            mEmailView.setError(getString(R.string.error_invalid_email));
+//            focusView = mEmailView;
+//            cancel = true;
+//        }
 
-        if (cancel) {
+        if (!cancel) {
             // There was an error; don't attempt login and focus the first
             // form field with an error.
-            //finish();
-            Intent i = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(i);
-            //focusView.requestFocus();
+            focusView = mEmailView;
+            cancel = true;
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+//            showProgress(true);
+//            mAuthTask = new UserLoginTask(email, password);
+//            mAuthTask.execute((Void) null);
+
+            try {
+                User user =new User();
+                user.setCount(email);
+                user.setPassword(password);
+                JSONObject jsonObj = new JSONObject();
+                jsonObj.put("count",email);
+                jsonObj.put("password",password);
+                ServiceUtil serviceUtil = new ServiceUtil();
+                String result= serviceUtil.getServiceInfoPost(Constants.UserByCountAndPassword,jsonObj.toString());
+                if (result.length()>1){
+                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(i);
+                }else{
+                    mEmailView.setError(getString(R.string.error_sign_in));
+                    focusView = mEmailView;
+                    cancel = true;
+                }
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 

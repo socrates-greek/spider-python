@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.administrator.myapplication.commom.Constants;
 import com.example.administrator.myapplication.dao.Article;
 
 import org.json.JSONArray;
@@ -64,7 +65,7 @@ public class MainActivity extends Activity {
         data=new ArrayList<String>();
 
         try {
-            String result= ServiceUtil.getServiceInfo("http://192.168.2.182:8080/article/getArticleTitleList","192.168.2.182","8080");
+            String result= ServiceUtil.getServiceInfo(Constants.ArticleTitleList,Constants.ip,Constants.port);
             JSONArray jsonArray = new JSONArray(result);
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
@@ -96,7 +97,7 @@ public class MainActivity extends Activity {
                     String id = item.split("-")[1];
                     Long ID = Long.valueOf(id);
                     try {
-                        String result= ServiceUtil.getServiceInfo("http://192.168.2.182:8080/article/getArticle/"+ID,"192.168.2.182","8080");
+                        String result= ServiceUtil.getServiceInfo(Constants.ArticleById+ID,Constants.ip,Constants.port);
                         JSONObject jsonObject = new JSONObject(result);
                         String title = jsonObject.getString("title");
                         String detail = jsonObject.getString("detail");

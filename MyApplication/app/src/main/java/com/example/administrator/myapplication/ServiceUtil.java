@@ -5,8 +5,16 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import android.annotation.SuppressLint;
 import android.os.StrictMode;
@@ -69,38 +77,70 @@ public class ServiceUtil {
      * @param params 设置发送的参数，如："key=1&name=1";//设置发送的参数
      * @return
      */
-    public static String getServiceInfoPost(String strUrl,String params)
+    public  String getServiceInfoPost(String strUrl,String params)
     {
         String strResult="";
-        try{
+        ExecutorService threadPool= Executors.newSingleThreadExecutor();
+        Future<String> future=threadPool.submit(new CallableImpl(strUrl,params));
+        System.out.println("----------");
+        try {
+            System.out.println(future.get());
+            strResult = future.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
 
-            byte[] entity = params.getBytes();
-            HttpURLConnection con = (HttpURLConnection) new URL(strUrl).openConnection();
-            con.setRequestMethod("POST");
-            con.setDoOutput(true);
-            con.setConnectTimeout(90000);
-            con.setReadTimeout(90000);
-            con.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
-            con.setRequestProperty("Content-Length",String.valueOf(entity.length));
-            con.getOutputStream().write(entity);
-            int code =con.getResponseCode();//响应代码 200表示成功
-            if(code==200){
-                InputStream inStream = con.getInputStream();
-                strResult=new String(readInputStream(inStream), "UTF-8");
-                if(null!=strResult){
-                    strResult = strResult.replace( "<boolean xmlns=\"http://tempuri.org/\">", "")
-                            .replace("</boolean>", "")
-                            .replace("</string>", "").replace("\r", "")
-                            .replace("\n", "")
-                            .replace("<string xmlns=\"http://tempuri.org/\" />", "");
-                }
-            }
-        }
-        catch(Exception ex){
-            Log.e("getServiceInfoPost",ex.getMessage());
-        }
         return strResult;
     }
+
+
+    class CallableImpl implements Callable {
+        public String strUrl;
+        public String params;
+        public CallableImpl(String url,String params){
+            this.params=params;
+            this.strUrl = url;
+        }
+        @Override
+        public Object call() throws Exception {
+            String strResult=null;
+            try{
+                byte[] data = params.toString().getBytes();
+                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(strUrl).openConnection();
+                httpURLConnection.setConnectTimeout(5000);       //设置连接超时时间
+                httpURLConnection.setDoInput(true);                  //打开输入流，以便从服务器获取数据
+                httpURLConnection.setDoOutput(true);                 //打开输出流，以便向服务器提交数据
+                httpURLConnection.setRequestMethod("POST");     //设置以Post方式提交数据
+                httpURLConnection.setUseCaches(false);               //使用Post方式不能使用缓存
+                //设置请求体的类型是文本类型
+                httpURLConnection.setRequestProperty("Content-Type", "application/json");
+                //设置请求体的长度
+                httpURLConnection.setRequestProperty("Content-Length", String.valueOf(data.length));
+                //获得输出流，向服务器写入数据
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                outputStream.write(data);
+                int code =httpURLConnection.getResponseCode();//响应代码 200表示成功
+                if(code==200){
+                    InputStream inStream = httpURLConnection.getInputStream();
+                    strResult=new String(readInputStream(inStream), "UTF-8");
+                    if(null!=strResult){
+                        strResult = strResult.replace( "<boolean xmlns=\"http://tempuri.org/\">", "")
+                                .replace("</boolean>", "")
+                                .replace("</string>", "").replace("\r", "")
+                                .replace("\n", "")
+                                .replace("<string xmlns=\"http://tempuri.org/\" />", "");
+                    }
+                }
+            } catch(Exception ex){
+                ex.printStackTrace();
+            }
+
+            return strResult;
+        }
+    }
+
 
     /**
      * 从输入流中读取数据

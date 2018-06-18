@@ -6,6 +6,15 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="QMUITabSegmentStyle">@style/AppTabSegment</item>
+    </style>
+    <style name="AppTabSegment">
+        <item name="qmui_tab_has_indicator">false</item>
+        <item name="qmui_tab_indicator_height">1dp</item>
+        <item name="qmui_tab_indicator_top">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="qmui_tab_icon_position">left</item>
+        <item name="qmui_tab_mode">fixed</item>
     </style>
 
 </resources>
