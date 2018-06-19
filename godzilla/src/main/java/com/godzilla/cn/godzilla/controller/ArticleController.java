@@ -62,7 +62,7 @@ public class ArticleController {
 
     @ApiOperation(value="删除", notes="根据url的id来指定删除对象")
     @ApiImplicitParam(name = "id", value = "ID", required = true, dataType = "Long")
-    @RequestMapping(value="/deleteArticle/{id}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/deleteArticle/{id}", method=RequestMethod.GET)
     public String deleteArticle(@PathVariable Long id) {
         articleService.delete(id);
         return "success";
