@@ -61,6 +61,9 @@ public class MainActivity extends Activity {
                     Bundle bundle=new Bundle();
                     //传递name参数为tinyphp
                     bundle.putString("content", detail);
+                    bundle.putLong("id", ID);
+                    bundle.putString("title", title);
+
                     i.putExtras(bundle);
                     startActivity(i);
                 } catch (JSONException e) {
@@ -127,6 +130,9 @@ public class MainActivity extends Activity {
                         Bundle bundle=new Bundle();
                         //传递name参数为tinyphp
                         bundle.putString("content", detail);
+                        bundle.putString("title", title);
+                        bundle.putLong("id", ID);
+
                         i.putExtras(bundle);
                         startActivity(i);
                     } catch (JSONException e) {
