@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.administrator.myapplication.adapter.MyAdapter;
 import com.example.administrator.myapplication.commom.Constants;
 import com.example.administrator.myapplication.dao.Article;
 
@@ -25,9 +26,9 @@ import java.util.Map;
 
 public class MainActivity extends Activity {
     private ListView listview;
-    private ArrayAdapter adapter;
-    private List<String> data;
-    private String item;
+    private MyAdapter mAdapter;
+    private List<Article> data;
+    private Article item;
 
 
     @Override
@@ -37,17 +38,35 @@ public class MainActivity extends Activity {
         getData();//填充数据
         listview = (ListView) findViewById(R.id.listviewId);
         //设定列表项的选择模式为单选
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1,data);
         listview.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-        listview.setAdapter(adapter);
-        listview.isOpaque();
+        //为数据绑定适配器
+        mAdapter = new MyAdapter(this,data);
+        listview.setAdapter(mAdapter);
         //添加点击事件
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 //获得选中项的HashMap对象
-                String map= (String)listview.getItemAtPosition(arg2);
+                Article map= (Article)listview.getItemAtPosition(arg2);
                 item = map;
+                mAdapter.notifyDataSetChanged();
+                Long ID = item.getId();
+                try {
+                    String result= ServiceUtil.getServiceInfo(Constants.ArticleById+ID,Constants.ip,Constants.port);
+                    JSONObject jsonObject = new JSONObject(result);
+                    String title = jsonObject.getString("title");
+                    String detail = jsonObject.getString("detail");
+                    Intent i = new Intent(MainActivity.this, ScrollingActivity.class);
+                    //用Bundle携带数据
+                    Bundle bundle=new Bundle();
+                    //传递name参数为tinyphp
+                    bundle.putString("content", detail);
+                    i.putExtras(bundle);
+                    startActivity(i);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
             }
 
         });
@@ -62,7 +81,7 @@ public class MainActivity extends Activity {
     }
 
     private void getData(){
-        data=new ArrayList<String>();
+        data=new ArrayList<Article>();
 
         try {
             String result= ServiceUtil.getServiceInfo(Constants.ArticleTitleList,Constants.ip,Constants.port);
@@ -71,8 +90,10 @@ public class MainActivity extends Activity {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String title = jsonObject.getString("title");
                 Long id = Long.valueOf(jsonObject.getString("id"));
-
-                data.add(title+"-"+id);
+                Article article = new Article();
+                article.setId(id);
+                article.setTitle(title);
+                data.add(article);
             }
 
         } catch (JSONException e) {
@@ -94,8 +115,7 @@ public class MainActivity extends Activity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.button8:
-                    String id = item.split("-")[1];
-                    Long ID = Long.valueOf(id);
+                    Long ID = item.getId();
                     try {
                         String result= ServiceUtil.getServiceInfo(Constants.ArticleById+ID,Constants.ip,Constants.port);
                         JSONObject jsonObject = new JSONObject(result);

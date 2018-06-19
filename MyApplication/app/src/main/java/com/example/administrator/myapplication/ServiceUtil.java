@@ -31,6 +31,7 @@ public class ServiceUtil {
         StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectLeakedSqlLiteObjects().detectLeakedClosableObjects().penaltyLog().penaltyDeath().build());
         HttpURLConnection conn = null;
         BufferedReader reader = null;
+        InputStream ips = null;
         String rs = null;
         try {
             StringBuffer sb = new StringBuffer();
@@ -43,9 +44,8 @@ public class ServiceUtil {
             conn.setReadTimeout(90000);
             conn.setInstanceFollowRedirects(false);
             conn.connect();
-
-            InputStream is = conn.getInputStream();
-            reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            ips = conn.getInputStream();
+            reader = new BufferedReader(new InputStreamReader(ips, "UTF-8"));
             String strRead = null;
             while ((strRead = reader.readLine()) != null) {
                 sb.append(strRead);
@@ -57,6 +57,14 @@ public class ServiceUtil {
             if (reader != null) {
                 try {
                     reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if(ips!=null){
+                try {
+                    ips.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

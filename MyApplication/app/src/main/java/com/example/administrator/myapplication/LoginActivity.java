@@ -98,7 +98,6 @@ public class LoginActivity extends Activity{
                     if (result.length()>1){
                         Intent i = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(i);
-                        finish();
                     }else{
                         Toast.makeText(LoginActivity.this, "手机号码或密码错误，请重新登录", Toast.LENGTH_SHORT).show();
 

@@ -15,12 +15,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="80"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@drawable/list_view_selected">
 
             <ListView
                 android:id="@+id/listviewId"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></ListView>
+                android:layout_height="wrap_content"
+                android:dividerHeight="1dp"
+                android:cacheColorHint="#000000"
+                android:listSelector="@android:color/holo_blue_dark"></ListView>
         </LinearLayout>
 
         <LinearLayout
@@ -28,7 +32,7 @@
             android:layout_height="50dp"
             android:orientation="vertical">
 
-            <Button
+            <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
                 android:id="@+id/button8"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
