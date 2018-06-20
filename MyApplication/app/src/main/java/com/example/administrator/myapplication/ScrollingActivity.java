@@ -11,7 +11,9 @@ import android.text.style.AbsoluteSizeSpan;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,10 +43,71 @@ public class ScrollingActivity extends Activity {
         String content = bundle.getString("content");
         String title = bundle.getString("title");
         id = bundle.getLong("id");
-
-
         textviewcontent.getSettings().setDefaultTextEncodingName("UTF -8");//设置默认为utf-8
         textviewcontent.loadData(content, "text/html; charset=UTF-8", null);//这种写法可以正确解码
+
+        // 是否支持脚本
+        textviewcontent.getSettings().setJavaScriptEnabled(true);
+        //支持缩放
+        textviewcontent.getSettings().setSupportZoom(true);
+        textviewcontent.getSettings().setMinimumFontSize(20);
+        //自动适应屏幕
+        //textviewcontent.getSettings().setLoadWithOverviewMode(true);
+        //textviewcontent.getSettings().setUseWideViewPort(true);
+
+
+        textviewcontent.setOnTouchListener(new View.OnTouchListener() {
+            float OldX1,OldY1,OldX2,OldY2,NewX1,NewY1,NewX2,NewY2;
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // TODO Auto-generated method stub
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_2_DOWN:
+                        if (event.getPointerCount() == 2) {
+                            for (int i = 0; i < event.getPointerCount(); i++) {
+                                if (i == 0) {
+                                    OldX1 = event.getX(i);
+                                    OldY1 = event.getY(i);
+                                } else if (i == 1) {
+                                    OldX2 = event.getX(i);
+                                    OldY2 = event.getY(i);
+                                }
+                            }
+                        }
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        if (event.getPointerCount() == 2) {
+                            for (int i = 0; i < event.getPointerCount(); i++) {
+                                if (i == 0) {
+                                    NewX1 = event.getX(i);
+                                    NewY1 = event.getY(i);
+                                } else if (i == 1) {
+                                    NewX2 = event.getX(i);
+                                    NewY2 = event.getY(i);
+                                }
+                            }
+                            float disOld = (float) Math.sqrt((Math.pow(OldX2 - OldX1, 2) + Math.pow(
+                                    OldY2 - OldY1, 2)));
+                            float disNew = (float) Math.sqrt((Math.pow(NewX2 - NewX1, 2) + Math.pow(
+                                    NewY2 - NewY1, 2)));
+                            Log.d("onTouch","disOld="+disOld+"|disNew="+disNew);
+                            if (disOld - disNew >= 25) {
+                                // 缩小
+                                textviewcontent.zoomOut();
+
+                            } else if(disNew - disOld >= 25){
+                                // 放大
+                                textviewcontent.zoomIn();
+                            }
+                            OldX1 = NewX1;
+                            OldX2 = NewX2;
+                            OldY1 = NewY1;
+                            OldY2 = NewY2;
+                        }
+                }
+                return false;
+            }
+        });
 
 
         //webview 长按事件

@@ -26,46 +26,49 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="48dp"
         android:paddingLeft="8dp"
-        android:background="@color/qmui_config_color_15_white"
-        android:hint="@string/prompt_email"/>
+        android:hint="@string/prompt_email"
+        android:inputType="text"
+        android:imeOptions="actionNext"/>
+
     <EditText
         android:id="@+id/login_password"
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="30dp"
+        android:hint="@string/prompt_password"
         android:paddingLeft="8dp"
-        android:background="@color/qmui_config_color_15_white"
-        android:hint="@string/prompt_password"/>
+        android:inputType="textPassword"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="30dp">
 
         <CheckBox
             android:id="@+id/login_rememberpassword"
-            android:layout_width="100dp"
+            android:layout_width="198dp"
             android:layout_height="32dp"
             android:layout_marginLeft="20dp"
-            android:text="@string/rememberpassword"/>
+            android:text="@string/rememberpassword" />
+
         <CheckBox
             android:id="@+id/login_autologin"
             android:layout_width="100dp"
             android:layout_height="32dp"
+            android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
-            android:text="@string/autologin"
-            android:layout_alignParentRight="true"/>
+            android:text="@string/autologin" />
     </RelativeLayout>
 
     <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
         android:id="@+id/login_button"
         android:layout_width="320dp"
         android:layout_height="55dp"
-        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
         android:background="@drawable/shape"
         android:text="@string/action_sign_in_short"
-        android:textSize="20dp"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@color/qmui_btn_blue_text"/>
+        android:textColor="@color/qmui_btn_blue_text"
+        android:textSize="20dp" />
 </LinearLayout>

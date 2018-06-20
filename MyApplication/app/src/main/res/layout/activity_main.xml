@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/refreshLayout"
     tools:context=".MainActivity">
-
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/gif_header_repast1"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:dividerHeight="1dp"
                 android:cacheColorHint="#000000"
-                android:listSelector="@android:color/holo_blue_dark"></ListView>
+                android:listSelector="@android:color/holo_orange_light"></ListView>
         </LinearLayout>
 
         <LinearLayout
@@ -32,13 +37,13 @@
             android:layout_height="50dp"
             android:orientation="vertical">
 
-            <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+            <Button
                 android:id="@+id/button8"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:text="开始阅读" />
         </LinearLayout>
 
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>

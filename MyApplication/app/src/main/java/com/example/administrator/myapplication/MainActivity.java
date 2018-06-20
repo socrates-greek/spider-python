@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,6 +15,9 @@ import android.widget.Toast;
 import com.example.administrator.myapplication.adapter.MyAdapter;
 import com.example.administrator.myapplication.commom.Constants;
 import com.example.administrator.myapplication.dao.Article;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,10 +33,28 @@ public class MainActivity extends Activity {
     private MyAdapter mAdapter;
     private List<Article> data;
     private Article item;
-
-
+    private boolean DEV_MODE = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        if (DEV_MODE) {
+            StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                    .detectCustomSlowCalls() //API等级11，使用StrictMode.noteSlowCode
+                    .detectDiskReads()
+                    .detectDiskWrites()
+                    .detectNetwork()   // or .detectAll() for all detectable problems
+                    .penaltyDialog() //弹出违规提示对话框
+                    .penaltyLog() //在Logcat 中打印违规异常信息
+                    .penaltyFlashScreen() //API等级11
+                    .build());
+            StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
+                    .detectLeakedSqlLiteObjects()
+                    .detectLeakedClosableObjects() //API等级11
+                    .penaltyLog()
+                    .penaltyDeath()
+                    .build());
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getData();//填充数据
@@ -42,6 +64,29 @@ public class MainActivity extends Activity {
         //为数据绑定适配器
         mAdapter = new MyAdapter(this,data);
         listview.setAdapter(mAdapter);
+
+
+
+        //下拉刷新作用
+        RefreshLayout refreshLayout = (RefreshLayout)findViewById(R.id.refreshLayout);
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+                refreshlayout.finishRefresh(1500);
+                getData();
+                mAdapter.refresh(data);
+            }
+        });
+        refreshLayout.setOnLoadmoreListener(new OnLoadmoreListener() {
+            @Override
+            public void onLoadmore(RefreshLayout refreshlayout) {
+                refreshlayout.finishLoadmore(1500);
+            }
+        });
+
+
+
+
         //添加点击事件
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
@@ -63,7 +108,6 @@ public class MainActivity extends Activity {
                     bundle.putString("content", detail);
                     bundle.putLong("id", ID);
                     bundle.putString("title", title);
-
                     i.putExtras(bundle);
                     startActivity(i);
                 } catch (JSONException e) {

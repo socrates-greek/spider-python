@@ -62,7 +62,7 @@ public class ServiceUtil {
                 }
             }
 
-            if(ips!=null){
+            if(ips != null){
                 try {
                     ips.close();
                 } catch (IOException e) {

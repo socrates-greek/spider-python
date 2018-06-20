@@ -10,6 +10,7 @@
         android:id="@+id/titleTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="0dp"
         android:text="Android新技能oid新技能oid新技能oid新技能oid新技能oid新技能oid新技能oid新技能"
         android:textColor="#444"
         android:textSize="16sp" />
@@ -26,7 +27,7 @@
             android:layout_width="264dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/titleTv"
-            android:layout_marginTop="1dp"
+            android:layout_marginLeft="1dp"
             android:layout_weight="1"
             android:maxLines="1"
             android:minLines="1"
@@ -43,7 +44,8 @@
             android:layout_gravity="right"
             android:layout_marginTop="2dp"
             android:drawableLeft="@drawable/heart_24"
-            android:textSize="12sp" />
+            android:text="fdfd"
+            android:textSize="16sp" />
     </LinearLayout>
 
 

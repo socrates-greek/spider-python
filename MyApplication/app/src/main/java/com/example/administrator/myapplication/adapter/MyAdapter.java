@@ -65,8 +65,8 @@ public class MyAdapter extends BaseAdapter {
 
         Article bean = mDatas.get(position);
         holder.titleTv.setText(bean.getTitle());
-        holder.descTv.setText(bean.getDetail());
-        holder.phoneTv.setText(String.valueOf(bean.getId()));
+        holder.descTv.setText(String.valueOf(bean.getId()));
+        holder.phoneTv.setText(bean.getDetail());
 
         return convertView;
     }
@@ -78,4 +78,11 @@ public class MyAdapter extends BaseAdapter {
         TextView phoneTv;
     }
 
+
+    public void refresh(List<Article> newList) {
+        //刷新数据
+        mDatas.removeAll(mDatas);
+        mDatas.addAll(newList);
+        notifyDataSetChanged();
+    }
 }
