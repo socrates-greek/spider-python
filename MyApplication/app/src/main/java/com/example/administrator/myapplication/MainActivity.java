@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
     private MyAdapter mAdapter;
     private List<Article> data;
     private Article item;
-    private boolean DEV_MODE = true;
+    private boolean DEV_MODE = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
