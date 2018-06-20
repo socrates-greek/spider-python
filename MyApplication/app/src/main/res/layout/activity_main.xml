@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:dividerHeight="1dp"
                 android:cacheColorHint="#000000"
-                android:listSelector="@android:color/holo_orange_light"></ListView>
+                android:listSelector="@color/holo_orange_light2"></ListView>
         </LinearLayout>
 
         <LinearLayout
