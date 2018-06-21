@@ -5,10 +5,12 @@ package com.example.administrator.myapplication.adapter;
  */
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.administrator.myapplication.R;
@@ -50,8 +52,9 @@ public class MyAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
+        System.out.println("执行"+position);
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.item_listview, parent, false); //加载布局
+            convertView = mInflater.inflate(R.layout.item_listview,null); //加载布局
             holder = new ViewHolder();
 
             holder.titleTv = (TextView) convertView.findViewById(R.id.titleTv);
@@ -65,8 +68,18 @@ public class MyAdapter extends BaseAdapter {
 
         Article bean = mDatas.get(position);
         holder.titleTv.setText(bean.getTitle());
-        holder.descTv.setText(String.valueOf(bean.getId()));
-        holder.phoneTv.setText(bean.getDetail());
+        //holder.descTv.setText(String.valueOf(bean.getId()));
+        Drawable drawable= convertView.getResources().getDrawable(R.drawable.heart_25);
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        holder.phoneTv.setCompoundDrawables(drawable,null,null,null);
+        String read =  bean.getNodes();
+        if("1".equals(read)){
+            drawable= convertView.getResources().getDrawable(R.drawable.heart_24);
+            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+            holder.phoneTv.setCompoundDrawables(drawable,null,null,null);
+        }
+
+        //holder.phoneTv.setText(bean.getDetail());
 
         return convertView;
     }

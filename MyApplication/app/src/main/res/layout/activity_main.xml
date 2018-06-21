@@ -2,8 +2,8 @@
 <com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:id="@+id/refreshLayout"
     tools:context=".MainActivity">
     <pl.droidsonroids.gif.GifImageView
@@ -12,13 +12,13 @@
         android:scaleType="centerCrop"
         android:src="@mipmap/gif_header_repast1"/>
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:layout_weight="80"
             android:orientation="vertical"
             android:background="@drawable/list_view_selected">
@@ -26,11 +26,11 @@
             <ListView
                 android:id="@+id/listviewId"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:dividerHeight="1dp"
                 android:cacheColorHint="#000000"
                 android:listSelector="@color/holo_orange_light2"></ListView>
-        </LinearLayout>
+        </RelativeLayout >
 
         <LinearLayout
             android:layout_width="match_parent"

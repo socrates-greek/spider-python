@@ -13,8 +13,8 @@
 
     <ImageView
         android:id="@+id/login_avatar"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@drawable/ico_main1"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="48dp"/>

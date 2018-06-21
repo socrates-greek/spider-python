@@ -57,14 +57,20 @@ public class MainActivity extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /*
+         * 方法二：独立类实现button实现,阅读按钮
+         */
+        Button btn2 = (Button) findViewById(R.id.button8);
+        btn2.setOnClickListener(new btn2Click(this));
+
         getData();//填充数据
         listview = (ListView) findViewById(R.id.listviewId);
         //设定列表项的选择模式为单选
         listview.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         //为数据绑定适配器
-        mAdapter = new MyAdapter(this,data);
+        mAdapter = new MyAdapter(getApplicationContext(),data);
         listview.setAdapter(mAdapter);
-
 
 
         //下拉刷新作用
@@ -85,8 +91,6 @@ public class MainActivity extends Activity {
         });
 
 
-
-
         //添加点击事件
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
@@ -94,10 +98,11 @@ public class MainActivity extends Activity {
                 //获得选中项的HashMap对象
                 Article map= (Article)listview.getItemAtPosition(arg2);
                 item = map;
-                mAdapter.notifyDataSetChanged();
-                Long ID = item.getId();
+                //mAdapter.notifyDataSetChanged();
+                Long articleId = item.getId();
+                Long userArticleId = item.getUserArticleId();
                 try {
-                    String result= ServiceUtil.getServiceInfo(Constants.ArticleById+ID,Constants.ip,Constants.port);
+                    String result= ServiceUtil.getServiceInfo(Constants.ArticleById+articleId,Constants.ip,Constants.port);
                     JSONObject jsonObject = new JSONObject(result);
                     String title = jsonObject.getString("title");
                     String detail = jsonObject.getString("detail");
@@ -106,7 +111,8 @@ public class MainActivity extends Activity {
                     Bundle bundle=new Bundle();
                     //传递name参数为tinyphp
                     bundle.putString("content", detail);
-                    bundle.putLong("id", ID);
+                    bundle.putLong("id", articleId);
+                    bundle.putLong("userArticleId", userArticleId);
                     bundle.putString("title", title);
                     i.putExtras(bundle);
                     startActivity(i);
@@ -118,28 +124,27 @@ public class MainActivity extends Activity {
 
         });
 
-
-        /*
-         * 方法二：独立类实现button实现,阅读按钮
-         */
-        Button btn2 = (Button) findViewById(R.id.button8);
-        btn2.setOnClickListener(new btn2Click(this));
-
     }
 
     private void getData(){
         data=new ArrayList<Article>();
-
+        //新页面接收数据
+        Bundle bundle = this.getIntent().getExtras();
+        //接收content值
+        String userId = bundle.getString("userId");
         try {
-            String result= ServiceUtil.getServiceInfo(Constants.ArticleTitleList,Constants.ip,Constants.port);
+            String result= ServiceUtil.getServiceInfo(Constants.findAllByuserId+Long.valueOf(userId),Constants.ip,Constants.port);
             JSONArray jsonArray = new JSONArray(result);
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                String title = jsonObject.getString("title");
-                Long id = Long.valueOf(jsonObject.getString("id"));
+                String title = jsonObject.getString("articleTitle").replace("\r\n","").replace("\t","").trim();
+                Long id = Long.valueOf(jsonObject.getString("articleId"));
                 Article article = new Article();
                 article.setId(id);
                 article.setTitle(title);
+                article.setUserArticleId(jsonObject.getLong("id"));
+                article.setNodes(jsonObject.getString("isRead"));
+
                 data.add(article);
             }
 
@@ -153,7 +158,6 @@ public class MainActivity extends Activity {
     public class btn2Click implements View.OnClickListener {
 
         private Context context;
-
         //重载btn2Click方法
         public btn2Click(Context ct) {
             this.context = ct;

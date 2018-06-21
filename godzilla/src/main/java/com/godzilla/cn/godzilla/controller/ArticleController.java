@@ -96,7 +96,7 @@ public class ArticleController {
     @ApiOperation(value="删除", notes="根据url的id来指定删除对象")
     @ApiImplicitParam(name = "id", value = "ID", required = true, dataType = "Long")
     @RequestMapping(value="/deleteUserArticle/{id}", method=RequestMethod.GET)
-    public String deleteUserArticle(@PathVariable Long id) {
+    public String deleteUserArticle(@PathVariable long id) {
         userArticleService.delete(id);
         return "success";
     }
@@ -104,7 +104,7 @@ public class ArticleController {
     @ApiOperation(value="获取详细信息", notes="根据url的用户文章id来获取详细信息")
     @ApiImplicitParam(name = "id", value = "ID", required = true, dataType = "Long")
     @RequestMapping(value="/findAllById/{id}", method=RequestMethod.GET)
-    public UserArticle findAllById(@PathVariable Long id) {
+    public UserArticle findAllById(@PathVariable long id) {
         return userArticleService.findAllById(id);
     }
 
@@ -118,8 +118,8 @@ public class ArticleController {
 
     @ApiOperation(value="更新文章为已读", notes="根据url的id来指定更新对象，更新文章为已读")
     @ApiImplicitParam(name = "id", value = "ID", required = true, dataType = "Long")
-    @RequestMapping(value="/modifyRead/{id}", method=RequestMethod.POST)
-    public String modifyRead(@PathVariable Long id) {
+    @RequestMapping(value="/modifyRead/{id}", method=RequestMethod.GET)
+    public String modifyRead(@PathVariable long id) {
         userArticleService.modifyRead(id);
         return "success";
     }

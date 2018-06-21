@@ -28,6 +28,7 @@ public class ScrollingActivity extends Activity {
     private final int WEB_FuZhi = 2;
     private final int WEB_AddSQ = 3;
     private Long id;
+    private Long userArticleId;
 
 
     @Override
@@ -43,6 +44,8 @@ public class ScrollingActivity extends Activity {
         String content = bundle.getString("content");
         String title = bundle.getString("title");
         id = bundle.getLong("id");
+        userArticleId = bundle.getLong("userArticleId");
+
         textviewcontent.getSettings().setDefaultTextEncodingName("UTF -8");//设置默认为utf-8
         textviewcontent.loadData(content, "text/html; charset=UTF-8", null);//这种写法可以正确解码
 
@@ -120,16 +123,21 @@ public class ScrollingActivity extends Activity {
                         switch(item.getItemId()){
                             case WEB_FenXiang:
                                 Log.i("you click","删除");
-                                String result= ServiceUtil.getServiceInfo(Constants.deleteArticle+id,Constants.ip,Constants.port);
+                                String result= ServiceUtil.getServiceInfo(Constants.deleteUserArticle+userArticleId,Constants.ip,Constants.port);
                                 if ("success".equals(result)){
-                                    Toast.makeText(ScrollingActivity.this, "删除成功！", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ScrollingActivity.this, "你把我丢掉了，小主人！", Toast.LENGTH_SHORT).show();
                                     finish();
-
                                 }
 
                                 break;
                             case WEB_XiaZai:
-                                Log.i("you click","下载");
+                                Log.i("you click","已读");
+                                String result2= ServiceUtil.getServiceInfo(Constants.modifyRead+userArticleId,Constants.ip,Constants.port);
+                                if ("success".equals(result2)){
+                                    Toast.makeText(ScrollingActivity.this, "你又进步了，小主人！", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
+
                                 break;
                             case WEB_FuZhi:
                                 Log.i("you click","复制");
@@ -152,7 +160,7 @@ public class ScrollingActivity extends Activity {
                     item = menu.add(0, WEB_FuZhi, 0, "复制").setOnMenuItemClickListener(handler);
                     item.setIntent(i);
 
-                    item = menu.add(0,WEB_XiaZai, 0,"下载").setOnMenuItemClickListener(handler); ;
+                    item = menu.add(0,WEB_XiaZai, 0,"已读").setOnMenuItemClickListener(handler); ;
                     item.setIntent(i);
 
                     item = menu.add(0,WEB_AddSQ, 0,"增加到书签").setOnMenuItemClickListener(handler); ;

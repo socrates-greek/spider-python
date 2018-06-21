@@ -138,6 +138,10 @@ public class LoginActivity extends Activity{
                         String result= serviceUtil.getServiceInfoPost(Constants.UserByCountAndPassword,jsonObj.toString());
                         if (result.length()>1){
                             Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                            Bundle bundle=new Bundle();
+                            //传递name参数为tinyphp
+                            bundle.putString("userId", idvalue);
+                            i.putExtras(bundle);
                             startActivity(i);
                         }else{
                             Toast.makeText(LoginActivity.this, "手机号码或密码错误，请重新登录", Toast.LENGTH_SHORT).show();
