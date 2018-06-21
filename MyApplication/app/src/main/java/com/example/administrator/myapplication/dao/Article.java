@@ -6,6 +6,7 @@ public class Article {
     public String title;
     public String detail;
     public String nodes;
+    public long  userArticleId;
 
     public long getId() {
         return id;
@@ -38,6 +39,14 @@ public class Article {
 
     public void setNodes(String nodes) {
         this.nodes = nodes;
+    }
+
+    public long getUserArticleId() {
+        return userArticleId;
+    }
+
+    public void setUserArticleId(long userArticleId) {
+        this.userArticleId = userArticleId;
     }
 }
 
