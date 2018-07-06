@@ -18,7 +18,7 @@ public class NotesServiceImpl implements NotesService {
     private NotesMapper notesMapper;
 
     @Override
-    public int add(long userId,String note, String content, Date date) {
+    public int add(long userId,String note, String content, String date) {
         return notesMapper.add(userId,note,content,date);
     }
 

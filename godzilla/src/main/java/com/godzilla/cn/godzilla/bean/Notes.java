@@ -1,15 +1,13 @@
 package com.godzilla.cn.godzilla.bean;
 
 
-import java.sql.Date;
-
 public class Notes {
 
     public String note;
     public long id;
     public long userId;
     public String content;
-    public Date date;
+    public String date;
 
     public String getNote() {
         return note;
@@ -35,11 +33,11 @@ public class Notes {
         this.content = content;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

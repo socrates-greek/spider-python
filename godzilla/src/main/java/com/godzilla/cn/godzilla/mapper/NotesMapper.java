@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface NotesMapper {
     @Insert("INSERT INTO notes (userId,note,content,date) VALUES(#{userId},#{note},#{content},#{date})")
-    int add( @Param("userId") long userId,@Param("note") String note, @Param("content") String content, @Param("date") Date date);
+    int add( @Param("userId") long userId,@Param("note") String note, @Param("content") String content, @Param("date") String date);
 
     @Update("UPDATE notes SET note = #{note}, content = #{content} WHERE id = #{id}")
     int update(@Param("note") String note, @Param("content") String content, @Param("id") long id);

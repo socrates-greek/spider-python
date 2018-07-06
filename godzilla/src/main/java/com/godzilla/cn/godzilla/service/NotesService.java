@@ -8,7 +8,7 @@ import java.util.List;
 
 
 public interface NotesService {
-    int add(long userId,String note, String content, Date date);
+    int add(long userId,String note, String content, String date);
     int update( String note, String content, long id);
     int delete(long id);
     Notes findNotesById(long id);
