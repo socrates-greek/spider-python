@@ -35,7 +35,7 @@ public class Timegrabbing {
     }
 
     //第一次延迟1秒执行，当执行完后1分钟再执行
-    @Scheduled(initialDelay = 1000, fixedDelay = 1000*60)
+    @Scheduled(initialDelay = 1000, fixedDelay = 1000*60*5)
     public void timerInit() {
         lists.clear();
         List<JiraTask> jiraTaskList =  jiraTaskService.findAllList();

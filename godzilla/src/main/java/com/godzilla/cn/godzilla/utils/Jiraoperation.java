@@ -188,7 +188,7 @@ public class Jiraoperation {
      */
     public static String get_test_start_time(Issue issue) throws URISyntaxException {
         try {
-            String test_start_time = issue.getFieldByName("测试开始时间").getValue().toString();
+            String test_start_time = issue.getFieldByName("测试开始时间")==null?"":issue.getFieldByName("测试开始时间").getValue().toString();
             return test_start_time;
         } catch (Exception e) {
             e.printStackTrace();

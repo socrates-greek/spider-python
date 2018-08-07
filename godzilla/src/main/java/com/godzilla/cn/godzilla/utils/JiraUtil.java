@@ -354,7 +354,7 @@ public class JiraUtil {
      */
     public static String get_test_end_time(Issue issue) throws URISyntaxException {
         try {
-            String test_end_time = issue.getFieldByName("测试结束时间").getValue().toString();
+            String test_end_time = issue.getFieldByName("测试结束时间")==null?"":issue.getFieldByName("测试结束时间").getValue().toString();
             return test_end_time;
         } catch (Exception e) {
             e.printStackTrace();
@@ -473,14 +473,16 @@ public class JiraUtil {
     //"0 0-5 14 * * ?"    每天14:00至14:05每分钟一次触发
     //"0 10,44 14 ? 3 WED"    三月的每周三的14：10和14：44触发
     //"0 15 10 ? * MON-FRI"    每个周一、周二、周三、周四、周五的10：15触发
-    @Scheduled(fixedRate = 50 * 60 * 1000, initialDelay = 5000)
+    @Scheduled(fixedRate = 60 * 60 * 1000, initialDelay = 1000*10)
     public void start() throws URISyntaxException {
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String preMonth = preMonth();
+        String curMonth = dateFormat.format(new Date());
         System.out.println("init : " + dateFormat.format(new Date()));
         //查询一段时间内任务
-        String taskSql = "project = DIAGNOSIS AND issuetype = 任务 AND resolved >= 2018-07-01 AND resolved <= 2018-07-31 AND assignee in (junwang33)";
-        String issueSql = "project = DIAGNOSIS AND issuetype = 缺陷 AND resolved >= 2018-07-01 AND resolved <= 2018-07-31 AND 引起人员 in (junwang33, currentUser())";
+        String taskSql = "project = DIAGNOSIS AND issuetype = 任务 AND resolved >= "+preMonth+" AND resolved <= "+curMonth+" AND assignee in (junwang33)";
+        String issueSql = "project = DIAGNOSIS AND issuetype = 缺陷 AND resolved >= "+preMonth+" AND resolved <= "+curMonth+" AND 引起人员 in (junwang33, currentUser())";
         String[] sqlArr = {taskSql, issueSql};
         for (int i = 0; i < sqlArr.length; i++) {
             String Query = sqlArr[i];
@@ -512,6 +514,21 @@ public class JiraUtil {
             }
         }
 
+    }
+
+    public String preMonth() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+
+        System.out.println("当前时间是：" + dateFormat.format(date));
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date); // 设置为当前时间
+        calendar.set(Calendar.MONTH, calendar.get(Calendar.MONTH) - 1); // 设置为上一个月
+        date = calendar.getTime();
+
+        System.out.println("上一个月的时间： " + dateFormat.format(date));
+        return  dateFormat.format(date);
     }
 
 }
