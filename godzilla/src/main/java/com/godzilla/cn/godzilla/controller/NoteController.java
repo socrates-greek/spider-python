@@ -10,12 +10,14 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(value="/notes")     // 通过这里配置使下面的映射都在/users下，可去除
+@RequestMapping(value="/notes")
+@ApiIgnore
 public class NoteController {
 
 

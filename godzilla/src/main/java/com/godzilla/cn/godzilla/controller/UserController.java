@@ -8,11 +8,14 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.*;
+// 通过这里配置使下面的映射都在/users下，可去除
 
 @RestController
-@RequestMapping(value="/users")     // 通过这里配置使下面的映射都在/users下，可去除
+@RequestMapping(value="/users")
+@ApiIgnore
 public class UserController {
 
 
