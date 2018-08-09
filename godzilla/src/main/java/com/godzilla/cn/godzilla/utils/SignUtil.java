@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  */
 public class SignUtil {
 
-    public static String getSign(String args) {
+    public static String getSign(String args,String clientSecret) {
         Map<String, String> map = new HashMap<>();
         //入参url
        String url = args;
@@ -32,7 +32,7 @@ public class SignUtil {
             }
         }
         //密钥(根据实际修改)
-        String appSecret = "123456";
+        String appSecret = clientSecret;
 
         String accessToken = map.get("access_token");
         //设备id 用作个性化检索标识

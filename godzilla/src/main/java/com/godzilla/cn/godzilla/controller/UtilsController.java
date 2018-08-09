@@ -34,8 +34,8 @@ public class UtilsController {
 
     @ApiOperation(value="生成请求签名", notes="生成请求签名")
     @GetMapping(value="/getSign")
-    public String getSign(@RequestParam(value = "queryStr") String queryStr) {
-        String sign = SignUtil.getSign(queryStr);
+    public String getSign(@RequestParam(value = "queryStr") String queryStr,@RequestParam(value = "clientSecret") String clientSecret) {
+        String sign = SignUtil.getSign(queryStr,clientSecret);
         return sign;
     }
 
