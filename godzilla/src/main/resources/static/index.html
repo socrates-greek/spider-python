@@ -21,6 +21,11 @@
 <script type="application/javascript" src="sockjs.js"></script>
 <script type="application/javascript" src="stomp.min.js"></script>
 <script src="test.js"></script>
+<link href="layui/css/layui.css" rel="stylesheet"/>
+<link href="layui/css/global.css" rel="stylesheet"/>
+<link href="layui/css/jquery.json-viewer.css" rel="stylesheet"/>
+<script src="layui/layui.all.js"></script>
+<script src="layui/jQuery.min.js"></script>
 <script type="text/javascript">
     var count = GetQueryString("count");
     function GetQueryString(name)
@@ -61,8 +66,8 @@
             <h3>
                 日志列表
             </h3>
-            <ol class="list-group">
-            </ol>
+            <!--<ol class="list-group">-->
+            <!--</ol>-->
         </div>
         <div class="col-md-2 column">
             <button type="button" class="btn btn-default btn-lg" onclick="send(new Date())">
@@ -70,6 +75,8 @@
             </button>
         </div>
     </div>
+    <ul class="layui-timeline">
+    </ul>
 </div>
 
 </body>

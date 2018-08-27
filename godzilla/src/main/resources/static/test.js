@@ -5,7 +5,15 @@ stompClient.connect({}, function (frame) {
         var objs = eval(txt.body);
         for(var j = 0;j<objs.length;j++){
 
-            $(".list-group").append("<li class=\"list-group-item\">"+objs[j].date+objs[j].content+"</li>");
+            // $(".list-group").append("<li class=\"list-group-item\">"+objs[j].date+objs[j].content+"</li>");
+
+            $(".layui-timeline").append("<li class=\"layui-timeline-item\">\n" +
+                "        <i class=\"layui-icon layui-timeline-axis\">&#xe63f;</i>\n" +
+                "        <div class=\"layui-timeline-content layui-text\">\n" +
+                "            <h3 class=\"layui-timeline-title\">"+objs[j].date+"</h3>\n" +
+                "            <p>"+objs[j].content+"</p>\n" +
+                "        </div>\n" +
+                "    </li>");
 
         }
     });
@@ -29,6 +37,7 @@ stompClient.connect({}, function (frame) {
 
 function send(txt) {
     $(".list-group").find("li").remove();
+    $(".layui-timeline").find("li").remove();
     stompClient.send("/server/send", {}, txt);
 }
 function addNote() {
