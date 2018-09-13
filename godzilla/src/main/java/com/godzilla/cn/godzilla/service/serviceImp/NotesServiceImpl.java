@@ -42,4 +42,9 @@ public class NotesServiceImpl implements NotesService {
         return notesMapper.findNotesByUserId(id);
     }
 
+    @Override
+    public List<Notes> findInfoByUserId(long userId) {
+        return notesMapper.findInfoByUserId(userId);
+    }
+
 }

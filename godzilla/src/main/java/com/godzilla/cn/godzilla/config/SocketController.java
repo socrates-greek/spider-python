@@ -41,10 +41,11 @@ public class SocketController {
     public void pushMessage(String name) {
         System.out.println(name);
         String contents = "";
-        List<Notes> r = notesService.findNotesByUserId(1);
+        List<Notes> r = notesService.findInfoByUserId(1);
         List<Map> lists =new ArrayList<>();
         for (Notes note: r){
             Map map =new HashMap<>();
+            map.put("userId",note.getUserId());
             map.put("date",note.getDate());
             map.put("content",note.getContent());
             lists.add(map);

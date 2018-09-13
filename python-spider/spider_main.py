@@ -18,7 +18,7 @@ class SpiderMain(object):
                 new_urls, new_data = self.parser.parse(new_url,html_cont)
                 self.urls.add_new_urls(new_urls)
                 self.outputer.collect_data(new_data)
-                if count == 200:
+                if count == 1000:
                     break
                 count = count + 1
             except:
@@ -31,8 +31,7 @@ class SpiderMain(object):
 
 if __name__=="__main__":
     #http://baike.baidu.com/view/21087.html
-   # root_url = "http://www.365essay.com/?tag=%E9%9D%92%E6%98%A5"
-    root_url = "http://www.365essay.com/?tag=%E7%88%B1%E6%83%85"
-    #root_url = "http://baike.baidu.com/"
-    obj_spider = SpiderMain() 
+    # root_url = "http://www.365essay.com/?tag=%E9%9D%92%E6%98%A5"
+    root_url = ""
+    obj_spider = SpiderMain()
     obj_spider.craw(root_url)

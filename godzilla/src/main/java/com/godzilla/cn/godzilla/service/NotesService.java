@@ -13,5 +13,7 @@ public interface NotesService {
     int delete(long id);
     Notes findNotesById(long id);
     List<Notes> findNotesByUserId(long userId);
+    List<Notes> findInfoByUserId(long userId);
+
 
 }
