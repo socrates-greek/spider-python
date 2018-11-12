@@ -15,7 +15,7 @@ import java.util.*;
 
 @RestController
 @RequestMapping(value="/users")
-@ApiIgnore
+//@ApiIgnore
 public class UserController {
 
 

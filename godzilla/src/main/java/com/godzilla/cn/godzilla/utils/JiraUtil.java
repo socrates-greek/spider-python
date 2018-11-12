@@ -19,16 +19,23 @@ import com.godzilla.cn.godzilla.service.serviceImp.JiraTaskServiceImp;
 import mjson.Json;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
 public class JiraUtil {
 
-    private final static String jiraPath = "http://jira.iflytek.com";
-    private final static String USERNAME = "junwang33";
-    private final static String PSWD = "WJ--lyp82nlf";
     Pattern p = Pattern.compile("\\s*|\t|\r|\n");
+
+    @Value("${config.jiraPath}") //获取字符串常量
+    private String jiraPath;
+
+    @Value("${config.userName}") //获取字符串常量
+    private  String USERNAME;
+
+    @Value("${config.pswd}") //获取字符串常量
+    private  String PSWD;
 
     @Autowired
     public JiraTaskService jiraTaskService;
@@ -41,7 +48,7 @@ public class JiraUtil {
      * @return
      * @throws URISyntaxException
      */
-    public static JiraRestClient login_jira(String username, String password) throws URISyntaxException {
+    public JiraRestClient login_jira(String username, String password) throws URISyntaxException {
         try {
             final JerseyJiraRestClientFactory factory = new JerseyJiraRestClientFactory();
             final URI jiraServerUri = new URI(jiraPath);
@@ -63,7 +70,7 @@ public class JiraUtil {
      * @return
      * @throws URISyntaxException
      */
-    public static Issue get_issue(String issueNum, String username, String password) throws URISyntaxException {
+    public Issue get_issue(String issueNum, String username, String password) throws URISyntaxException {
         try {
             final JiraRestClient restClient = login_jira(username, password);
             final NullProgressMonitor pm = new NullProgressMonitor();
@@ -438,7 +445,7 @@ public class JiraUtil {
      * @return
      * @throws URISyntaxException
      */
-    public static ArrayList<String> search_jql(String username, String password, String current_user_name, String jql)
+    public ArrayList<String> search_jql(String username, String password, String current_user_name, String jql)
             throws URISyntaxException {
         final JiraRestClient restClient = login_jira(username, password);
         final NullProgressMonitor pm = new NullProgressMonitor();

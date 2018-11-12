@@ -19,7 +19,8 @@ class HtmlOutputer(object):
 
         for data in self.datas:
             count = count+1
-            self.sqlutil.insertData(self.conn,data)
+            if data['title'] is not None:
+                self.sqlutil.insertData(self.conn,data)
         self.sqlutil.dbSelect(self.conn)
         # 关闭数据库连接
         self.dbhandler.dbclose(self.conn)

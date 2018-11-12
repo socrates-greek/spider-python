@@ -46,6 +46,13 @@
     <div class="col-md-12 column">
     </div>
 </div>
+<div class="jumbotron">
+    <div class="container">
+        <h1>欢迎登陆页面！</h1>
+        <br/>
+        <p>知识图谱系统,大数据推荐,web展示服务,内容标注系统</p>
+    </div>
+</div>
 <div class="well well-lg">
     <div class="row">
         <div class="col-lg-12">
@@ -59,38 +66,24 @@
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-lg-10">
-            <button type="button" class="btn btn-default btn-lg" onclick="send(new Date())">
-                <span class="glyphicon glyphicon-th-list"></span> 加载
-            </button>
-        </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <button type="button" class="btn btn-default btn-block" onclick="send(new Date())">
+            <span class="glyphicon glyphicon-th-list"></span> 加载
+        </button>
     </div>
 </div>
-
-<script>
-    //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
-    layui.use('element', function(){
-        var element = layui.element;
-
-        //…
-    });
-</script>
-
 <div class="well well-lg">
     <div class="layui-tab">
         <ul class="layui-tab-title">
-            <li class="layui-this">日历书</li>
+            <li class="layui-this">日志书</li>
             <li>我的Jira</li>
         </ul>
         <div class="layui-tab-content">
             <div class="layui-tab-item layui-show">
                 <div class="row clearfix">
                     <div class="col-md-10 column">
-                        <h3>
-                            日志列表
-                        </h3>
                         <!--<ol class="list-group">-->
                         <!--</ol>-->
                     </div>
@@ -105,6 +98,14 @@
         </div>
     </div>
 </div>
+
+<script>
+    //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function(){
+        var element = layui.element;
+        //…
+    });
+</script>
 
 </body>
 </html>

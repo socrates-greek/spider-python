@@ -11,7 +11,7 @@ class Dbhandler(object):
     def dbconnect(self):
 
         # 打开数据库连接
-        conn = pymysql.connect("140.143.230.126", "root", "root", "godzilla", charset='utf8')
+        conn = pymysql.connect("47.105.154.137", "root", "123456", "godzilla", charset='utf8')
         # 使用cursor()方法获取操作游标
         return conn
 

@@ -7,7 +7,7 @@ class HtmlParser(object):
     
     def _get_new_urls(self, page_url, soup):
         new_urls = set()
-        links = soup.find_all('a', href=re.compile('http://news.qq.com/a/20180905'), target='_blank') #\d+\.htm
+        links = soup.find_all('a', href=re.compile("http://www.365essay.com/?"), target = "_blank")
         for link in links:
             new_url = link['href']
             new_full_url = urljoin(page_url, new_url)
@@ -20,14 +20,14 @@ class HtmlParser(object):
 
         res_data['url'] = page_url
         try:
-            title_node = soup.find('div',class_="article-intro").find('h1')
+            title_node = soup.find('div',class_="content").find('h3')
             res_data['title'] = title_node.get_text()
 
             #基本信息
-            detail_node = soup.find('div', class_= "article-body")
+            detail_node = soup.find('div',class_="content")
             res_data['detail_node'] = detail_node
 
-            summary_node = soup.find('div',class_="article-intro").find('p')
+            summary_node = soup.find('div',class_="log-content").find('p')
             res_data['summary_node'] = summary_node
         except:
             res_data['title']=None
