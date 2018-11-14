@@ -21,11 +21,12 @@
 <script type="application/javascript" src="sockjs.js"></script>
 <script type="application/javascript" src="stomp.min.js"></script>
 <script src="test.js"></script>
-<link href="layui/css/layui.css" rel="stylesheet"/>
-<link href="layui/css/global.css" rel="stylesheet"/>
-<link href="layui/css/jquery.json-viewer.css" rel="stylesheet"/>
-<script src="layui/layui.all.js"></script>
-<script src="layui/jQuery.min.js"></script>
+<link href="../layui/css/layui.css" rel="stylesheet"/>
+<link href="../layui/css/global.css" rel="stylesheet"/>
+<link href="../layui/css/jquery.json-viewer.css" rel="stylesheet"/>
+<script src="../layui/layui.all.js"></script>
+<script src="../layui/layui.js" charset="utf-8"></script>
+<script src="../layui/jQuery.min.js"></script>
 <script type="text/javascript">
     var count = GetQueryString("count");
     function GetQueryString(name)
@@ -42,18 +43,28 @@
 
 </script>
 <body>
-<div class="row clearfix">
-    <div class="col-md-12 column">
+<!--<div class="jumbotron">-->
+    <!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+        <!--<p>知识图谱系统,大数据推荐,web展示服务,内容标注系统</p>-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
+<!--<blockquote class="layui-elem-quote">-->
+    <!--<div class="layui-card">-->
+        <!--<div class="layui-card-header">欢迎登陆页面！</div>-->
+        <!--<div class="layui-card-body">-->
+            <!--知识图谱系统,大数据推荐,web展示服务,内容标注系统-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</blockquote>-->
+<fieldset class="layui-elem-field">
+    <legend>欢迎登陆页面</legend>
+    <div class="layui-field-box">
+        知识图谱系统,大数据推荐,web展示服务,内容标注系统
     </div>
-</div>
-<div class="jumbotron">
-    <div class="container">
-        <h1>欢迎登陆页面！</h1>
-        <br/>
-        <p>知识图谱系统,大数据推荐,web展示服务,内容标注系统</p>
-    </div>
-</div>
-<div class="well well-lg">
+</fieldset>
+<hr class="layui-bg-orange">
+
+<blockquote class="layui-elem-quote">
     <div class="row">
         <div class="col-lg-12">
             <div class="input-group">
@@ -66,7 +77,7 @@
             </div>
         </div>
     </div>
-</div>
+</blockquote>
 <div class="row">
     <div class="col-lg-12">
         <button type="button" class="btn btn-default btn-block" onclick="send(new Date())">
@@ -74,6 +85,8 @@
         </button>
     </div>
 </div>
+<hr class="layui-bg-green">
+
 <div class="well well-lg">
     <div class="layui-tab">
         <ul class="layui-tab-title">
@@ -98,6 +111,7 @@
         </div>
     </div>
 </div>
+<hr class="layui-bg-green">
 
 <script>
     //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
