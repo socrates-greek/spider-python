@@ -179,7 +179,7 @@ def task3():
 scheduler = BlockingScheduler()
 
 # 每天14:30执行任务1
-scheduler.add_job(task1, 'cron', hour=6, minute=0)
+scheduler.add_job(task1, 'cron', hour=6, minute=15)
 # scheduler.add_job(task1, IntervalTrigger(seconds=30))
 
 
