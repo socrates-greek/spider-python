@@ -1,7 +1,10 @@
 import datetime
 from datetime import datetime
 import requests
-from fileIo import ReadTouTiaoHot, WriteToutiaoHot
+from fileIo import read_tou_tiao_hot, write_tou_tiao_hot
+from apscheduler.schedulers.blocking import BlockingScheduler
+
+
 def task1():
     print(f"任务1今日头条热榜: {datetime.now()}")
     # 获取当前日期和时间
@@ -9,18 +12,42 @@ def task1():
     # 格式化日期为字符串
     date_str = now.strftime("%Y-%m-%d")
     # date_str = "2024-08-07"
-    my_map = ReadTouTiaoHot()
-    data = toutiaoHotSearch()
+    my_map = read_tou_tiao_hot()
+    data = tou_tiao_hot_search()
     my_map[date_str] = data
-    WriteToutiaoHot(my_map)
+    write_tou_tiao_hot(my_map)
+
 
 def task2():
     print(f"任务2执行时间: {datetime.now()}")
 
+
 def task3():
     print(f"任务3执行时间: {datetime.now()}")
 
-def toutiaoHotSearch():
+
+scheduler = BlockingScheduler()
+
+# 每天14:30执行任务1
+scheduler.add_job(task1, 'cron', hour=6, minute=15)
+# scheduler.add_job(task1, IntervalTrigger(seconds=30))
+
+# 每周一至周五的9:00执行任务2
+scheduler.add_job(task2, 'cron', day_of_week='mon-fri', hour=9, minute=0)
+
+# 每月1号的12:00执行任务3
+scheduler.add_job(task3, 'cron', day=1, hour=12, minute=0)
+
+
+# 创建一个运行调度器的函数
+def run_scheduler():
+    try:
+        print("定时任务已启动...")
+        scheduler.start()
+    except (KeyboardInterrupt, SystemExit):
+        pass
+
+def tou_tiao_hot_search():
     url = 'https://api.oioweb.cn/api/common/fetchHotSearchBoard?type=toutiao'
     # 发送GET请求
     response = requests.get(url)

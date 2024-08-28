@@ -4,7 +4,8 @@ import os
 
 import pandas as pd
 
-def ReadTouTiaoHot():
+
+def read_tou_tiao_hot():
     # 读取 CSV 文件
     file_name = 'data.json'
     # 检查文件是否存在
@@ -12,7 +13,7 @@ def ReadTouTiaoHot():
         print(f"{file_name} 不存在，正在创建...")
         # 创建一个示例 DataFrame
         my_map_read = {}
-        WriteToutiaoHot(my_map_read)
+        write_tou_tiao_hot(my_map_read)
         print(f"{file_name} 已创建并写入数据。")
         return my_map_read
     else:
@@ -30,9 +31,8 @@ def ReadTouTiaoHot():
         return data
 
 
-def WriteToutiaoHot(my_map):
+def write_tou_tiao_hot(my_map):
     # 保存字典到 JSON 文件
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(my_map, f, ensure_ascii=False, indent=4)
     print("字典已保存到 'data.json'")
-

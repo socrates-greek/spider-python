@@ -1,16 +1,11 @@
-# import json
-#
-# import requests
-# from apscheduler.triggers.interval import IntervalTrigger
-
 import SparkApi
 from flask_cors import CORS
 from flask import Flask, request, jsonify, Response
 import threading
-from apscheduler.schedulers.blocking import BlockingScheduler
 from datetime import datetime
-from Task import task1, task3, task2
-from fileIo import ReadTouTiaoHot, WriteToutiaoHot
+
+from Task import run_scheduler
+from fileIo import read_tou_tiao_hot, write_tou_tiao_hot
 
 app = Flask(__name__)
 CORS(app)  # 允许所有来源的跨域请求
@@ -23,6 +18,7 @@ api_secret = "5fa688019c7eef19f159b90f68195a15"  # 填写控制台中获取的 A
 api_key = "b329304e215f13d57369a0a7f2ffa1a8"  # 填写控制台中获取的 APIKey 信息
 domain = "general"  # v3.0版本
 Spark_url = 'wss://spark-api.xf-yun.com/v1.1/chat'  # v3.5环服务地址
+
 
 # 主动买
 @app.route('/chat', methods=['POST'])
@@ -72,10 +68,10 @@ def ask():
 
 
 @app.route('/v1/dailyInsight', methods=['GET'])
-def dailyInsight():
+def daily_insight():
     print(request)
-    my_map = ReadTouTiaoHot()
-    key,data=find_max_date_element(my_map)
+    my_map = read_tou_tiao_hot()
+    key, data = find_max_date_element(my_map)
     # 检查请求是否成功
     if len(data) > 0:
         # 解析响应内容
@@ -89,6 +85,7 @@ def dailyInsight():
             "response": "",
         }), 500
 
+
 # 将日期字符串转换为 datetime 对象，并找到最大日期
 def find_max_date_element(data_dict):
     # 解析日期字符串为 datetime 对象
@@ -100,27 +97,6 @@ def find_max_date_element(data_dict):
     max_date_key = dates[max_date]
     # 返回最大日期和对应的值
     return max_date_key, data_dict[max_date_key]
-
-scheduler = BlockingScheduler()
-
-# 每天14:30执行任务1
-scheduler.add_job(task1, 'cron', hour=6, minute=15)
-# scheduler.add_job(task1, IntervalTrigger(seconds=30))
-
-# 每周一至周五的9:00执行任务2
-scheduler.add_job(task2, 'cron', day_of_week='mon-fri', hour=9, minute=0)
-
-# 每月1号的12:00执行任务3
-scheduler.add_job(task3, 'cron', day=1, hour=12, minute=0)
-
-# 创建一个运行调度器的函数
-def run_scheduler():
-    try:
-        print("定时任务已启动...")
-        scheduler.start()
-    except (KeyboardInterrupt, SystemExit):
-        pass
-
 
 if __name__ == '__main__':
     # 在单独的线程中运行调度器
