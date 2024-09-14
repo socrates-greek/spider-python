@@ -1,3 +1,4 @@
+import base64
 import json
 import threading
 from datetime import datetime
@@ -102,6 +103,58 @@ class RobotHandler(tornado.web.RequestHandler):
         self.finish()
 
 
+# 飞书消息
+class FeiShuHandler(tornado.web.RequestHandler):
+    # 处理请求前进行 Basic 认证
+    def prepare(self):
+        auth_header = self.request.headers.get("Authorization")
+        if auth_header is None or not self.check_auth(auth_header):
+            self.set_status(401)
+            self.set_header("WWW-Authenticate", 'Basic realm="Protected"')
+            self.finish()
+
+    # 校验 Basic 认证信息
+    def check_auth(self, auth_header):
+        auth_type, credentials = auth_header.split(" ")
+        if auth_type.lower() == "basic":
+            decoded_credentials = base64.b64decode(credentials).decode("utf-8")
+            username, password = decoded_credentials.split(":")
+            return username == 'eason' and password == 'Wj*lyp82nlf*'
+        return False
+
+    # 处理 POST 请求
+    def post(self):
+        # 设置响应头
+        self.set_header("Content-Type", "application/json")
+        self.set_header("Cache-Control", "no-cache")
+        self.set_header("Connection", "keep-alive")
+
+        # 读取 JSON 数据
+        try:
+            data = json.loads(self.request.body)  # 解析 JSON 数据
+            msg = data.get("message")  # 获取 "message" 字段
+            sender = data.get("sender")  # 获取 "sender" 字段
+            sendTime = data.get("sendTime")
+            print(msg, sender, sendTime)
+            MyWebSocketHandler.send_message_to_clients(data)  # 推送消息到 WebSocket 客户端
+            self.write({"code": 200, "message": "success"})  # 返回成功响应
+            self.flush()
+        except json.JSONDecodeError:
+            self.set_status(400)  # 设置状态码为 400 表示错误请求
+            self.write({"code": 400, "message": "Invalid JSON"})
+            self.flush()
+
+    # 处理 OPTIONS 请求（CORS 预检请求）
+    def options(self):
+        # 设置 CORS 头
+        self.set_header("Access-Control-Allow-Origin", "*")
+        self.set_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
+        self.set_header("Access-Control-Allow-Headers", "Content-Type")
+        # 返回状态码 204 表示成功但无内容
+        self.set_status(204)
+        self.finish()
+
+
 # 主动买
 # @app.route('/chat', methods=['POST'])
 # def ask():
@@ -176,6 +229,7 @@ def find_max_date_element(data_dict):
 class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
     clients = set()
     ping_interval = 30  # 设置心跳间隔（秒）
+
     # 客户端连接时调用
     def open(self):
         print("New client connected")
@@ -186,9 +240,9 @@ class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
     def on_message(self, message):
         print(f"Received message: {message}")
         # 向所有连接的客户端广播消息
-        for client in MyWebSocketHandler.clients:
-            if client is not self:  # 防止向发送者自己发送
-                client.write_message(f"Broadcast: Received")
+        # for client in MyWebSocketHandler.clients:
+        #     if client is not self:  # 防止向发送者自己发送
+        #         client.write_message(f"Broadcast: Received")
 
     # 关闭连接时调用
     def on_close(self):
@@ -230,6 +284,7 @@ def make_app():
     return tornado.web.Application([
         (r"/v1/dailyInsight", DaliyHotHandler),  # 处理 HTTP 请求
         (r"/chat", RobotHandler),  # 处理 HTTP 请求
+        (r"/v1/fish/msg", FeiShuHandler),  # 处理 HTTP 请求
         (r"/ws", MyWebSocketHandler),  # 将 WebSocket 路径与 Handler 绑定
     ])
 

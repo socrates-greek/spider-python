@@ -1,8 +1,6 @@
-import ast
+
 import json
 import os
-
-import pandas as pd
 
 
 def read_tou_tiao_hot():

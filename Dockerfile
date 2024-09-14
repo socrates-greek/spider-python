@@ -5,6 +5,7 @@ RUN pip install --progress-bar off  flask-cors
 RUN pip install  --progress-bar off --upgrade spark_ai_python
 RUN pip install apscheduler -i  https://pypi.tuna.tsinghua.edu.cn/simple
 RUN pip install websocket-client
+RUN pip install tornado
 # 查看已安装的包
 RUN pip freeze
 COPY . .
