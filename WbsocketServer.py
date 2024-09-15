@@ -16,6 +16,7 @@ app = Flask(__name__)
 CORS(app)  # 允许所有来源的跨域请求
 
 ganswer = []
+messages = []
 answerLen = 0
 # 以下密钥信息从控制台获取   https://console.xfyun.cn/services/bm35
 appid = "5ad1cf2f"  # 填写控制台中获取的 APPID 信息
@@ -105,10 +106,10 @@ class RobotHandler(tornado.web.RequestHandler):
 
 # 飞书消息
 class FeiShuHandler(tornado.web.RequestHandler):
-    messages = []
     # 处理请求前进行 Basic 认证
     def prepare(self):
         auth_header = self.request.headers.get("Authorization")
+        print(auth_header)
         if auth_header is None or not self.check_auth(auth_header):
             self.set_status(401)
             self.set_header("WWW-Authenticate", 'Basic realm="Protected"')
@@ -136,7 +137,7 @@ class FeiShuHandler(tornado.web.RequestHandler):
             msg = data.get("message")  # 获取 "message" 字段
             sender = data.get("sender")  # 获取 "sender" 字段
             sendTime = data.get("sendTime")
-            self.messages.append(data)
+            messages.append(data)
             # print(msg, sender, sendTime)
             MyWebSocketHandler.send_message_to_clients()  # 推送消息到 WebSocket 客户端
             self.write({"code": 200, "message": "success"})  # 返回成功响应
@@ -155,6 +156,59 @@ class FeiShuHandler(tornado.web.RequestHandler):
         # 返回状态码 204 表示成功但无内容
         self.set_status(204)
         self.finish()
+
+# 云效代码消息
+class YunXiaoHandler(tornado.web.RequestHandler):
+    # 处理请求前进行 Basic 认证
+    def prepare(self):
+        auth_header = self.request.headers.get("X-Codeup-Token")
+        if auth_header is None or not self.check_auth(auth_header):
+            self.set_status(401)
+            self.set_header("WWW-Authenticate", 'Basic realm="Protected"')
+            self.finish()
+
+    # 校验 Basic 认证信息
+    def check_auth(self, auth_header):
+        auth_type, credentials = auth_header.split(" ")
+        if auth_type.lower() == "basic":
+            decoded_credentials = base64.b64decode(credentials).decode("utf-8")
+            username, password = decoded_credentials.split(":")
+            return username == 'eason' and password == 'Wj*lyp82nlf*'
+        return False
+
+    # 处理 POST 请求
+    def post(self):
+        # 设置响应头
+        self.set_header("Content-Type", "application/json")
+        self.set_header("Cache-Control", "no-cache")
+        self.set_header("Connection", "keep-alive")
+
+        # 读取 JSON 数据
+        try:
+            data = json.loads(self.request.body)  # 解析 JSON 数据
+            print(data)
+            msg = data.get("message")  # 获取 "message" 字段
+            sender = data.get("sender")  # 获取 "sender" 字段
+            sendTime = data.get("sendTime")
+            messages.append(data)
+            MyWebSocketHandler.send_message_to_clients()  # 推送消息到 WebSocket 客户端
+            self.write({"code": 200, "message": "success"})  # 返回成功响应
+            self.flush()
+        except json.JSONDecodeError:
+            self.set_status(400)  # 设置状态码为 400 表示错误请求
+            self.write({"code": 400, "message": "Invalid JSON"})
+            self.flush()
+
+    # 处理 OPTIONS 请求（CORS 预检请求）
+    def options(self):
+        # 设置 CORS 头
+        self.set_header("Access-Control-Allow-Origin", "*")
+        self.set_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
+        self.set_header("Access-Control-Allow-Headers", "Content-Type")
+        # 返回状态码 204 表示成功但无内容
+        self.set_status(204)
+        self.finish()
+
 
 
 # 主动买
@@ -265,13 +319,13 @@ class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
     # 主动发送消息给所有客户端的方法
     @classmethod
     def send_message_to_clients(cls):
-        if len(FeiShuHandler.messages) > 0:
-            # print(f"Sending messages:{FeiShuHandler.messages}")
-            for message in FeiShuHandler.messages[:]:# [:] 创建列表的副本
+        if len(messages) > 0:
+            # print(f"Sending messages:{messages}")
+            for message in messages[:]:# [:] 创建列表的副本
                 if len(cls.clients)>0:
                     for client in cls.clients:
                         client.write_message(message)
-                        FeiShuHandler.messages.remove(message)
+                        messages.remove(message)
                         # print(f"Sending message to clients: {client},message:{message}")
 
     # 开始心跳机制
@@ -293,6 +347,7 @@ def make_app():
         (r"/v1/dailyInsight", DaliyHotHandler),  # 处理 HTTP 请求
         (r"/chat", RobotHandler),  # 处理 HTTP 请求
         (r"/v1/fish/msg", FeiShuHandler),  # 处理 HTTP 请求
+        (r"/v1/yunxiao/msg", YunXiaoHandler),  # 处理 HTTP 请求
         (r"/ws", MyWebSocketHandler),  # 将 WebSocket 路径与 Handler 绑定
     ])
 
