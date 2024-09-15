@@ -105,6 +105,7 @@ class RobotHandler(tornado.web.RequestHandler):
 
 # 飞书消息
 class FeiShuHandler(tornado.web.RequestHandler):
+    messages = []
     # 处理请求前进行 Basic 认证
     def prepare(self):
         auth_header = self.request.headers.get("Authorization")
@@ -135,8 +136,9 @@ class FeiShuHandler(tornado.web.RequestHandler):
             msg = data.get("message")  # 获取 "message" 字段
             sender = data.get("sender")  # 获取 "sender" 字段
             sendTime = data.get("sendTime")
+            self.messages.append(data)
             print(msg, sender, sendTime)
-            MyWebSocketHandler.send_message_to_clients(data)  # 推送消息到 WebSocket 客户端
+            MyWebSocketHandler.send_message_to_clients()  # 推送消息到 WebSocket 客户端
             self.write({"code": 200, "message": "success"})  # 返回成功响应
             self.flush()
         except json.JSONDecodeError:
@@ -261,10 +263,15 @@ class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
 
     # 主动发送消息给所有客户端的方法
     @classmethod
-    def send_message_to_clients(cls, message):
-        print(f"Sending message to all clients: {message}")
-        for client in cls.clients:
-            client.write_message(message)
+    def send_message_to_clients(cls):
+        if len(FeiShuHandler.messages) > 0:
+            print(f"Sending messages:{FeiShuHandler.messages}")
+            for message in FeiShuHandler.messages[:]:# [:] 创建列表的副本
+                if len(cls.clients)>0:
+                    for client in cls.clients:
+                        client.write_message(message)
+                        FeiShuHandler.messages.remove(message)
+                        print(f"Sending message to clients: {client},message:{message}")
 
     # 开始心跳机制
     def keep_alive(self):
