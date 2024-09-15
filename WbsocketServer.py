@@ -137,7 +137,7 @@ class FeiShuHandler(tornado.web.RequestHandler):
             sender = data.get("sender")  # 获取 "sender" 字段
             sendTime = data.get("sendTime")
             self.messages.append(data)
-            print(msg, sender, sendTime)
+            # print(msg, sender, sendTime)
             MyWebSocketHandler.send_message_to_clients()  # 推送消息到 WebSocket 客户端
             self.write({"code": 200, "message": "success"})  # 返回成功响应
             self.flush()
@@ -236,6 +236,7 @@ class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
     def open(self):
         print("New client connected")
         MyWebSocketHandler.clients.add(self)
+        MyWebSocketHandler.send_message_to_clients()  # 推送消息到 WebSocket 客户端
         self.keep_alive()  # 开始心跳
 
     # 收到消息时调用
@@ -265,13 +266,13 @@ class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
     @classmethod
     def send_message_to_clients(cls):
         if len(FeiShuHandler.messages) > 0:
-            print(f"Sending messages:{FeiShuHandler.messages}")
+            # print(f"Sending messages:{FeiShuHandler.messages}")
             for message in FeiShuHandler.messages[:]:# [:] 创建列表的副本
                 if len(cls.clients)>0:
                     for client in cls.clients:
                         client.write_message(message)
                         FeiShuHandler.messages.remove(message)
-                        print(f"Sending message to clients: {client},message:{message}")
+                        # print(f"Sending message to clients: {client},message:{message}")
 
     # 开始心跳机制
     def keep_alive(self):
