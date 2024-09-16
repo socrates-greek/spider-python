@@ -187,10 +187,14 @@ class YunXiaoHandler(tornado.web.RequestHandler):
         try:
             data = json.loads(self.request.body)  # 解析 JSON 数据
             print(data)
-            msg = data.get("message")  # 获取 "message" 字段
-            sender = data.get("sender")  # 获取 "sender" 字段
-            sendTime = data.get("sendTime")
-            messages.append(data)
+            commits = data.get("commits")  # 获取 "sender" 字段
+            print(commits)
+            for commit in commits:
+                author = commit.get("author")  # 获取 "sender" 字段
+                sender = author.get("name")  # 获取 "sender" 字段
+                msg = commit.get("message")  # 获取 "message" 字段
+                sendTime = commit.get("timestamp")
+                messages.append({"sender":sender,"message":msg,"sendTime":sendTime})
             MyWebSocketHandler.send_message_to_clients()  # 推送消息到 WebSocket 客户端
             self.write({"code": 200, "message": "success"})  # 返回成功响应
             self.flush()
