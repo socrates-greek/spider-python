@@ -1,0 +1,20 @@
+host: localhost
+port: 30999
+spark:
+  appid: "5ad1cf2f"
+  api_secret: "5fa688019c7eef19f159b90f68195a15"
+  api_key: "b329304e215f13d57369a0a7f2ffa1a8"
+  domain: "general"
+  spark_url: 'wss://spark-api.xf-yun.com/v1.1/chat'
+
+wangyi:
+    username: "15209828293@163.com"
+    password: "ITOUTMDGOQNOJVFV"
+    # 连接到邮箱的IMAP服务器 (Gmail IMAP 服务器为imap.gmail.com)
+    imap_server: "imap.163.com"
+
+simba:
+    username: "wangjun@simbalink.cn"
+    password: "wj--lyp82nlf"
+    # 连接到邮箱的IMAP服务器 (Gmail IMAP 服务器为imap.gmail.com)
+    imap_server: "imap.mxhichina.com"

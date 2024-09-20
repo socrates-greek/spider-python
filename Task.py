@@ -1,6 +1,7 @@
 import datetime
 from datetime import datetime
 import requests
+
 from fileIo import read_tou_tiao_hot, write_tou_tiao_hot
 from apscheduler.schedulers.blocking import BlockingScheduler
 
@@ -20,6 +21,8 @@ def task1():
 
 def task2():
     print(f"任务2执行时间: {datetime.now()}")
+    # 调用函数接收邮件
+    # fetch_emails()
 
 
 def task3():
@@ -33,7 +36,8 @@ scheduler.add_job(task1, 'cron', hour=6, minute=15)
 # scheduler.add_job(task1, IntervalTrigger(seconds=30))
 
 # 每周一至周五的9:00执行任务2
-scheduler.add_job(task2, 'cron', day_of_week='mon-fri', hour=9, minute=0)
+# scheduler.add_job(task2, 'cron', day_of_week='mon-fri', hour=9, minute=0)
+scheduler.add_job(task2, 'cron', minute='*')
 
 # 每月1号的12:00执行任务3
 scheduler.add_job(task3, 'cron', day=1, hour=12, minute=0)
