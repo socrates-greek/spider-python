@@ -14,7 +14,6 @@ wangyi:
     imap_server: "imap.163.com"
     smtp_server: "smtp.example.com"
 
-
 simba:
     username: "wangjun@simbalink.cn"
     password: "wj--lyp82nlf"
