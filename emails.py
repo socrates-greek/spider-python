@@ -1,4 +1,5 @@
 import base64
+from datetime import datetime, timedelta
 import json
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -10,7 +11,7 @@ import tornado.web
 import yaml
 import os
 
-with open('config.yaml', 'r') as f:
+with open('config.yaml', 'r', encoding='utf-8') as f:
     config = yaml.safe_load(f)
 # 邮件发送配置
 smtp_server = config['simba']['smtp_server']
@@ -33,22 +34,65 @@ def send_email(attachFile, bodyImage, body, subject, receiver):
     message['To'] = Header(receiver, 'utf-8')  # 将多个收件人拼接为字符串
     message['Subject'] = Header(subject, 'utf-8')  # 邮件标题
     # 添加邮件正文
+    image_html=""
     # 读取本地图片
-    with open(os.path.join(UPLOAD_FOLDER, bodyImage), "rb") as img_file:
-        img_data = base64.b64encode(img_file.read()).decode('utf-8')
-    # 生成HTML格式的图片
-    image_html = f'<img src="data:image/png;base64,{img_data}" alt="Image" width="500" height="400" />'
+    if bodyImage and os.path.exists(os.path.join(UPLOAD_FOLDER, bodyImage)):
+        with open(os.path.join(UPLOAD_FOLDER, bodyImage), "rb") as img_file:
+            img_data = base64.b64encode(img_file.read()).decode('utf-8')
+            # 生成HTML格式的图片
+            image_html = f'<img src="data:image/png;base64,{img_data}" alt="Image" width="500" height="400" />'
+    start, end = get_week_range()
+    startDay = start.strftime("%Y/%m/%d")
+    endDay = end.strftime("%Y/%m/%d")
     # 生成HTML内容
+    # 修正后的 HTML 模板
     html_content = f"""
-    <html>
-    <body>
-        <h1>{body}</h1>
-        {image_html}
-    </body>
-    </html>
-    """
+        <html>
+            <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title></title>
+            <style>
+                table {{
+                    border-collapse: collapse; 
+                    margin: 20px auto; 
+                    width: auto; /* 让表格宽度自动调整 */
+                }}
+                th, td {{
+                    border: 1px solid #ddd;
+                    padding: 5px;
+                    text-align: left; 
+                }}
+                th {{
+                    background-color: #d4edda;
+                    font-size: 16px; 
+                    font-weight: bold;
+                }}
+                td {{
+                    font-size: 14px; 
+                }}
+            </style>
+        </head>
+        <body>
+            <p>{body}</p>
+            <table>
+                <tr>
+                    <th colspan="2">{startDay} ~ {endDay} 周报</th> <!-- 使用 colspan 来合并单元格 -->
+                </tr>
+                <tr>
+                    <td>3232323</td>
+                </tr>
+                <tr>
+                    <td>3232323</td>
+                </tr>
+            </table>
+            <div>{image_html}</div>
+        </body>
+        </html>
+        """
     # 将 HTML 内容添加到邮件中
     part = MIMEText(html_content, "html")
+    print(part)
     message.attach(part)
     # 读取文件并添加到邮件中
     # 检查 attachFile 是否非空，且文件存在
@@ -84,7 +128,7 @@ def send_email(attachFile, bodyImage, body, subject, receiver):
         print(f"Failed to send email: {e}")
 
 
-# 云效代码消息
+# 上传文件
 class EmailUploadHandler(tornado.web.RequestHandler):
     # 处理 POST 请求
     def post(self):
@@ -130,6 +174,17 @@ class EmailUploadHandler(tornado.web.RequestHandler):
         self.set_status(204)
         self.finish()
 
+
+def get_week_range():
+    # 获取当前时间
+    today = datetime.today()
+    # 计算当前周的周一（开始时间）
+    start_of_week = today - timedelta(days=today.weekday())
+    # 计算当前周的周日（结束时间）
+    end_of_week = start_of_week + timedelta(days=6)
+
+    # 返回开始和结束时间
+    return start_of_week, end_of_week
 
 def allowed_file(filename):
     allowed_extensions = {'png', 'jpg', 'jpeg', 'gif', 'xlsx'}

@@ -38,7 +38,7 @@ answerLen = 0
 # domain = "general"  # v3.0版本
 # Spark_url = 'wss://spark-api.xf-yun.com/v1.1/chat'  # v3.5环服务地址
 # 读取 YAML 文件
-with open('config.yaml', 'r') as f:
+with open('config.yaml', 'r', encoding='utf-8') as f:
     config = yaml.safe_load(f)
 
 # 访问配置项
@@ -562,7 +562,7 @@ class EmailSendHandler(tornado.web.RequestHandler):
             subject = data.get("subject")  # 获取 "sender" 字段
             to = data.get("to")  # 获取 "sender" 字段
             emails.send_email(attachFile,bodyImage,body,subject,to)
-            self.write({"code": 200, "message": "success"})  # 返回成功响应
+            self.write({"code": 200, "message": "success", "data":""})  # 返回成功响应
             self.flush()
         except  Exception as e:
             print(f"An error occurred: {e}")
