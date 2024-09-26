@@ -25,7 +25,7 @@ UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 
-def send_email(attachFile, bodyImage, body, subject, receiver):
+def send_email(attachFile, bodyImage, body,tableContent, subject, receiver):
     receiver_emails = receiver.split(",")
     # 创建 MIMEMultipart 邮件对象
     message = MIMEMultipart()
@@ -46,6 +46,21 @@ def send_email(attachFile, bodyImage, body, subject, receiver):
     endDay = end.strftime("%Y/%m/%d")
     # 生成HTML内容
     # 修正后的 HTML 模板
+    table = f"""
+    """
+    if tableContent.strip():
+        html_string = tableContent.replace(",", "<br>")
+        table = f"""
+                <table>
+                    <tr>
+                        <th colspan="2">{startDay} ~ {endDay} 周报</th>
+                    </tr>
+                    <tr>
+                        <td>{html_string}</td>
+                    </tr>
+                </table>
+        """
+
     html_content = f"""
         <html>
             <head>
@@ -74,18 +89,8 @@ def send_email(attachFile, bodyImage, body, subject, receiver):
             </style>
         </head>
         <body>
-            <p>{body}</p>
-            <table>
-                <tr>
-                    <th colspan="2">{startDay} ~ {endDay} 周报</th> <!-- 使用 colspan 来合并单元格 -->
-                </tr>
-                <tr>
-                    <td>3232323</td>
-                </tr>
-                <tr>
-                    <td>3232323</td>
-                </tr>
-            </table>
+            {body}
+            {table}
             <div>{image_html}</div>
         </body>
         </html>

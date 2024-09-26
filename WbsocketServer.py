@@ -560,8 +560,9 @@ class EmailSendHandler(tornado.web.RequestHandler):
             bodyImage = data.get("bodyImage")  # 获取 "sender" 字段
             body = data.get("body")  # 获取 "sender" 字段
             subject = data.get("subject")  # 获取 "sender" 字段
+            tableContent = data.get("lists")
             to = data.get("to")  # 获取 "sender" 字段
-            emails.send_email(attachFile,bodyImage,body,subject,to)
+            emails.send_email(attachFile,bodyImage,body,tableContent,subject,to)
             self.write({"code": 200, "message": "success", "data":""})  # 返回成功响应
             self.flush()
         except  Exception as e:
