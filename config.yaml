@@ -12,9 +12,12 @@ wangyi:
     password: "ITOUTMDGOQNOJVFV"
     # 连接到邮箱的IMAP服务器 (Gmail IMAP 服务器为imap.gmail.com)
     imap_server: "imap.163.com"
+    smtp_server: "smtp.example.com"
+
 
 simba:
     username: "wangjun@simbalink.cn"
     password: "wj--lyp82nlf"
     # 连接到邮箱的IMAP服务器 (Gmail IMAP 服务器为imap.gmail.com)
     imap_server: "imap.mxhichina.com"
+    smtp_server: "smtp.mxhichina.com"

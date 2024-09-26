@@ -13,6 +13,7 @@ from flask import Flask
 from flask_cors import CORS
 
 import SparkApi
+import emails
 from fileIo import read_tou_tiao_hot
 
 import imaplib
@@ -162,7 +163,7 @@ class FeiShuHandler(tornado.web.RequestHandler):
             sender = data.get("sender")  # 获取 "sender" 字段
             sendTime = data.get("sendTime")
             random_str = generate_random_string(20)
-            messages.append({"id":random_str,"sender": sender, "message": msg, "sendTime": sendTime, "type": "fs"})
+            messages.append({"id": random_str, "sender": sender, "message": msg, "sendTime": sendTime, "type": "fs"})
             # print(msg, sender, sendTime)
             MyWebSocketHandler.send_message_to_clients()  # 推送消息到 WebSocket 客户端
             self.write({"code": 200, "message": "success"})  # 返回成功响应
@@ -240,46 +241,6 @@ class YunXiaoHandler(tornado.web.RequestHandler):
         # 返回状态码 204 表示成功但无内容
         self.set_status(204)
         self.finish()
-
-
-# 主动买
-# @app.route('/chat', methods=['POST'])
-# def ask():
-#     print(request)
-#     data = request.json
-#     question = data.get('message')
-#     print(question)
-#     question = SparkApi.checklen(SparkApi.getText("user", question))
-#     SparkApi.answer = ""
-#     print("星火:", end="")
-#     thread = threading.Thread(target=SparkApi.main, args=(appid, api_key, api_secret, Spark_url, domain, question))
-#     thread.start()
-#     # SparkApi.main(appid, api_key, api_secret, Spark_url, domain, question)
-#     def generate():
-#         global ganswer
-#         ganswer = []
-#         cut = False
-#         try:
-#             while True:
-#                 if cut:
-#                     break
-#                 for item in SparkApi.string_set:
-#                     if item in ganswer:
-#                         continue
-#                     else:
-#                         if item != 'quit' and len(item) > 0:
-#                             ganswer.append(item)
-#                             yield f"{item}"
-#                     if item == 'quit':
-#                         cut = True
-#                         break
-#             # print('\n'+SparkApi.answer)
-#             SparkApi.getText("assistant", SparkApi.answer)
-#         except GeneratorExit:
-#             print("Client closed connection")
-#         except Exception as e:
-#             print(f"An error occurred: {e}")
-#     return Response(generate(), mimetype='text/event-stream')
 
 # @app.route('/v1/dailyInsight', methods=['GET'])
 def daily_insight():
@@ -565,6 +526,60 @@ class EmailHandler(tornado.web.RequestHandler):
         self.finish()
 
 
+# email发送周报
+class EmailSendHandler(tornado.web.RequestHandler):
+    # 处理请求前进行 Basic 认证
+    def prepare(self):
+        auth_header = self.request.headers.get("Authorization")
+        print(auth_header)
+        if auth_header is None or not self.check_auth(auth_header):
+            self.set_status(401)
+            self.set_header("WWW-Authenticate", 'Basic realm="Protected"')
+            self.finish()
+
+    # 校验 Basic 认证信息
+    def check_auth(self, auth_header):
+        auth_type, credentials = auth_header.split(" ")
+        if auth_type.lower() == "basic":
+            decoded_credentials = base64.b64decode(credentials).decode("utf-8")
+            username, password = decoded_credentials.split(":")
+            return username == 'eason' and password == 'Wj*lyp82nlf*'
+        return False
+
+    # 处理 POST 请求
+    def post(self):
+        # 设置响应头
+        self.set_header("Content-Type", "application/json")
+        self.set_header("Cache-Control", "no-cache")
+        self.set_header("Connection", "keep-alive")
+        # 读取 JSON 数据
+        try:
+            data = json.loads(self.request.body)  # 解析 JSON 数据
+            print(data)
+            attachFile = data.get("attachFile")  # 获取 "sender" 字段
+            bodyImage = data.get("bodyImage")  # 获取 "sender" 字段
+            body = data.get("body")  # 获取 "sender" 字段
+            subject = data.get("subject")  # 获取 "sender" 字段
+            to = data.get("to")  # 获取 "sender" 字段
+            emails.send_email(attachFile,bodyImage,body,subject,to)
+            self.write({"code": 200, "message": "success"})  # 返回成功响应
+            self.flush()
+        except  Exception as e:
+            print(f"An error occurred: {e}")
+            self.set_status(400)  # 设置状态码为 400 表示错误请求
+            self.write({"code": 400, "message": "Invalid JSON"})
+            self.flush()
+
+    # 处理 OPTIONS 请求（CORS 预检请求）
+    def options(self):
+        # 设置 CORS 头
+        self.set_header("Access-Control-Allow-Origin", "*")
+        self.set_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
+        self.set_header("Access-Control-Allow-Headers", "Content-Type")
+        # 返回状态码 204 表示成功但无内容
+        self.set_status(204)
+        self.finish()
+
 # 主应用配置
 def make_app():
     return tornado.web.Application([
@@ -573,7 +588,9 @@ def make_app():
         (r"/v1/fish/msg", FeiShuHandler),  # 处理 HTTP 请求
         (r"/v1/yunxiao/msg", YunXiaoHandler),  # 处理 HTTP 请求
         (r"/ws", MyWebSocketHandler),  # 将 WebSocket 路径与 Handler 绑定
-        (r"/v1/email/msg", EmailHandler),  # 处理 HTTP 请求
+        (r"/v1/email/send", EmailSendHandler),  # 处理 HTTP 请求
+        (r"/v1/upload", emails.EmailUploadHandler),  # 处理 HTTP 请求
+
     ])
 
 
