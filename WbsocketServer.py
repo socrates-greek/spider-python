@@ -242,6 +242,7 @@ class YunXiaoHandler(tornado.web.RequestHandler):
         self.set_status(204)
         self.finish()
 
+
 # @app.route('/v1/dailyInsight', methods=['GET'])
 def daily_insight():
     my_map = read_tou_tiao_hot()
@@ -556,14 +557,8 @@ class EmailSendHandler(tornado.web.RequestHandler):
         try:
             data = json.loads(self.request.body)  # 解析 JSON 数据
             print(data)
-            attachFile = data.get("attachFile")  # 获取 "sender" 字段
-            bodyImage = data.get("bodyImage")  # 获取 "sender" 字段
-            body = data.get("body")  # 获取 "sender" 字段
-            subject = data.get("subject")  # 获取 "sender" 字段
-            tableContent = data.get("lists")
-            to = data.get("to")  # 获取 "sender" 字段
-            emails.send_email(attachFile,bodyImage,body,tableContent,subject,to)
-            self.write({"code": 200, "message": "success", "data":""})  # 返回成功响应
+            emails.send_email(data)
+            self.write({"code": 200, "message": "success", "data": ""})  # 返回成功响应
             self.flush()
         except  Exception as e:
             print(f"An error occurred: {e}")
@@ -580,6 +575,7 @@ class EmailSendHandler(tornado.web.RequestHandler):
         # 返回状态码 204 表示成功但无内容
         self.set_status(204)
         self.finish()
+
 
 # 主应用配置
 def make_app():

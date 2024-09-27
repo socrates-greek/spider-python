@@ -25,7 +25,13 @@ UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 
-def send_email(attachFile, bodyImage, body,tableContent, subject, receiver):
+def send_email(requestData):
+    attachFile = requestData.get("attachFile")  # 获取 "sender" 字段
+    bodyImage = requestData.get("bodyImage")  # 获取 "sender" 字段
+    body = requestData.get("body")  # 获取 "sender" 字段
+    subject = requestData.get("subject")  # 获取 "sender" 字段
+    tableContent = requestData.get("workList")
+    receiver = requestData.get("to")  # 获取 "sender" 字段
     receiver_emails = receiver.split(",")
     # 创建 MIMEMultipart 邮件对象
     message = MIMEMultipart()
@@ -34,7 +40,7 @@ def send_email(attachFile, bodyImage, body,tableContent, subject, receiver):
     message['To'] = Header(receiver, 'utf-8')  # 将多个收件人拼接为字符串
     message['Subject'] = Header(subject, 'utf-8')  # 邮件标题
     # 添加邮件正文
-    image_html=""
+    image_html = ""
     # 读取本地图片
     if bodyImage and os.path.exists(os.path.join(UPLOAD_FOLDER, bodyImage)):
         with open(os.path.join(UPLOAD_FOLDER, bodyImage), "rb") as img_file:
@@ -48,21 +54,21 @@ def send_email(attachFile, bodyImage, body,tableContent, subject, receiver):
     # 修正后的 HTML 模板
     table = f"""
     """
-    if tableContent.strip():
-        html_string = tableContent.replace(",", "<br>")
+    if len(tableContent) > 0:
+        html_string = "<br>".join(tableContent)
         table = f"""
-                <table>
-                    <tr>
-                        <th colspan="2">{startDay} ~ {endDay} 周报</th>
-                    </tr>
-                    <tr>
-                        <td>{html_string}</td>
-                    </tr>
-                </table>
+            <table>
+                <tr>
+                    <th colspan="2">{startDay} ~ {endDay} 周报</th>
+                </tr>
+                <tr>
+                    <td>{html_string}</td>
+                </tr>
+            </table>
         """
 
     html_content = f"""
-        <html>
+        <html lang="en">
             <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,15 +77,16 @@ def send_email(attachFile, bodyImage, body,tableContent, subject, receiver):
                 table {{
                     border-collapse: collapse; 
                     margin: 20px auto; 
-                    width: auto; /* 让表格宽度自动调整 */
+                    width: 600px; /* 让表格宽度自动调整 */
                 }}
                 th, td {{
                     border: 1px solid #ddd;
                     padding: 5px;
                     text-align: left; 
+                    width: 600px;
                 }}
                 th {{
-                    background-color: #d4edda;
+                    background-color: #CBDFA9;
                     font-size: 16px; 
                     font-weight: bold;
                 }}
@@ -95,9 +102,11 @@ def send_email(attachFile, bodyImage, body,tableContent, subject, receiver):
         </body>
         </html>
         """
+
+    # print(html_content)
+
     # 将 HTML 内容添加到邮件中
     part = MIMEText(html_content, "html")
-    print(part)
     message.attach(part)
     # 读取文件并添加到邮件中
     # 检查 attachFile 是否非空，且文件存在
@@ -116,7 +125,8 @@ def send_email(attachFile, bodyImage, body,tableContent, subject, receiver):
 
         # 创建 MIMEApplication 对象并附加到邮件中
         attachment = MIMEApplication(file_data, _subtype=subtype)
-        attachment.add_header('Content-Disposition', f'attachment; filename="{os.path.basename(file_path)}"')
+        encoded_filename = Header(attachFile, 'utf-8').encode()
+        attachment.add_header('Content-Disposition', f'attachment; filename="{encoded_filename}"')
         message.attach(attachment)
         print(f"Attachment {attachFile} added.")
     else:
@@ -190,6 +200,7 @@ def get_week_range():
 
     # 返回开始和结束时间
     return start_of_week, end_of_week
+
 
 def allowed_file(filename):
     allowed_extensions = {'png', 'jpg', 'jpeg', 'gif', 'xlsx'}
