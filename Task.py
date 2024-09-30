@@ -37,7 +37,7 @@ scheduler.add_job(task1, 'cron', hour=6, minute=15)
 
 # 每周一至周五的9:00执行任务2
 # scheduler.add_job(task2, 'cron', day_of_week='mon-fri', hour=9, minute=0)
-scheduler.add_job(task2, 'cron', minute='*')
+# scheduler.add_job(task2, 'cron', minute='*')
 
 # 每月1号的12:00执行任务3
 scheduler.add_job(task3, 'cron', day=1, hour=12, minute=0)

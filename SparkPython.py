@@ -5,7 +5,7 @@ import yaml
 
 from Task import run_scheduler
 from WbsocketServer import make_app, fetch_emails_163, fetch_emails_simba
-from src.mysql.mysqldb import Database
+from src.mysql.mysqldb import Database, load_file
 
 
 def check_email_loop_163():

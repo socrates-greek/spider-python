@@ -13,7 +13,7 @@ class WorkListHandler(tornado.web.RequestHandler):
     # 处理请求前进行 Basic 认证
     def prepare(self):
         auth_header = self.request.headers.get("Authorization")
-        print(auth_header)
+        # print(auth_headerer)
         if auth_header is None or not self.check_auth(auth_header):
             self.set_status(401)
             self.set_header("WWW-Authenticate", 'Basic realm="Protected"')
@@ -57,7 +57,7 @@ class WorkListHandler(tornado.web.RequestHandler):
         try:
             state = data.get("state")  # 获取 "sender" 字段
             result = fetch_work(state)
-            print(state, result)
+            # print(state, resultult)
             self.write({"code": 200, "message": "success", "data": result})  # 返回成功响应
             self.flush()
         except json.JSONDecodeError as e:

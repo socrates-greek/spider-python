@@ -158,6 +158,28 @@ def fetch_work(state):
     return None
 
 
+def insert_work_his(work, state,create_time):
+    conn = Database.get_connection()
+    cursor = conn.cursor()
+    cursor.execute("INSERT INTO nas_work_list (work, state,create_time) VALUES (%s, %s, %s)",
+                   (work, state, datetime.strptime(create_time, "%Y/%m/%d %H:%M:%S")))
+    conn.commit()
+    print("工作列表插入成功")
+
+def load_file():
+    with open('./src/mysql/data2.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    print(data)
+    print(data["todoList"])
+    todos = data["todoList"]
+    for item in todos:
+        insert_work_his(item['content'], '0', item['todo_datetime'])
+
+    print(data["doneList"])
+    dones = data["doneList"]
+    for item in dones:
+        insert_work_his(item['content'], '1', item['todo_datetime'])
+
 # 主程序
 if __name__ == "__main__":
     Database.connect("localhost", "your_username", "your_password", "your_database")

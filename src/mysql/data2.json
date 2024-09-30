@@ -1,0 +1,1720 @@
+{
+  "todoList": [
+    {
+      "todo_date": "2024/09/30",
+      "todo_datetime": "2024/09/30 08:55:40",
+      "content": "cmp2.7迭代版本开发（16）"
+    },
+    {
+      "todo_date": "2024/09/30",
+      "todo_datetime": "2024/09/30 08:55:56",
+      "content": "开放平台添加实名认证解绑接口"
+    },
+    {
+      "todo_date": "2024/09/30",
+      "todo_datetime": "2024/09/30 08:56:19",
+      "content": "推送平台接入实名绑定消息推送。并优化消费者代码"
+    }
+  ],
+  "doneList": [
+    {
+      "done_date": "2024/03/04",
+      "done_datetime": "2024/03/04 13:34:42",
+      "todo_date": "2024/02/23",
+      "todo_datetime": "2024/02/23 17:05:44",
+      "content": "v2.0版本sim卡域模型和相关用例阅读，业务流程梳理熟悉",
+      "id": "c9e11f1d-1371-4223-b0cd-c9042692a700"
+    },
+    {
+      "done_date": "2024/03/04",
+      "done_datetime": "2024/03/04 13:34:42",
+      "todo_date": "2024/02/23",
+      "todo_datetime": "2024/02/23 17:05:10",
+      "content": "v2.0版本平台重构用例与产品沟通",
+      "id": "d0a1a2c9-395b-46fc-9750-91b0cd8718c7"
+    },
+    {
+      "done_date": "2024/03/04",
+      "done_datetime": "2024/03/04 13:34:42",
+      "todo_date": "2024/02/23",
+      "todo_datetime": "2024/02/23 17:04:46",
+      "content": "连接平台",
+      "id": "1364d136-23d7-4d2d-b1e1-11f0ecada1c8"
+    },
+    {
+      "done_date": "2024/03/04",
+      "done_datetime": "2024/03/04 13:34:42",
+      "todo_date": "2024/02/23",
+      "todo_datetime": "2024/02/23 17:08:31",
+      "content": "云片，腾讯，mtc短信平台回调接口从开发平台迁移至recevice平台完成",
+      "id": "56f25c5b-7ab0-4d48-be99-22ef16d1c87c"
+    },
+    {
+      "done_date": "2024/03/04",
+      "done_datetime": "2024/03/04 13:34:42",
+      "todo_date": "2024/02/20",
+      "todo_datetime": "2024/02/20 14:46:43",
+      "content": "接收平台",
+      "id": "23bc75be-6def-4d6c-a3c9-6ce41706213d"
+    },
+    {
+      "done_date": "2024/03/04",
+      "done_datetime": "2024/03/04 13:34:42",
+      "todo_date": "2024/02/20",
+      "todo_datetime": "2024/02/20 13:55:46",
+      "content": "goka流数据处理框架学习",
+      "id": "26385f28-6ff7-44c5-b7fe-1a64267a791b"
+    },
+    {
+      "done_date": "2024/03/04",
+      "done_datetime": "2024/03/04 13:34:42",
+      "todo_date": "2024/02/18",
+      "todo_datetime": "2024/02/18 14:37:59",
+      "content": "本周工作内容(48)",
+      "id": "9d3fd012-fe29-4ea9-986a-2d907f17999a"
+    },
+    {
+      "done_date": "2024/03/15",
+      "done_datetime": "2024/03/15 13:21:51",
+      "todo_date": "2024/03/08",
+      "todo_datetime": "2024/03/08 16:43:58",
+      "content": "正式下单使用执行包流程完成50%",
+      "id": "1af792be-0d7e-405e-940f-ca7c0f4e6b17"
+    },
+    {
+      "done_date": "2024/03/15",
+      "done_datetime": "2024/03/15 13:21:51",
+      "todo_date": "2024/03/08",
+      "todo_datetime": "2024/03/08 13:09:23",
+      "content": "流量更新推送，正式卡和测试卡流量更新处理逻辑开发完成",
+      "id": "2a38cb88-5b2f-435a-9659-80c1e743e69f"
+    },
+    {
+      "done_date": "2024/03/15",
+      "done_datetime": "2024/03/15 13:21:51",
+      "todo_date": "2024/03/08",
+      "todo_datetime": "2024/03/08 13:08:14",
+      "content": "sim卡域服务框架搭建，公共模型和方法以及数据库操作部分开发完成",
+      "id": "a069563e-1b91-4cbf-8120-49d9245e2c7c"
+    },
+    {
+      "done_date": "2024/03/15",
+      "done_datetime": "2024/03/15 13:21:51",
+      "todo_date": "2024/03/04",
+      "todo_datetime": "2024/03/04 13:35:14",
+      "content": "sim卡域研发设计评审",
+      "id": "ac4f1ad6-70ea-4ad5-9450-dc9018a7abd8"
+    },
+    {
+      "done_date": "2024/03/15",
+      "done_datetime": "2024/03/15 13:21:51",
+      "todo_date": "2024/03/04",
+      "todo_datetime": "2024/03/04 13:35:01",
+      "content": "本周主要工作（40）",
+      "id": "0e5d4a96-0653-4855-8d9e-59e55559ef87"
+    },
+    {
+      "done_date": "2024/03/19",
+      "done_datetime": "2024/03/19 15:41:05",
+      "todo_date": "2024/03/15",
+      "todo_datetime": "2024/03/15 13:23:44",
+      "content": "添加mci短信渠道开发完成",
+      "id": "774178ec-5d30-43cd-90a4-ab354b0d9895"
+    },
+    {
+      "done_date": "2024/03/19",
+      "done_datetime": "2024/03/19 15:41:05",
+      "todo_date": "2024/03/15",
+      "todo_datetime": "2024/03/15 13:23:39",
+      "content": "短信服务",
+      "id": "78cf70bd-a7a0-4991-b084-4430b094d776"
+    },
+    {
+      "done_date": "2024/03/19",
+      "done_datetime": "2024/03/19 15:41:05",
+      "todo_date": "2024/03/15",
+      "todo_datetime": "2024/03/15 13:23:22",
+      "content": "支持中亚国家推送添加渠道开发完成",
+      "id": "0832ca74-7e1f-4274-a1d1-109444c12dca"
+    },
+    {
+      "done_date": "2024/03/19",
+      "done_datetime": "2024/03/19 15:41:05",
+      "todo_date": "2024/03/15",
+      "todo_datetime": "2024/03/15 13:23:16",
+      "content": "推送服务",
+      "id": "0670b82a-4fd5-4957-ac86-732af4219a76"
+    },
+    {
+      "done_date": "2024/03/19",
+      "done_datetime": "2024/03/19 15:41:05",
+      "todo_date": "2024/03/15",
+      "todo_datetime": "2024/03/15 13:22:43",
+      "content": "东南亚国家支付方式扩展支持完成",
+      "id": "8678b33c-99b7-4c8d-b370-75365e040eab"
+    },
+    {
+      "done_date": "2024/03/19",
+      "done_datetime": "2024/03/19 15:41:05",
+      "todo_date": "2024/03/15",
+      "todo_datetime": "2024/03/15 13:22:36",
+      "content": "支付平台",
+      "id": "f1b10d05-f7d3-474d-91cd-dfc327518a27"
+    },
+    {
+      "done_date": "2024/03/19",
+      "done_datetime": "2024/03/19 15:41:05",
+      "todo_date": "2024/03/15",
+      "todo_datetime": "2024/03/15 13:22:07",
+      "content": "sim卡域，正式下单，流量更新，启用次月订单用例开发完成",
+      "id": "402956b8-0f4d-43d5-bc98-cd40ce8accb5"
+    },
+    {
+      "done_date": "2024/03/19",
+      "done_datetime": "2024/03/19 15:41:05",
+      "todo_date": "2024/03/15",
+      "todo_datetime": "2024/03/15 13:21:59",
+      "content": "连接平台",
+      "id": "8783cf5b-b22c-43dc-9c5f-9f284321f957"
+    },
+    {
+      "done_date": "2024/03/19",
+      "done_datetime": "2024/03/19 15:41:05",
+      "todo_date": "2024/03/15",
+      "todo_datetime": "2024/03/15 13:21:52",
+      "content": "本周工作主要内容（40）",
+      "id": "662d476c-6f17-43da-badc-58705a0e45ae"
+    },
+    {
+      "done_date": "2024/03/26",
+      "done_datetime": "2024/03/26 09:17:11",
+      "todo_date": "2024/03/19",
+      "todo_datetime": "2024/03/19 15:42:27",
+      "content": "开放平台重构需求评审",
+      "id": "51935821-68f9-42a9-88a6-db210aedc69f"
+    },
+    {
+      "done_date": "2024/03/26",
+      "done_datetime": "2024/03/26 09:17:11",
+      "todo_date": "2024/03/19",
+      "todo_datetime": "2024/03/19 15:42:04",
+      "content": "添加一个新的鉴权接口完成，用于内部使用，返回租户号",
+      "id": "4b0ad652-940f-484f-a961-62f43c573e1c"
+    },
+    {
+      "done_date": "2024/03/26",
+      "done_datetime": "2024/03/26 09:17:11",
+      "todo_date": "2024/03/19",
+      "todo_datetime": "2024/03/19 15:42:00",
+      "content": "开放平台",
+      "id": "8668dd79-ce6b-41f9-a23f-4d3ef4cd96c3"
+    },
+    {
+      "done_date": "2024/03/26",
+      "done_datetime": "2024/03/26 09:17:11",
+      "todo_date": "2024/03/21",
+      "todo_datetime": "2024/03/21 14:08:04",
+      "content": "sim卡域提测和bug修改",
+      "id": "a1c0b368-7f3d-4bb0-9494-ad7b0a341f8f"
+    },
+    {
+      "done_date": "2024/03/26",
+      "done_datetime": "2024/03/26 09:17:11",
+      "todo_date": "2024/03/19",
+      "todo_datetime": "2024/03/19 15:41:26",
+      "content": "sim卡域新增查询接口完成",
+      "id": "2869c6e6-6251-4760-93aa-94095d80640a"
+    },
+    {
+      "done_date": "2024/03/26",
+      "done_datetime": "2024/03/26 09:17:11",
+      "todo_date": "2024/03/19",
+      "todo_datetime": "2024/03/19 15:41:15",
+      "content": "sim卡域开发完成，对接调试中",
+      "id": "a1200d7c-6f30-4a6a-858d-d0bf33d92efb"
+    },
+    {
+      "done_date": "2024/03/26",
+      "done_datetime": "2024/03/26 09:17:11",
+      "todo_date": "2024/03/19",
+      "todo_datetime": "2024/03/19 15:41:46",
+      "content": "连接平台",
+      "id": "e7ef3558-9b5e-49d3-988f-e31c699cb1fd"
+    },
+    {
+      "done_date": "2024/03/26",
+      "done_datetime": "2024/03/26 09:17:11",
+      "todo_date": "2024/03/19",
+      "todo_datetime": "2024/03/19 15:41:09",
+      "content": "本周工作内容（40）",
+      "id": "046e6da5-2b6b-45dc-8fb9-01816387b438"
+    },
+    {
+      "done_date": "2024/04/01",
+      "done_datetime": "2024/04/01 14:37:44",
+      "todo_date": "2024/03/28",
+      "todo_datetime": "2024/03/28 16:05:18",
+      "content": "添加一个用量查询接口， url中版本升级v2完成",
+      "id": "fbd4c922-4af4-4520-b2c0-72d1c8c9d736"
+    },
+    {
+      "done_date": "2024/04/01",
+      "done_datetime": "2024/04/01 14:37:44",
+      "todo_date": "2024/03/28",
+      "todo_datetime": "2024/03/28 16:05:12",
+      "content": "开放平台",
+      "id": "da85e5c0-5015-4653-aec8-fd1d5ea9ef98"
+    },
+    {
+      "done_date": "2024/04/01",
+      "done_datetime": "2024/04/01 14:37:44",
+      "todo_date": "2024/03/28",
+      "todo_datetime": "2024/03/28 16:03:39",
+      "content": "添加自定义错误的类型和相关的方法完成",
+      "id": "0469226b-83bf-47d8-a731-9056d48973cc"
+    },
+    {
+      "done_date": "2024/04/01",
+      "done_datetime": "2024/04/01 14:37:44",
+      "todo_date": "2024/03/28",
+      "todo_datetime": "2024/03/28 16:03:35",
+      "content": "公共包",
+      "id": "f90ece4c-28cd-422b-ba54-d2d175914a4e"
+    },
+    {
+      "done_date": "2024/04/01",
+      "done_datetime": "2024/04/01 14:37:44",
+      "todo_date": "2024/03/26",
+      "todo_datetime": "2024/03/26 16:43:29",
+      "content": "东南亚支付平台对接前端，app支持完成",
+      "id": "3e5c022f-edf3-4bf6-aa5d-dce1ae1fc1e9"
+    },
+    {
+      "done_date": "2024/04/01",
+      "done_datetime": "2024/04/01 14:37:44",
+      "todo_date": "2024/03/28",
+      "todo_datetime": "2024/03/28 16:03:13",
+      "content": "支付服务",
+      "id": "d52a3bc7-7eb3-41d9-be1a-63b9a4483ceb"
+    },
+    {
+      "done_date": "2024/04/01",
+      "done_datetime": "2024/04/01 14:37:44",
+      "todo_date": "2024/03/28",
+      "todo_datetime": "2024/03/28 16:04:24",
+      "content": "v2.1版本sim卡生命周期变更推送消息功能完成",
+      "id": "87143da0-d649-4057-9dab-774a22fbed37"
+    },
+    {
+      "done_date": "2024/04/01",
+      "done_datetime": "2024/04/01 14:37:44",
+      "todo_date": "2024/03/29",
+      "todo_datetime": "2024/03/29 16:55:43",
+      "content": "v2.1版本开发需求用例评审完成，开发任务分配完成",
+      "id": "737dbe96-0bea-4f0c-8dc0-6f65c0b86e3f"
+    },
+    {
+      "done_date": "2024/04/01",
+      "done_datetime": "2024/04/01 14:37:44",
+      "todo_date": "2024/03/26",
+      "todo_datetime": "2024/03/26 16:43:00",
+      "content": "sim卡域bug修复，联调启用次月订单，sim卡域所有功能全部提测。bug修复率100%",
+      "id": "7f429311-4fb5-4afd-b2dd-c1ea9a2c04e6"
+    },
+    {
+      "done_date": "2024/04/01",
+      "done_datetime": "2024/04/01 14:37:44",
+      "todo_date": "2024/03/26",
+      "todo_datetime": "2024/03/26 16:42:55",
+      "content": "连接平台",
+      "id": "c26eac77-7644-4f29-ac63-3a89bca3a555"
+    },
+    {
+      "done_date": "2024/04/01",
+      "done_datetime": "2024/04/01 14:37:44",
+      "todo_date": "2024/03/26",
+      "todo_datetime": "2024/03/26 16:42:50",
+      "content": "本周工作（40）",
+      "id": "52c28394-169b-4734-b958-ba7ff7ed184a"
+    },
+    {
+      "done_date": "2024/04/08",
+      "done_datetime": "2024/04/08 09:12:57",
+      "todo_date": "2024/04/03",
+      "todo_datetime": "2024/04/03 10:42:57",
+      "content": "东南亚生成环境支付平台部署完毕，配合调试",
+      "id": "c1959316-f98a-406c-b798-af41b84c5fb1"
+    },
+    {
+      "done_date": "2024/04/08",
+      "done_datetime": "2024/04/08 09:12:57",
+      "todo_date": "2024/04/03",
+      "todo_datetime": "2024/04/03 10:42:49",
+      "content": "支付平台",
+      "id": "d0dd82cd-6139-4c9e-818a-65e22cb3e37d"
+    },
+    {
+      "done_date": "2024/04/08",
+      "done_datetime": "2024/04/08 09:12:57",
+      "todo_date": "2024/04/02",
+      "todo_datetime": "2024/04/02 15:39:22",
+      "content": "sim卡域代码优化，重构函数",
+      "id": "580d22ee-78c8-48be-8ed4-258a1fdea19d"
+    },
+    {
+      "done_date": "2024/04/08",
+      "done_datetime": "2024/04/08 09:12:57",
+      "todo_date": "2024/04/02",
+      "todo_datetime": "2024/04/02 15:38:39",
+      "content": "v2.1版本sim卡域后台相关接口开发完成",
+      "id": "304e9344-5c96-4812-953d-6302708f9bdb"
+    },
+    {
+      "done_date": "2024/04/08",
+      "done_datetime": "2024/04/08 09:12:57",
+      "todo_date": "2024/04/01",
+      "todo_datetime": "2024/04/01 14:38:42",
+      "content": "SIM卡域bug修复",
+      "id": "a632cc51-9194-486c-b892-7f91341a2bae"
+    },
+    {
+      "done_date": "2024/04/08",
+      "done_datetime": "2024/04/08 09:12:57",
+      "todo_date": "2024/04/01",
+      "todo_datetime": "2024/04/01 14:38:37",
+      "content": "连接平台",
+      "id": "54a54b25-0cf9-44a2-8e5f-c677ef0ebe40"
+    },
+    {
+      "done_date": "2024/04/08",
+      "done_datetime": "2024/04/08 09:12:57",
+      "todo_date": "2024/04/01",
+      "todo_datetime": "2024/04/01 14:37:58",
+      "content": "添加一个接口，商城接口形态控制",
+      "id": "93179548-b5a1-477c-a9e8-6c0c105def1e"
+    },
+    {
+      "done_date": "2024/04/08",
+      "done_datetime": "2024/04/08 09:12:57",
+      "todo_date": "2024/04/01",
+      "todo_datetime": "2024/04/01 14:37:52",
+      "content": "开放平台",
+      "id": "39a5c94a-56ca-4e41-8a57-fc673595c738"
+    },
+    {
+      "done_date": "2024/04/08",
+      "done_datetime": "2024/04/08 09:12:57",
+      "todo_date": "2024/04/01",
+      "todo_datetime": "2024/04/01 14:37:46",
+      "content": "本周工作（32）",
+      "id": "eee2126c-0f62-4b17-adee-0126a8246a06"
+    },
+    {
+      "done_date": "2024/04/18",
+      "done_datetime": "2024/04/18 14:54:38",
+      "todo_date": "2024/04/12",
+      "todo_datetime": "2024/04/12 15:30:47",
+      "content": "配合测试和其他端，域完成相关的调试工作",
+      "id": "c747878f-c85d-4f0c-9d70-af2509c174b4"
+    },
+    {
+      "done_date": "2024/04/18",
+      "done_datetime": "2024/04/18 14:54:38",
+      "todo_date": "2024/04/12",
+      "todo_datetime": "2024/04/12 15:25:33",
+      "content": "原开放平台车机部分接口添加出参字段完成已调试完毕",
+      "id": "5ac7f7ae-5705-4b6c-8246-7e1c1170a2e3"
+    },
+    {
+      "done_date": "2024/04/18",
+      "done_datetime": "2024/04/18 14:54:38",
+      "todo_date": "2024/04/12",
+      "todo_datetime": "2024/04/12 13:51:12",
+      "content": "v2.1版本中测试提交bug修复完毕",
+      "id": "3b80708b-b46b-427f-8352-469019c56474"
+    },
+    {
+      "done_date": "2024/04/18",
+      "done_datetime": "2024/04/18 14:54:38",
+      "todo_date": "2024/04/08",
+      "todo_datetime": "2024/04/08 09:13:27",
+      "content": "接口重新封装完成，已提测",
+      "id": "69df0378-8644-45bd-8ed4-a6bfdab31145"
+    },
+    {
+      "done_date": "2024/04/18",
+      "done_datetime": "2024/04/18 14:54:38",
+      "todo_date": "2024/04/08",
+      "todo_datetime": "2024/04/08 09:13:18",
+      "content": "新开放平台",
+      "id": "43573cc6-0eb8-4d04-b936-db3b2d77e188"
+    },
+    {
+      "done_date": "2024/04/18",
+      "done_datetime": "2024/04/18 14:54:38",
+      "todo_date": "2024/04/08",
+      "todo_datetime": "2024/04/08 09:13:42",
+      "content": "sim卡基础接口封装调整完成",
+      "id": "120cd8ee-81f0-4a27-aa52-676ee5ae9315"
+    },
+    {
+      "done_date": "2024/04/18",
+      "done_datetime": "2024/04/18 14:54:38",
+      "todo_date": "2024/04/12",
+      "todo_datetime": "2024/04/12 15:26:29",
+      "content": "换卡用例中添加原部分用例缺少通知订单域的消息完成",
+      "id": "77cd2dcb-b0c4-4179-9639-1085b0170c4a"
+    },
+    {
+      "done_date": "2024/04/18",
+      "done_datetime": "2024/04/18 14:54:38",
+      "todo_date": "2024/04/08",
+      "todo_datetime": "2024/04/08 09:13:10",
+      "content": "连接平台",
+      "id": "da44abd3-9c6d-4899-9b18-b811c8e97f4a"
+    },
+    {
+      "done_date": "2024/04/18",
+      "done_datetime": "2024/04/18 14:54:38",
+      "todo_date": "2024/04/08",
+      "todo_datetime": "2024/04/08 09:13:05",
+      "content": "本周工作（48）",
+      "id": "5b251812-64ce-4707-b551-031c9e8dff45"
+    },
+    {
+      "done_date": "2024/04/22",
+      "done_datetime": "2024/04/22 10:34:42",
+      "todo_date": "2024/04/18",
+      "todo_datetime": "2024/04/18 14:57:00",
+      "content": "mq公共组件，发送消息组件中没有释放通道导致通道占用溢满的bug修复",
+      "id": "ab203d05-fd43-471a-bde6-e5dec4a80e1c"
+    },
+    {
+      "done_date": "2024/04/22",
+      "done_datetime": "2024/04/22 10:34:42",
+      "todo_date": "2024/04/18",
+      "todo_datetime": "2024/04/18 14:56:52",
+      "content": "公共包",
+      "id": "da8359dc-8f6e-41e9-bccd-8ef2c40e907e"
+    },
+    {
+      "done_date": "2024/04/22",
+      "done_datetime": "2024/04/22 10:34:42",
+      "todo_date": "2024/04/18",
+      "todo_datetime": "2024/04/18 14:55:44",
+      "content": "主动查询支付结果线上提示加签失败bug修复完成",
+      "id": "7373ee50-e001-4dbd-8a75-f23131b58a96"
+    },
+    {
+      "done_date": "2024/04/22",
+      "done_datetime": "2024/04/22 10:34:42",
+      "todo_date": "2024/04/18",
+      "todo_datetime": "2024/04/18 14:55:40",
+      "content": "支付平台",
+      "id": "43929bd3-6412-4940-8544-083a9e9ca5df"
+    },
+    {
+      "done_date": "2024/04/22",
+      "done_datetime": "2024/04/22 10:34:42",
+      "todo_date": "2024/04/18",
+      "todo_datetime": "2024/04/18 14:55:22",
+      "content": "配合测试，bug修复完成",
+      "id": "4d9b9a37-28d1-4afe-9451-f5af66402323"
+    },
+    {
+      "done_date": "2024/04/22",
+      "done_datetime": "2024/04/22 10:34:42",
+      "todo_date": "2024/04/18",
+      "todo_datetime": "2024/04/18 14:55:16",
+      "content": "新开放平台",
+      "id": "18f141e5-f407-489f-99f8-90b3d09d29c5"
+    },
+    {
+      "done_date": "2024/04/22",
+      "done_datetime": "2024/04/22 10:34:42",
+      "todo_date": "2024/04/18",
+      "todo_datetime": "2024/04/18 14:54:52",
+      "content": "sim卡域配合测试，修复相关bug完成",
+      "id": "28976a77-01b8-4d8d-95b7-af3d47c0b0a0"
+    },
+    {
+      "done_date": "2024/04/22",
+      "done_datetime": "2024/04/22 10:34:42",
+      "todo_date": "2024/04/18",
+      "todo_datetime": "2024/04/18 14:54:44",
+      "content": "连接平台",
+      "id": "6a43a9a8-190e-49b0-adeb-a1bcc25923b4"
+    },
+    {
+      "done_date": "2024/04/22",
+      "done_datetime": "2024/04/22 10:34:42",
+      "todo_date": "2024/04/18",
+      "todo_datetime": "2024/04/18 14:54:39",
+      "content": "本周工作内容（40）",
+      "id": "51f1aa18-29af-4eea-b82b-ad8657b52b75"
+    },
+    {
+      "done_date": "2024/04/30",
+      "done_datetime": "2024/04/30 09:06:35",
+      "todo_date": "2024/04/24",
+      "todo_datetime": "2024/04/24 18:04:06",
+      "content": "v2.2版本需求评审，部分场景用例确认",
+      "id": "97fc2639-af3b-4f51-86ef-5f59edfec91d"
+    },
+    {
+      "done_date": "2024/04/30",
+      "done_datetime": "2024/04/30 09:06:35",
+      "todo_date": "2024/04/28",
+      "todo_datetime": "2024/04/28 16:39:45",
+      "content": "线上bug修复完成",
+      "id": "fb0fe288-4895-4c82-86e5-df26e3391777"
+    },
+    {
+      "done_date": "2024/04/30",
+      "done_datetime": "2024/04/30 09:06:35",
+      "todo_date": "2024/04/28",
+      "todo_datetime": "2024/04/28 16:38:05",
+      "content": "v2.1和v2.0版本sim卡域，接收服务，网关服务，中亚，俄罗斯环境上线完成",
+      "id": "6a165efa-7eb9-41c0-9b70-15362c0116ca"
+    },
+    {
+      "done_date": "2024/04/30",
+      "done_datetime": "2024/04/30 09:06:35",
+      "todo_date": "2024/04/24",
+      "todo_datetime": "2024/04/24 18:04:20",
+      "content": "对sim卡域服务代码进行重构优化",
+      "id": "b47c03b2-1887-4d20-bf62-6678e62922b3"
+    },
+    {
+      "done_date": "2024/04/30",
+      "done_datetime": "2024/04/30 09:06:35",
+      "todo_date": "2024/04/24",
+      "todo_datetime": "2024/04/24 18:03:32",
+      "content": "v2.0和v2.1版本配合测试联调，bug修复完成",
+      "id": "0f3ea42b-1d58-4da6-abbb-af24ba5723be"
+    },
+    {
+      "done_date": "2024/04/30",
+      "done_datetime": "2024/04/30 09:06:35",
+      "todo_date": "2024/04/24",
+      "todo_datetime": "2024/04/24 18:03:21",
+      "content": "连接平台",
+      "id": "834bcc8b-64e0-4e45-b5f5-e1ee06c6f960"
+    },
+    {
+      "done_date": "2024/04/30",
+      "done_datetime": "2024/04/30 09:06:35",
+      "todo_date": "2024/04/24",
+      "todo_datetime": "2024/04/24 18:03:16",
+      "content": "本周工作",
+      "id": "9140c487-1768-4247-8eb5-6a6a0cfc244e"
+    },
+    {
+      "done_date": "2024/04/30",
+      "done_datetime": "2024/04/30 13:27:05",
+      "todo_date": "2024/04/30",
+      "todo_datetime": "2024/04/30 09:09:03",
+      "content": "新增接口用于查询沃达丰运营商卡的使用流量",
+      "id": "ddaa587f-ec3c-4560-926a-80b4dc755e5b"
+    },
+    {
+      "done_date": "2024/04/30",
+      "done_datetime": "2024/04/30 13:27:05",
+      "todo_date": "2024/04/30",
+      "todo_datetime": "2024/04/30 09:08:53",
+      "content": "开放平台",
+      "id": "164e2c8e-a04a-4c15-a06c-c7c979e568c7"
+    },
+    {
+      "done_date": "2024/04/30",
+      "done_datetime": "2024/04/30 13:27:05",
+      "todo_date": "2024/04/30",
+      "todo_datetime": "2024/04/30 09:07:43",
+      "content": "配合tsp端解决手机短信发送问题",
+      "id": "67cb666b-bb79-4511-afbb-4b2c8ab1f90b"
+    },
+    {
+      "done_date": "2024/04/30",
+      "done_datetime": "2024/04/30 13:27:05",
+      "todo_date": "2024/04/30",
+      "todo_datetime": "2024/04/30 09:07:14",
+      "content": "v2.2版本测试卡流量更新机制需求评审",
+      "id": "e91e5178-0d3e-4f2a-a92a-a7730784dc6b"
+    },
+    {
+      "done_date": "2024/04/30",
+      "done_datetime": "2024/04/30 13:27:05",
+      "todo_date": "2024/04/30",
+      "todo_datetime": "2024/04/30 09:07:03",
+      "content": "sim卡域代码优化调整",
+      "id": "fa8ac1e9-e226-4c5e-9237-1c5f89d8db5b"
+    },
+    {
+      "done_date": "2024/04/30",
+      "done_datetime": "2024/04/30 13:27:05",
+      "todo_date": "2024/04/30",
+      "todo_datetime": "2024/04/30 09:06:55",
+      "content": "连接平台",
+      "id": "976326fe-0491-4e72-88bb-89de06fa2ea6"
+    },
+    {
+      "done_date": "2024/04/30",
+      "done_datetime": "2024/04/30 13:27:05",
+      "todo_date": "2024/04/30",
+      "todo_datetime": "2024/04/30 09:06:37",
+      "content": "本周周报内容（16）",
+      "id": "a9d31431-aaec-4614-82a8-0418ea56844e"
+    },
+    {
+      "done_date": "2024/05/15",
+      "done_datetime": "2024/05/15 16:13:16",
+      "todo_date": "2024/05/10",
+      "todo_datetime": "2024/05/10 14:05:59",
+      "content": "沙特pre和prod环境上线完成",
+      "id": "18b13a44-ab3d-44ab-b1ba-9eabb99eb4ed"
+    },
+    {
+      "done_date": "2024/05/15",
+      "done_datetime": "2024/05/15 16:13:16",
+      "todo_date": "2024/05/09",
+      "todo_datetime": "2024/05/09 17:10:20",
+      "content": "v2.2版本中sim卡域开发进度完成70%",
+      "id": "10906b6f-86bf-4b0b-84ec-68a3f28eccad"
+    },
+    {
+      "done_date": "2024/05/15",
+      "done_datetime": "2024/05/15 16:13:16",
+      "todo_date": "2024/05/09",
+      "todo_datetime": "2024/05/09 17:09:40",
+      "content": "v2.2版本sim卡域产品需求评审完成",
+      "id": "a8e682ff-bd77-42e8-8899-72cd37b7bea8"
+    },
+    {
+      "done_date": "2024/05/15",
+      "done_datetime": "2024/05/15 16:13:16",
+      "todo_date": "2024/05/07",
+      "todo_datetime": "2024/05/07 14:05:46",
+      "content": "换绑卡，老卡需要将到期时间设置为当前时间",
+      "id": "c2b38b8a-87a3-45cc-8232-0e800ea7869e"
+    },
+    {
+      "done_date": "2024/05/15",
+      "done_datetime": "2024/05/15 16:13:16",
+      "todo_date": "2024/05/07",
+      "todo_datetime": "2024/05/07 14:05:21",
+      "content": "SIM卡域过结账日停卡需清空流量上限",
+      "id": "24602717-0011-40fc-adbe-2f8e56e2b5cb"
+    },
+    {
+      "done_date": "2024/05/15",
+      "done_datetime": "2024/05/15 16:13:16",
+      "todo_date": "2024/05/07",
+      "todo_datetime": "2024/05/07 14:05:16",
+      "content": "连接平台",
+      "id": "06bcb475-0aa1-46a8-89b2-35e2157493b1"
+    },
+    {
+      "done_date": "2024/05/15",
+      "done_datetime": "2024/05/15 16:13:16",
+      "todo_date": "2024/05/07",
+      "todo_datetime": "2024/05/07 14:05:11",
+      "content": "本周工作日志(48)",
+      "id": "70da32c0-44ef-497d-afa2-8d4e45e21d11"
+    },
+    {
+      "done_date": "2024/05/20",
+      "done_datetime": "2024/05/20 17:28:16",
+      "todo_date": "2024/05/15",
+      "todo_datetime": "2024/05/15 16:16:56",
+      "content": "按照公司管理要求，实习生实习期学习考评指标指定完成。",
+      "id": "aae65305-7425-4cea-ae00-9a84a49ba812"
+    },
+    {
+      "done_date": "2024/05/20",
+      "done_datetime": "2024/05/20 17:28:16",
+      "todo_date": "2024/05/15",
+      "todo_datetime": "2024/05/15 16:16:18",
+      "content": "实习生学习计划指定完成，并已分配学习任务。",
+      "id": "81a3a1ed-2709-47c7-9f31-369a3a97f442"
+    },
+    {
+      "done_date": "2024/05/20",
+      "done_datetime": "2024/05/20 17:28:16",
+      "todo_date": "2024/05/15",
+      "todo_datetime": "2024/05/15 16:16:05",
+      "content": "实习生培养",
+      "id": "ca1bd96d-9fbc-4990-bb1c-6b4ecd17a060"
+    },
+    {
+      "done_date": "2024/05/20",
+      "done_datetime": "2024/05/20 17:28:16",
+      "todo_date": "2024/05/15",
+      "todo_datetime": "2024/05/15 16:15:22",
+      "content": "v2.1版本中物联网短信，发送状态调整完成。",
+      "id": "e0dee8aa-b568-44ce-9dd9-8b24ce55d64c"
+    },
+    {
+      "done_date": "2024/05/20",
+      "done_datetime": "2024/05/20 17:28:16",
+      "todo_date": "2024/05/15",
+      "todo_datetime": "2024/05/15 16:14:04",
+      "content": "v2.1版本中测试卡流量超套清空流量处理完成，并各个生产环境已补丁上线。",
+      "id": "072470fe-5140-45a5-be66-c741e4b491c4"
+    },
+    {
+      "done_date": "2024/05/20",
+      "done_datetime": "2024/05/20 17:28:16",
+      "todo_date": "2024/05/15",
+      "todo_datetime": "2024/05/15 16:13:50",
+      "content": "俄罗斯pre和生产环境上线完成。",
+      "id": "98eb31ac-8038-4ea6-a30c-c89033244d54"
+    },
+    {
+      "done_date": "2024/05/20",
+      "done_datetime": "2024/05/20 17:28:16",
+      "todo_date": "2024/05/15",
+      "todo_datetime": "2024/05/15 16:13:33",
+      "content": "v2.2版本开发内容，全部开发完成。",
+      "id": "67154c42-f85c-4891-870e-079a023580a4"
+    },
+    {
+      "done_date": "2024/05/20",
+      "done_datetime": "2024/05/20 17:28:16",
+      "todo_date": "2024/05/15",
+      "todo_datetime": "2024/05/15 16:13:21",
+      "content": "simk卡连接平台",
+      "id": "dcd4b1e7-f308-4ea8-b78e-be4de6b5c319"
+    },
+    {
+      "done_date": "2024/05/20",
+      "done_datetime": "2024/05/20 17:28:16",
+      "todo_date": "2024/05/15",
+      "todo_datetime": "2024/05/15 16:13:17",
+      "content": "本周工作（40）",
+      "id": "0613af03-ed39-4db8-a703-f0afc45f1d56"
+    },
+    {
+      "done_date": "2024/05/27",
+      "done_datetime": "2024/05/27 09:10:50",
+      "todo_date": "2024/05/24",
+      "todo_datetime": "2024/05/24 14:41:12",
+      "content": "cpm2.2版本中，连接平台，开放平台开发内容已提测，推送平台因第三方接口问题还未满足提测条件",
+      "id": "ccd2512b-3843-4829-aae3-95ee1c0aa163"
+    },
+    {
+      "done_date": "2024/05/27",
+      "done_datetime": "2024/05/27 09:10:50",
+      "todo_date": "2024/05/20",
+      "todo_datetime": "2024/05/20 17:29:06",
+      "content": "cmp2.2版本开发任务完成100%",
+      "id": "3da2bc11-c2cb-49e8-bc09-88d03cca587e"
+    },
+    {
+      "done_date": "2024/05/27",
+      "done_datetime": "2024/05/27 09:10:50",
+      "todo_date": "2024/05/20",
+      "todo_datetime": "2024/05/20 17:28:50",
+      "content": "cmp2.2版本开发内容排期和任务分配完成",
+      "id": "07e22826-665e-4d91-bbf8-e13b03a4ff8a"
+    },
+    {
+      "done_date": "2024/05/27",
+      "done_datetime": "2024/05/27 09:10:50",
+      "todo_date": "2024/05/20",
+      "todo_datetime": "2024/05/20 17:28:30",
+      "content": "cmp2.2版本添加需求评审完成",
+      "id": "2ceaf1c6-948c-4c9a-871c-5cf12ead68fa"
+    },
+    {
+      "done_date": "2024/05/27",
+      "done_datetime": "2024/05/27 09:10:50",
+      "todo_date": "2024/05/20",
+      "todo_datetime": "2024/05/20 17:28:20",
+      "content": "本周工作内容(40)",
+      "id": "3ae2b42d-a4df-4bfc-8c78-9cb95ed2a778"
+    },
+    {
+      "done_date": "2024/05/31",
+      "done_datetime": "2024/05/31 11:24:34",
+      "todo_date": "2024/05/30",
+      "todo_datetime": "2024/05/30 15:51:02",
+      "content": "修复cmp2.2版本测试中出现的bug，修复率100%",
+      "id": "b02bc1d7-7c25-4957-acda-e2553f9d55fa"
+    },
+    {
+      "done_date": "2024/05/31",
+      "done_datetime": "2024/05/31 11:24:34",
+      "todo_date": "2024/05/27",
+      "todo_datetime": "2024/05/27 17:29:53",
+      "content": "沙特环境结账日错误，问题排查，处理完毕",
+      "id": "bc5b8ddf-9b52-490c-97eb-3aaae9ba4052"
+    },
+    {
+      "done_date": "2024/05/31",
+      "done_datetime": "2024/05/31 11:24:34",
+      "todo_date": "2024/05/27",
+      "todo_datetime": "2024/05/27 17:28:56",
+      "content": "cmp后台管理中租户应用列表停用的应用不展示bug修复",
+      "id": "f3ed81fa-0ae5-499c-8bcb-8e2a64a77cb7"
+    },
+    {
+      "done_date": "2024/05/31",
+      "done_datetime": "2024/05/31 11:24:34",
+      "todo_date": "2024/05/27",
+      "todo_datetime": "2024/05/27 17:18:54",
+      "content": "cpm2.2版本内容已经全部提测",
+      "id": "c2f351fe-3746-4067-b8dc-ef10dfe1634e"
+    },
+    {
+      "done_date": "2024/05/31",
+      "done_datetime": "2024/05/31 11:24:34",
+      "todo_date": "2024/05/27",
+      "todo_datetime": "2024/05/27 17:19:44",
+      "content": "本周工作内容（40）",
+      "id": "d1d363db-408a-4c22-af5d-982fd3ccd203"
+    },
+    {
+      "done_date": "2024/06/07",
+      "done_datetime": "2024/06/07 18:29:35",
+      "todo_date": "2024/06/06",
+      "todo_datetime": "2024/06/06 09:48:56",
+      "content": "小组内相关模块代码，文档，研发流程已经同步至实习生。已安排短信和支付迁移中与前端对接工作。",
+      "id": "b30e5457-9cdc-41fc-9c02-445384edd56f"
+    },
+    {
+      "done_date": "2024/06/07",
+      "done_datetime": "2024/06/07 18:29:35",
+      "todo_date": "2024/06/06",
+      "todo_datetime": "2024/06/06 09:48:13",
+      "content": "实习生二阶段学习心得分享，redis,mysql,rabbitmq实操等任务完成。",
+      "id": "777fd8ce-ef3c-49cc-bca9-0b602429b521"
+    },
+    {
+      "done_date": "2024/06/07",
+      "done_datetime": "2024/06/07 18:29:35",
+      "todo_date": "2024/06/07",
+      "todo_datetime": "2024/06/07 15:58:51",
+      "content": "实习生管理",
+      "id": "d2bb4ff7-4ba8-4e38-863a-53b8d4044a02"
+    },
+    {
+      "done_date": "2024/06/07",
+      "done_datetime": "2024/06/07 18:29:35",
+      "todo_date": "2024/06/06",
+      "todo_datetime": "2024/06/06 09:47:12",
+      "content": "cpm2.2版本内容上线完成，基本无线上bug。",
+      "id": "c14b8bc1-4d76-4789-b78c-3664ac7df222"
+    },
+    {
+      "done_date": "2024/06/07",
+      "done_datetime": "2024/06/07 18:29:35",
+      "todo_date": "2024/06/03",
+      "todo_datetime": "2024/06/03 15:34:36",
+      "content": "cpm2.3版本需求梳理和评审完毕，工作任务分配排期完成。",
+      "id": "645e6d39-cd3b-4ee1-9706-4da0417568c4"
+    },
+    {
+      "done_date": "2024/06/07",
+      "done_datetime": "2024/06/07 18:29:35",
+      "todo_date": "2024/06/07",
+      "todo_datetime": "2024/06/07 15:58:38",
+      "content": "cpm版本迭代",
+      "id": "066603e2-b4fd-4d24-a6d6-ffb2acb2bf41"
+    },
+    {
+      "done_date": "2024/06/07",
+      "done_datetime": "2024/06/07 18:29:35",
+      "todo_date": "2024/06/03",
+      "todo_datetime": "2024/06/03 10:50:01",
+      "content": "日常巡检卡域异常情况的梳理以及sql准备完成。下周正式开始每天巡检汇报。",
+      "id": "2fefc188-64de-42eb-b2e8-1e989c2b42ef"
+    },
+    {
+      "done_date": "2024/06/07",
+      "done_datetime": "2024/06/07 18:29:35",
+      "todo_date": "2024/06/07",
+      "todo_datetime": "2024/06/07 15:58:18",
+      "content": "日常巡检工作",
+      "id": "da73b3fc-d43b-4bec-a557-65937d25e127"
+    },
+    {
+      "done_date": "2024/06/07",
+      "done_datetime": "2024/06/07 18:29:35",
+      "todo_date": "2024/06/03",
+      "todo_datetime": "2024/06/03 10:49:54",
+      "content": "本周工作内容（40）",
+      "id": "6386197f-8480-49e2-9538-6fcc9ab5cc2f"
+    },
+    {
+      "done_date": "2024/06/15",
+      "done_datetime": "2024/06/15 18:10:21",
+      "todo_date": "2024/06/14",
+      "todo_datetime": "2024/06/14 10:09:38",
+      "content": "2.3迭代版本，sim卡域换绑流程重构开发",
+      "id": "86f2bc8e-e587-43bc-a331-2f2b74f97b5e"
+    },
+    {
+      "done_date": "2024/06/15",
+      "done_datetime": "2024/06/15 18:10:21",
+      "todo_date": "2024/06/14",
+      "todo_datetime": "2024/06/14 10:08:25",
+      "content": "2.3版本，短信服务相关内容开发，日志输出格式和级别调整完成",
+      "id": "da615da4-36a9-4d0e-bb3f-57c6c1ad9f93"
+    },
+    {
+      "done_date": "2024/06/15",
+      "done_datetime": "2024/06/15 18:10:21",
+      "todo_date": "2024/06/12",
+      "todo_datetime": "2024/06/12 16:27:41",
+      "content": "生产环境SIM卡服务、网关服务错误日志警告根因分析，代码优化，日志级别调整完成。",
+      "id": "e72563de-94f5-42ca-8727-115bf3541cf9"
+    },
+    {
+      "done_date": "2024/06/15",
+      "done_datetime": "2024/06/15 18:10:21",
+      "todo_date": "2024/06/12",
+      "todo_datetime": "2024/06/12 16:27:14",
+      "content": "ones 项目管理系统学习",
+      "id": "ba3ed7e9-58f2-4526-bb48-296e4baa25b5"
+    },
+    {
+      "done_date": "2024/06/15",
+      "done_datetime": "2024/06/15 18:10:21",
+      "todo_date": "2024/06/12",
+      "todo_datetime": "2024/06/12 16:26:37",
+      "content": "cpm2.3版本开发任务分配完成，负责开发功能已完成",
+      "id": "c49fa844-860f-4d0f-89f6-4adcf7649d40"
+    },
+    {
+      "done_date": "2024/06/15",
+      "done_datetime": "2024/06/15 18:10:21",
+      "todo_date": "2024/06/12",
+      "todo_datetime": "2024/06/12 16:26:32",
+      "content": "本周工作内容32",
+      "id": "27d5ca4d-9231-46f8-b2b3-cef33cd2b7ee"
+    },
+    {
+      "done_date": "2024/06/21",
+      "done_datetime": "2024/06/21 18:17:30",
+      "todo_date": "2024/06/21",
+      "todo_datetime": "2024/06/21 18:06:11",
+      "content": "cmp2.3版本中负责功能中bug修复完成",
+      "id": "83765f87-4bca-41db-80da-076b96da3f0c"
+    },
+    {
+      "done_date": "2024/06/21",
+      "done_datetime": "2024/06/21 18:17:30",
+      "todo_date": "2024/06/21",
+      "todo_datetime": "2024/06/21 18:06:49",
+      "content": "cmp3.0版本中sim域重构需求讨论，完成初步定型",
+      "id": "f63f8542-96ec-4e48-9e48-42a5f7d34554"
+    },
+    {
+      "done_date": "2024/06/21",
+      "done_datetime": "2024/06/21 18:17:30",
+      "todo_date": "2024/06/21",
+      "todo_datetime": "2024/06/21 18:07:58",
+      "content": "实习生短信域业务和技术培训，bug修复和工作流程指导",
+      "id": "d436905e-7908-4420-869e-e894dc0b0157"
+    },
+    {
+      "done_date": "2024/06/21",
+      "done_datetime": "2024/06/21 18:17:30",
+      "todo_date": "2024/06/19",
+      "todo_datetime": "2024/06/19 13:01:48",
+      "content": "cpm2.3迭代版本中所有内容提测完成",
+      "id": "c320650f-471b-48d3-85b7-2ad06e77cc3a"
+    },
+    {
+      "done_date": "2024/06/21",
+      "done_datetime": "2024/06/21 18:17:30",
+      "todo_date": "2024/06/15",
+      "todo_datetime": "2024/06/15 19:08:27",
+      "content": "2.3迭代版本中开发任务完成",
+      "id": "e098943f-5159-45e5-9104-88b5d2747ca0"
+    },
+    {
+      "done_date": "2024/06/21",
+      "done_datetime": "2024/06/21 18:17:30",
+      "todo_date": "2024/06/15",
+      "todo_datetime": "2024/06/15 18:11:15",
+      "content": "本周工作内容(40\n)",
+      "id": "24d92dc6-dcae-41ca-8c16-8c63adedab99"
+    },
+    {
+      "todo_date": "2024/06/22",
+      "todo_datetime": "2024/06/22 12:06:00",
+      "content": "本周工作内容（40\n）",
+      "done_date": "2024/07/01",
+      "done_datetime": "2024/07/01 08:57:27",
+      "id": "fecf8217-d516-46a0-999e-66209e5078d8"
+    },
+    {
+      "todo_date": "2024/06/24",
+      "todo_datetime": "2024/06/24 10:58:48",
+      "content": "cpm2.3中bug修复进度管理，所有bug修复完成",
+      "done_date": "2024/07/01",
+      "done_datetime": "2024/07/01 08:57:27",
+      "id": "12394e3b-f5b8-47ea-9de6-fa289948c8cc"
+    },
+    {
+      "todo_date": "2024/06/26",
+      "todo_datetime": "2024/06/26 13:54:41",
+      "content": "cmp2.3迭代版本测试完成，发布前准备工作（sql,服务）完成\n",
+      "done_date": "2024/07/01",
+      "done_datetime": "2024/07/01 08:57:27",
+      "id": "c672a751-adf3-4f80-9b0e-6a1ed8a84d86"
+    },
+    {
+      "todo_date": "2024/06/26",
+      "todo_datetime": "2024/06/26 13:54:59",
+      "content": "cmp3.0版本重构连接平台需求，业务学习，讨论。",
+      "done_date": "2024/07/01",
+      "done_datetime": "2024/07/01 08:57:27",
+      "id": "c369f8e8-ed14-43fb-b48b-e338b06b5515"
+    },
+    {
+      "todo_date": "2024/06/27",
+      "todo_datetime": "2024/06/27 15:41:03",
+      "content": "gengine规则引擎学习",
+      "done_date": "2024/07/01",
+      "done_datetime": "2024/07/01 08:57:27",
+      "id": "2b8d4f93-c4d7-4a2a-a50c-1fcef4e296f9"
+    },
+    {
+      "todo_date": "2024/07/02",
+      "todo_datetime": "2024/07/02 10:04:53",
+      "content": "本周工作内容(40)",
+      "done_date": "2024/07/06",
+      "done_datetime": "2024/07/06 10:19:03",
+      "id": "4a224bed-47a2-4c7c-8506-deb559dda29e"
+    },
+    {
+      "todo_date": "2024/07/03",
+      "todo_datetime": "2024/07/03 14:52:45",
+      "content": "cmp2.3版本",
+      "done_date": "2024/07/06",
+      "done_datetime": "2024/07/06 10:19:03",
+      "id": "5060cf2f-ced8-4297-aa84-80ca7426522f"
+    },
+    {
+      "todo_date": "2024/07/03",
+      "todo_datetime": "2024/07/03 14:51:04",
+      "content": "cmp2.3迭代版本在uat、各国家pre,prod环境上线完成",
+      "done_date": "2024/07/06",
+      "done_datetime": "2024/07/06 10:19:03",
+      "id": "e0e77b3e-2702-4a04-b232-db354ac71dec"
+    },
+    {
+      "todo_date": "2024/07/03",
+      "todo_datetime": "2024/07/03 14:52:58",
+      "content": "cmp3.0版本",
+      "done_date": "2024/07/06",
+      "done_datetime": "2024/07/06 10:19:03",
+      "id": "4b36437a-4dce-4434-afe8-9d4faf333d24"
+    },
+    {
+      "todo_date": "2024/07/02",
+      "todo_datetime": "2024/07/02 10:05:03",
+      "content": "与产品经理过cmp3.0重构用例，讨论相关用例场景",
+      "done_date": "2024/07/06",
+      "done_datetime": "2024/07/06 10:19:03",
+      "id": "3b90034d-21f7-4dae-8bc0-13f3c2bb5291"
+    },
+    {
+      "todo_date": "2024/07/02",
+      "todo_datetime": "2024/07/02 10:07:03",
+      "content": "cmp3.0重构版本根据用例进行架构和详细设计",
+      "done_date": "2024/07/06",
+      "done_datetime": "2024/07/06 10:19:03",
+      "id": "9279589e-2653-427a-ae69-34a8341be577"
+    },
+    {
+      "todo_date": "2024/07/02",
+      "todo_datetime": "2024/07/02 10:06:35",
+      "content": "规则引擎服务基础框架服务的搭建完成",
+      "done_date": "2024/07/06",
+      "done_datetime": "2024/07/06 10:19:03",
+      "id": "d3d8a8d9-e7ef-4a43-96e0-11e1fad04eb7"
+    },
+    {
+      "todo_date": "2024/07/11",
+      "todo_datetime": "2024/07/11 15:35:22",
+      "content": "本周工作内容：40",
+      "done_date": "2024/07/15",
+      "done_datetime": "2024/07/15 08:56:28",
+      "id": "30d1e88e-7f2e-4bd8-8f59-afb325e22aa6"
+    },
+    {
+      "todo_date": "2024/07/11",
+      "todo_datetime": "2024/07/11 15:35:30",
+      "content": "cmp2.4迭代版本与产品经理和组内同事讨论产品用例",
+      "done_date": "2024/07/15",
+      "done_datetime": "2024/07/15 08:56:28",
+      "id": "cc8a3a9d-5e47-4d33-afb5-99c7cee3422b"
+    },
+    {
+      "todo_date": "2024/07/11",
+      "todo_datetime": "2024/07/11 15:36:09",
+      "content": "cmp2.4迭代版本相关功能设计和设计实现讨论",
+      "done_date": "2024/07/15",
+      "done_datetime": "2024/07/15 08:56:28",
+      "id": "bec7791a-ea74-42f5-b4d3-1dcbb19f6151"
+    },
+    {
+      "todo_date": "2024/07/11",
+      "todo_datetime": "2024/07/11 15:36:29",
+      "content": "cmp2.4迭代版本研发设计组内研发同事同步",
+      "done_date": "2024/07/15",
+      "done_datetime": "2024/07/15 08:56:28",
+      "id": "e1f6413f-8d84-46cc-b8c8-0ef80fc5b05f"
+    },
+    {
+      "todo_date": "2024/07/11",
+      "todo_datetime": "2024/07/11 15:36:54",
+      "content": "公共规则部分和sim模型设计建立完成，数据库表相关调整完成\n",
+      "done_date": "2024/07/15",
+      "done_datetime": "2024/07/15 08:56:28",
+      "id": "3eb46347-9b34-4cec-ab87-0df63d3b8a73"
+    },
+    {
+      "todo_date": "2024/07/12",
+      "todo_datetime": "2024/07/12 13:50:49",
+      "content": "cmp2.4迭代版本开发任务分配和排期完毕",
+      "done_date": "2024/07/15",
+      "done_datetime": "2024/07/15 08:56:28",
+      "id": "5334cb71-9603-4e61-ba6c-6117d4263d91"
+    },
+    {
+      "todo_date": "2024/07/16",
+      "todo_datetime": "2024/07/16 10:19:53",
+      "content": "本周工作40",
+      "done_date": "2024/07/19",
+      "done_datetime": "2024/07/19 17:30:18",
+      "id": "32f9ae55-6317-4d3e-90cf-949409836684"
+    },
+    {
+      "todo_date": "2024/07/16",
+      "todo_datetime": "2024/07/16 10:20:02",
+      "content": "cmp2.4开发，结账日开发代码部分完成",
+      "done_date": "2024/07/19",
+      "done_datetime": "2024/07/19 17:30:18",
+      "id": "c67d6d44-af15-4455-bf78-3428b58ad21d"
+    },
+    {
+      "todo_date": "2024/07/16",
+      "todo_datetime": "2024/07/16 10:20:20",
+      "content": "接收平台添加接口鉴权支持，oatuh2,basic方式",
+      "done_date": "2024/07/19",
+      "done_datetime": "2024/07/19 17:30:18",
+      "id": "71eeb424-2518-4850-9b43-03988e7c282c"
+    },
+    {
+      "todo_date": "2024/07/17",
+      "todo_datetime": "2024/07/17 09:43:33",
+      "content": "短信异步回调与同步结果同时返回导致bug解决，异步回调处理逻辑优化",
+      "done_date": "2024/07/19",
+      "done_datetime": "2024/07/19 17:30:18",
+      "id": "d8c4dde5-e458-4d6c-80d1-3252c766b497"
+    },
+    {
+      "todo_date": "2024/07/19",
+      "todo_datetime": "2024/07/19 11:01:41",
+      "content": "cmp2.4开发，通信计划获取规则，流量计算规则部分编码完成\n",
+      "done_date": "2024/07/19",
+      "done_datetime": "2024/07/19 17:30:18",
+      "id": "5503d121-e66c-43f8-b383-2f67f88f9e4d"
+    },
+    {
+      "todo_date": "2024/07/19",
+      "todo_datetime": "2024/07/19 17:23:47",
+      "content": "cmp2.4迭代版本中开发任务完成度70%",
+      "done_date": "2024/07/19",
+      "done_datetime": "2024/07/19 17:30:18",
+      "id": "c0461a2e-dd6e-402c-a5d5-0c5ce34e6f51"
+    },
+    {
+      "todo_date": "2024/07/22",
+      "todo_datetime": "2024/07/22 09:30:27",
+      "content": "本周工作内容(40)",
+      "done_date": "2024/07/28",
+      "done_datetime": "2024/07/28 11:31:14",
+      "id": "5dde4ebe-2aac-432d-ba84-ee4091bafd92"
+    },
+    {
+      "todo_date": "2024/07/22",
+      "todo_datetime": "2024/07/22 14:38:05",
+      "content": "接收平台添加oatuh2方式鉴权，获取token功能完成，vdf推送9个接口已完成提测",
+      "done_date": "2024/07/28",
+      "done_datetime": "2024/07/28 11:31:14",
+      "id": "57cb00a1-9057-41aa-9825-1f3933d99f44"
+    },
+    {
+      "todo_date": "2024/07/25",
+      "todo_datetime": "2024/07/25 10:20:09",
+      "content": "cmp2.3结账日相关功能开发和自测完成。",
+      "done_date": "2024/07/28",
+      "done_datetime": "2024/07/28 11:31:14",
+      "id": "933ff6a5-5301-4ff4-a1e2-5067bcc67341"
+    },
+    {
+      "todo_date": "2024/07/25",
+      "todo_datetime": "2024/07/25 10:20:33",
+      "content": "cmp2.3中测试卡池和测试卡到期功能开发，公共部分模型能力优化。",
+      "done_date": "2024/07/28",
+      "done_datetime": "2024/07/28 11:31:14",
+      "id": "3f049dad-116f-49e7-be79-dfd9e678822a"
+    },
+    {
+      "todo_date": "2024/07/25",
+      "todo_datetime": "2024/07/25 10:33:36",
+      "content": "cmp2.3组织安排资费计划和通信计划中运营商层面的计划调整完成",
+      "done_date": "2024/07/28",
+      "done_datetime": "2024/07/28 11:31:14",
+      "id": "1fa5aed1-ec74-4126-a78f-872ab6bd973e"
+    },
+    {
+      "todo_date": "2024/07/26",
+      "todo_datetime": "2024/07/26 16:02:53",
+      "content": "cmp2.3迭代版本整体功能开发完成，功能联调测试通过，提测相关脚本，代码，配置文件准备。",
+      "done_date": "2024/07/28",
+      "done_datetime": "2024/07/28 11:31:14",
+      "id": "ef889924-4d68-4444-9fe5-ffef9fd9a3d4"
+    },
+    {
+      "todo_date": "2024/07/22",
+      "todo_datetime": "2024/07/22 09:30:27",
+      "content": "本周工作内容(40)",
+      "done_date": "2024/07/29",
+      "done_datetime": "2024/07/29 16:05:45",
+      "id": "e84e3da6-8372-43be-a14d-afc05afc3a19"
+    },
+    {
+      "todo_date": "2024/07/22",
+      "todo_datetime": "2024/07/22 14:38:05",
+      "content": "接收平台添加oatuh2方式鉴权，获取token功能完成，vdf推送9个接口已完成提测",
+      "done_date": "2024/07/29",
+      "done_datetime": "2024/07/29 16:05:45",
+      "id": "f51beea9-0249-4155-bb62-e8b8b9f7be54"
+    },
+    {
+      "todo_date": "2024/07/25",
+      "todo_datetime": "2024/07/25 10:20:09",
+      "content": "cmp2.3结账日相关功能开发和自测完成。",
+      "done_date": "2024/07/29",
+      "done_datetime": "2024/07/29 16:05:45",
+      "id": "594d2dd7-730b-46d9-a3ed-948a1a6e5109"
+    },
+    {
+      "todo_date": "2024/07/25",
+      "todo_datetime": "2024/07/25 10:20:33",
+      "content": "cmp2.3中测试卡池和测试卡到期功能开发，公共部分模型能力优化。",
+      "done_date": "2024/07/29",
+      "done_datetime": "2024/07/29 16:05:45",
+      "id": "1a1d5c7d-42fa-4d9e-9d64-b5dc3fab3bc2"
+    },
+    {
+      "todo_date": "2024/07/25",
+      "todo_datetime": "2024/07/25 10:33:36",
+      "content": "cmp2.3组织安排资费计划和通信计划中运营商层面的计划调整完成",
+      "done_date": "2024/07/29",
+      "done_datetime": "2024/07/29 16:05:45",
+      "id": "16f4cbb9-d44a-41d7-89ac-ebea6e88cd86"
+    },
+    {
+      "todo_date": "2024/07/26",
+      "todo_datetime": "2024/07/26 16:02:53",
+      "content": "cmp2.3迭代版本整体功能开发完成，功能联调测试通过，提测相关脚本，代码，配置文件准备。",
+      "done_date": "2024/07/29",
+      "done_datetime": "2024/07/29 16:05:45",
+      "id": "2d37c611-d19a-4cac-a968-59f074ee478d"
+    },
+    {
+      "todo_date": "2024/07/29",
+      "todo_datetime": "2024/07/29 16:05:47",
+      "content": "本周工作(40)",
+      "done_date": "2024/08/03",
+      "done_datetime": "2024/08/03 09:19:35",
+      "id": "0bd9e524-641e-407e-86c4-b6bc3f467e66"
+    },
+    {
+      "todo_date": "2024/07/29",
+      "todo_datetime": "2024/07/29 16:05:54",
+      "content": "cmp2.4版本开发功能提测完毕，sim卡全部功能主流程全部通过",
+      "done_date": "2024/08/03",
+      "done_datetime": "2024/08/03 09:19:35",
+      "id": "9fb4ac94-ccce-4654-a113-6d6fc7222d85"
+    },
+    {
+      "todo_date": "2024/07/29",
+      "todo_datetime": "2024/07/29 16:06:12",
+      "content": "短信平台发送短信记录中短信内容模板参数未替换bug修复完成",
+      "done_date": "2024/08/03",
+      "done_datetime": "2024/08/03 09:19:35",
+      "id": "b46e23a8-03d9-4252-92f9-15e52d58c7cb"
+    },
+    {
+      "todo_date": "2024/07/29",
+      "todo_datetime": "2024/07/29 16:06:30",
+      "content": "中亚部署sql脚本准备提供测试完毕\n",
+      "done_date": "2024/08/03",
+      "done_datetime": "2024/08/03 09:19:35",
+      "id": "cc89bdac-98cf-434a-8597-01141b3c6fa1"
+    },
+    {
+      "todo_date": "2024/08/03",
+      "todo_datetime": "2024/08/03 09:08:42",
+      "content": "cmp2.4迭代版本提测功能部分缺陷修复率100%。",
+      "done_date": "2024/08/03",
+      "done_datetime": "2024/08/03 09:19:35",
+      "id": "8609cc7d-1e83-4298-aeb7-4bfd71e44877"
+    },
+    {
+      "todo_date": "2024/08/03",
+      "todo_datetime": "2024/08/03 09:09:40",
+      "content": "sim卡单元测试模块基础完成，换卡，计算流量用量用例完成",
+      "done_date": "2024/08/03",
+      "done_datetime": "2024/08/03 09:19:35",
+      "id": "3946c798-654f-4f5f-ab2e-648f1efebaa5"
+    },
+    {
+      "todo_date": "2024/08/05",
+      "todo_datetime": "2024/08/05 08:26:51",
+      "content": "本周工作内容（40\n）",
+      "done_date": "2024/08/12",
+      "done_datetime": "2024/08/12 09:09:20",
+      "id": "67c83558-b2a3-47fc-a36e-420d64dd235f"
+    },
+    {
+      "todo_date": "2024/08/06",
+      "todo_datetime": "2024/08/06 08:47:41",
+      "content": "cmp2.4迭代版本bug修复完成",
+      "done_date": "2024/08/12",
+      "done_datetime": "2024/08/12 09:09:20",
+      "id": "cfda9483-cec3-4448-b8a4-eb4fdbc63f6e"
+    },
+    {
+      "todo_date": "2024/08/06",
+      "todo_datetime": "2024/08/06 08:47:57",
+      "content": "cmp2.4版本单元测试功能添加完成用例\n",
+      "done_date": "2024/08/12",
+      "done_datetime": "2024/08/12 09:09:20",
+      "id": "63d66d95-d2a0-4fac-8b26-de1ab46710c6"
+    },
+    {
+      "todo_date": "2024/08/08",
+      "todo_datetime": "2024/08/08 13:21:13",
+      "content": "俄罗斯环境，SIM卡域重启问题分析,公共组件rabbitmq存在bug修复，目前在uat追踪异常修复情况",
+      "done_date": "2024/08/12",
+      "done_datetime": "2024/08/12 09:09:20",
+      "id": "3ddd076b-ebe3-4b6b-9d04-8d6cbdc80b47"
+    },
+    {
+      "todo_date": "2024/08/09",
+      "todo_datetime": "2024/08/09 11:01:40",
+      "content": "公共组件库多数据源支持开发完成\n",
+      "done_date": "2024/08/12",
+      "done_datetime": "2024/08/12 09:09:20",
+      "id": "9e7edbde-ad07-4d56-9665-23c4f891c0e5"
+    },
+    {
+      "todo_date": "2024/08/09",
+      "todo_datetime": "2024/08/09 11:02:13",
+      "content": "cmp2.5需求评审，项目开发任务分解排期完成，下周进入开发\n",
+      "done_date": "2024/08/12",
+      "done_datetime": "2024/08/12 09:09:20",
+      "id": "9e37e1f0-4dac-4a3c-b992-25130a8a057d"
+    },
+    {
+      "todo_date": "2024/08/12",
+      "todo_datetime": "2024/08/12 09:09:22",
+      "content": "本周工作内容（40）",
+      "done_date": "2024/08/19",
+      "done_datetime": "2024/08/19 10:03:08",
+      "id": "11537d55-79ab-44cf-a08d-8fae8456f03e"
+    },
+    {
+      "todo_date": "2024/08/12",
+      "todo_datetime": "2024/08/12 09:09:29",
+      "content": "cmp2.5迭代版本中sim卡流量更新等级获取规则开发完成。",
+      "done_date": "2024/08/19",
+      "done_datetime": "2024/08/19 10:03:08",
+      "id": "e60f9383-10c3-47b5-b699-43d8503583d0"
+    },
+    {
+      "todo_date": "2024/08/14",
+      "todo_datetime": "2024/08/14 09:09:41",
+      "content": "cmp2.5迭代版本，小组整体开发任务完成70%。",
+      "done_date": "2024/08/19",
+      "done_datetime": "2024/08/19 10:03:08",
+      "id": "cc466150-0327-4159-89db-bbc9f308f2e5"
+    },
+    {
+      "todo_date": "2024/08/14",
+      "todo_datetime": "2024/08/14 09:09:12",
+      "content": "俄罗斯sberpay卡支付对接开发完成80%，回调开发中，支持前端开发联调。",
+      "done_date": "2024/08/19",
+      "done_datetime": "2024/08/19 10:03:08",
+      "id": "fff61d81-2dd3-4857-9cb8-3bc52359f9b4"
+    },
+    {
+      "todo_date": "2024/08/16",
+      "todo_datetime": "2024/08/16 16:59:07",
+      "content": "cmp2.4上线准备和数据迁移相关工作完成。",
+      "done_date": "2024/08/19",
+      "done_datetime": "2024/08/19 10:03:08",
+      "id": "b90a3c84-64ff-4bf6-8b00-08368a0a63ee"
+    },
+    {
+      "todo_date": "2024/08/19",
+      "todo_datetime": "2024/08/19 10:03:10",
+      "content": "本周工作内容（40\n）\n",
+      "done_date": "2024/08/27",
+      "done_datetime": "2024/08/27 13:16:56",
+      "id": "db8dc88f-f8d1-4ccb-ac0e-5ea2e7700290"
+    },
+    {
+      "todo_date": "2024/08/19",
+      "todo_datetime": "2024/08/19 10:03:22",
+      "content": "俄罗斯支付对接完成，与前端对接已具备支付能力，回调接口开发完成。\n",
+      "done_date": "2024/08/27",
+      "done_datetime": "2024/08/27 13:16:56",
+      "id": "ff7cb269-9bdd-48cd-83e8-d20655bc9b0d"
+    },
+    {
+      "todo_date": "2024/08/21",
+      "todo_datetime": "2024/08/21 10:05:55",
+      "content": "cmp2.4迭代版本各个环境上线部署,bug解决\n。",
+      "done_date": "2024/08/27",
+      "done_datetime": "2024/08/27 13:16:56",
+      "id": "e2edac51-14be-4214-a471-e347e3acc21a"
+    },
+    {
+      "todo_date": "2024/08/21",
+      "todo_datetime": "2024/08/21 10:06:32",
+      "content": "cmp2.5迭代版本规划开发任务完成100%，代码review。",
+      "done_date": "2024/08/27",
+      "done_datetime": "2024/08/27 13:16:56",
+      "id": "0a92371b-27db-417c-ace0-4c3600d0f715"
+    },
+    {
+      "todo_date": "2024/08/22",
+      "todo_datetime": "2024/08/22 11:17:44",
+      "content": "日常巡检sql重新整理完毕，下周开始新sql巡检 ",
+      "done_date": "2024/08/27",
+      "done_datetime": "2024/08/27 13:16:56",
+      "id": "51dfcb13-c58f-4f10-8ad1-df3481bfb019"
+    },
+    {
+      "todo_date": "2024/08/27",
+      "todo_datetime": "2024/08/27 13:16:57",
+      "content": "本周工作内容",
+      "done_date": "2024/09/02",
+      "done_datetime": "2024/09/02 14:29:23",
+      "id": "c6c8cdb8-a34e-4135-8766-097052d87bc2"
+    },
+    {
+      "todo_date": "2024/08/27",
+      "todo_datetime": "2024/08/27 13:17:12",
+      "content": "cmp2.5版本开发内容代码review完成，代码持续优化中\n",
+      "done_date": "2024/09/02",
+      "done_datetime": "2024/09/02 14:29:23",
+      "id": "4ab4af4d-5d36-44ab-8476-7d8add9f110f"
+    },
+    {
+      "todo_date": "2024/08/27",
+      "todo_datetime": "2024/08/27 13:17:28",
+      "content": "俄罗斯支付开发，对接前端联调，主流程完成,目前前端逻辑还有小bug需优化\n\n",
+      "done_date": "2024/09/02",
+      "done_datetime": "2024/09/02 14:29:23",
+      "id": "00f4be61-375b-419f-a4eb-8e23c0464193"
+    },
+    {
+      "todo_date": "2024/08/28",
+      "todo_datetime": "2024/08/28 17:54:42",
+      "content": "cmp2.4版本线上bug修复完成，相关环境和数据已修复",
+      "done_date": "2024/09/02",
+      "done_datetime": "2024/09/02 14:29:23",
+      "id": "74516f7a-1e84-4033-b844-21ce02cd3a52"
+    },
+    {
+      "todo_date": "2024/08/30",
+      "todo_datetime": "2024/08/30 15:26:41",
+      "content": "已安排组员了解订单域和资费通信计划服务业务和代码，为接收做准备",
+      "done_date": "2024/09/02",
+      "done_datetime": "2024/09/02 14:29:23",
+      "id": "b5d97d8c-6337-491b-b79c-b984b4a12bf8"
+    },
+    {
+      "todo_date": "2024/09/02",
+      "todo_datetime": "2024/09/02 14:29:31",
+      "content": "本周工作内容（40）",
+      "done_date": "2024/09/06",
+      "done_datetime": "2024/09/06 17:35:59",
+      "id": "ee9da6ea-cb6a-4bf0-9a66-3ba457c441a5"
+    },
+    {
+      "todo_date": "2024/09/02",
+      "todo_datetime": "2024/09/02 14:29:37",
+      "content": "cmp2.5迭代版本内容全部提测，bug修复完成。\n",
+      "done_date": "2024/09/06",
+      "done_datetime": "2024/09/06 17:35:59",
+      "id": "44476a96-bbbd-43b0-be78-d8c0ec135b98"
+    },
+    {
+      "todo_date": "2024/09/02",
+      "todo_datetime": "2024/09/02 14:29:53",
+      "content": "线上生产环境，服务bug修复，数据修复。\n",
+      "done_date": "2024/09/06",
+      "done_datetime": "2024/09/06 17:35:59",
+      "id": "9f5a5f50-b590-4192-9aa7-62c6f1f25b80"
+    },
+    {
+      "todo_date": "2024/09/04",
+      "todo_datetime": "2024/09/04 10:53:16",
+      "content": "cmp2.6迭代版本关于stc补充包使用问题分析和解决方案讨论确定\n",
+      "done_date": "2024/09/06",
+      "done_datetime": "2024/09/06 17:35:59",
+      "id": "355e455e-89bd-412c-a05c-7e77a0e99a35"
+    },
+    {
+      "todo_date": "2024/09/05",
+      "todo_datetime": "2024/09/05 13:15:55",
+      "content": "cmp2.6迭代版本小组开发需求评审，开发任务梳理，拆分，排期完成\n",
+      "done_date": "2024/09/06",
+      "done_datetime": "2024/09/06 17:35:59",
+      "id": "1de72215-6ef4-4049-a7f8-e1752ab1dfda"
+    },
+    {
+      "todo_date": "2024/09/09",
+      "todo_datetime": "2024/09/09 17:02:54",
+      "content": "本周工作内容（48\n）",
+      "done_date": "2024/09/14",
+      "done_datetime": "2024/09/14 17:20:33",
+      "id": "5f780b5e-402e-4117-95cb-98d96c895b3d"
+    },
+    {
+      "todo_date": "2024/09/09",
+      "todo_datetime": "2024/09/09 17:03:00",
+      "content": "辛巴中间件公共组件包按照yml文件要求重新封装完成",
+      "done_date": "2024/09/14",
+      "done_datetime": "2024/09/14 17:20:33",
+      "id": "8146f362-7771-44ea-97bd-dfc4ef4c60b8"
+    },
+    {
+      "todo_date": "2024/09/09",
+      "todo_datetime": "2024/09/09 17:04:07",
+      "content": "SIM卡服务和账单服务中间件部分代码调整使用新的公共组件",
+      "done_date": "2024/09/14",
+      "done_datetime": "2024/09/14 17:20:33",
+      "id": "8a04ef28-a4cf-4411-bc20-f633ce87b757"
+    },
+    {
+      "todo_date": "2024/09/10",
+      "todo_datetime": "2024/09/10 16:54:50",
+      "content": "cmp2.5迭代版本线上环境发布部署完成\n",
+      "done_date": "2024/09/14",
+      "done_datetime": "2024/09/14 17:20:33",
+      "id": "2fd8e194-c27f-474b-be07-e3af445ce5db"
+    },
+    {
+      "todo_date": "2024/09/11",
+      "todo_datetime": "2024/09/11 11:16:42",
+      "content": "cmp2.5迭代版本线上bug修复完成",
+      "done_date": "2024/09/14",
+      "done_datetime": "2024/09/14 17:20:33",
+      "id": "c32cf982-d17b-466c-ab7f-65343908a813"
+    },
+    {
+      "todo_date": "2024/09/14",
+      "todo_datetime": "2024/09/14 15:04:03",
+      "content": "cmp2.6迭代版本小组开发任务完成。",
+      "done_date": "2024/09/14",
+      "done_datetime": "2024/09/14 17:20:33",
+      "id": "36c518d3-183f-4a97-82b6-7d479ed03210"
+    },
+    {
+      "todo_date": "2024/09/18",
+      "todo_datetime": "2024/09/18 13:59:37",
+      "content": "本周工作内容（16）",
+      "done_date": "2024/09/21",
+      "done_datetime": "2024/09/21 09:07:32",
+      "id": "31dcdf04-3685-416b-aa63-cc252ca3363e"
+    },
+    {
+      "todo_date": "2024/09/20",
+      "todo_datetime": "2024/09/20 16:07:50",
+      "content": "sim卡域过结账日线上bug处理",
+      "done_date": "2024/09/21",
+      "done_datetime": "2024/09/21 09:07:32",
+      "id": "60e7bcac-1b58-47b1-9603-074c2befa9ce"
+    },
+    {
+      "todo_date": "2024/09/20",
+      "todo_datetime": "2024/09/20 16:08:20",
+      "content": "推送服务欧盟渠道获取token异常，线上bug处理",
+      "done_date": "2024/09/21",
+      "done_datetime": "2024/09/21 09:07:32",
+      "id": "84a892b3-67a0-4bcd-8696-1513da0ebcec"
+    },
+    {
+      "todo_date": "2024/09/20",
+      "todo_datetime": "2024/09/20 16:08:34",
+      "content": "短信和支付平台业务和代码交接\n",
+      "done_date": "2024/09/21",
+      "done_datetime": "2024/09/21 09:07:32",
+      "id": "3f7a928d-4f3f-4200-b054-0f9f5dcac5e1"
+    },
+    {
+      "todo_date": "2024/09/20",
+      "todo_datetime": "2024/09/20 16:57:28",
+      "content": "调休8小时",
+      "done_date": "2024/09/21",
+      "done_datetime": "2024/09/21 09:07:32",
+      "id": "0217c82a-1bcb-4e1d-9f0a-e7042795297a"
+    },
+    {
+      "todo_date": "2024/09/27",
+      "todo_datetime": "2024/09/27 16:12:06",
+      "content": "cmp2.7迭代版本二轮需求内容评审确认，开发任务分解排期完成",
+      "id": "27115aee-72c0-4fe0-95d2-0aee519d70c1",
+      "done_date": "2024/09/30",
+      "done_datetime": "2024/09/30 08:55:31"
+    },
+    {
+      "todo_date": "2024/09/27",
+      "todo_datetime": "2024/09/27 16:11:45",
+      "content": "订单域和资费计划服务业务和代码学习",
+      "id": "1f131c2e-dda4-453b-96cd-86b7bee582a6",
+      "done_date": "2024/09/30",
+      "done_datetime": "2024/09/30 08:55:31"
+    },
+    {
+      "todo_date": "2024/09/27",
+      "todo_datetime": "2024/09/27 16:11:37",
+      "content": "cmp2.7迭代版本一轮需求内容评审，讨论结束",
+      "id": "a94fc265-5ce5-440c-9ddd-cd8f524f7092",
+      "done_date": "2024/09/30",
+      "done_datetime": "2024/09/30 08:55:31"
+    },
+    {
+      "todo_date": "2024/09/23",
+      "todo_datetime": "2024/09/23 16:23:05",
+      "content": "手机短信mtc回调缺失问题排查bug处理修复，短信服务交接交流\n",
+      "id": "ac8e93b0-c01a-4281-9c5e-0d97c108d261",
+      "done_date": "2024/09/30",
+      "done_datetime": "2024/09/30 08:55:31"
+    },
+    {
+      "todo_date": "2024/09/23",
+      "todo_datetime": "2024/09/23 10:53:04",
+      "content": "本周工作内容(40)\n",
+      "id": "2c02585d-9828-47dc-a005-12e4db093a03",
+      "done_date": "2024/09/30",
+      "done_datetime": "2024/09/30 08:55:31"
+    }
+  ],
+  "settings": {
+    "firstRun": false
+  }
+}
