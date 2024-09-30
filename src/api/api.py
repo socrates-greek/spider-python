@@ -10,6 +10,7 @@ class DaliyHotHandler(tornado.web.RequestHandler):
     def get(self):
         result = daily_insight()
         self.write(result)
+        self.flush()
 
 def daily_insight():
     my_map = read_tou_tiao_hot()
