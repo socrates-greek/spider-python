@@ -1,6 +1,6 @@
 # @app.route('/v1/dailyInsight', methods=['GET'])
 import base64
-import datetime
+from datetime import datetime
 from fileIo import read_tou_tiao_hot
 import tornado.web
 import tornado.websocket
