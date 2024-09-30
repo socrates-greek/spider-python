@@ -2,132 +2,32 @@ import base64
 import json
 import random
 import string
-import threading
-from datetime import datetime
-
 import tornado.ioloop
 import tornado.web
 import tornado.websocket
 import yaml
 from flask import Flask
 from flask_cors import CORS
-
-import SparkApi
 import emails
-from fileIo import read_tou_tiao_hot
-
 import imaplib
 import email
-
 # 邮箱账号信息
 import ssl
 from datetime import datetime
 from email.header import decode_header
 
+from src.api.api import DaliyHotHandler
+from src.api.robot import RobotHandler
+from src.api.work import WorkListHandler
+
 app = Flask(__name__)
 CORS(app)  # 允许所有来源的跨域请求
 
-ganswer = []
 messages = []
 emailMessages = []
-answerLen = 0
-# 以下密钥信息从控制台获取   https://console.xfyun.cn/services/bm35
-# appid = "5ad1cf2f"  # 填写控制台中获取的 APPID 信息
-# api_secret = "5fa688019c7eef19f159b90f68195a15"  # 填写控制台中获取的 APISecret 信息
-# api_key = "b329304e215f13d57369a0a7f2ffa1a8"  # 填写控制台中获取的 APIKey 信息
-# domain = "general"  # v3.0版本
-# Spark_url = 'wss://spark-api.xf-yun.com/v1.1/chat'  # v3.5环服务地址
-# 读取 YAML 文件
+
 with open('config.yaml', 'r', encoding='utf-8') as f:
     config = yaml.safe_load(f)
-
-# 访问配置项
-host = config['host']
-port = config['port']
-appid = config['spark']['appid']  # 填写控制台中获取的 APPID 信息
-api_secret = config['spark']['api_secret']  # 填写控制台中获取的 APISecret 信息
-api_key = config['spark']['api_key']  # 填写控制台中获取的 APIKey 信息
-domain = config['spark']['domain']  # v3.0版本
-Spark_url = config['spark']['spark_url']  # v3.5环服务地址
-
-
-# HTTP 处理器
-class DaliyHotHandler(tornado.web.RequestHandler):
-    # 处理 GET 请求
-    def get(self):
-        result = daily_insight()
-        self.write(result)
-
-
-# HTTP 处理器
-class RobotHandler(tornado.web.RequestHandler):
-    # 处理 POST 请求
-    def post(self):
-        # 设置响应头
-        self.set_header("Content-Type", "text/event-stream")
-        self.set_header("Cache-Control", "no-cache")
-        self.set_header("Connection", "keep-alive")
-
-        # 读取 JSON 数据
-        try:
-            data = json.loads(self.request.body)  # 解析 JSON 数据
-            question = data.get("message")  # 获取 "message" 字段
-
-            # 生成器
-            print(question)
-            question = SparkApi.checklen(SparkApi.getText("user", question))
-            SparkApi.answer = ""
-            print("星火:", end="")
-            thread = threading.Thread(target=SparkApi.main,
-                                      args=(appid, api_key, api_secret, Spark_url, domain, question))
-            thread.start()
-
-            # SparkApi.main(appid, api_key, api_secret, Spark_url, domain, question)
-            def generate():
-                global ganswer
-                ganswer = []
-                cut = False
-                try:
-                    while True:
-                        if cut:
-                            break
-                        for item in SparkApi.string_set:
-                            if item in ganswer:
-                                continue
-                            else:
-                                if item != 'quit' and len(item) > 0:
-                                    ganswer.append(item)
-                                    yield f"{item}"
-                            if item == 'quit':
-                                cut = True
-                                break
-                    # print('\n'+SparkApi.answer)
-                    SparkApi.getText("assistant", SparkApi.answer)
-                except GeneratorExit:
-                    print("Client closed connection")
-                except Exception as e:
-                    print(f"An error occurred: {e}")
-
-            # 逐条写入数据
-            for item in generate():
-                self.write(item)  # 确保遵循 SSE 格式
-                self.flush()  # 确保数据被发送
-
-        except json.JSONDecodeError:
-            self.set_status(400)  # 设置状态码为 400 表示错误请求
-            self.write("data: Invalid JSON\n\n")
-            self.flush()
-
-    # 处理 OPTIONS 请求（CORS 预检请求）
-    def options(self):
-        # 设置 CORS 头
-        self.set_header("Access-Control-Allow-Origin", "*")
-        self.set_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
-        self.set_header("Access-Control-Allow-Headers", "Content-Type")
-        # 返回状态码 204 表示成功但无内容
-        self.set_status(204)
-        self.finish()
-
 
 # 飞书消息
 class FeiShuHandler(tornado.web.RequestHandler):
@@ -242,36 +142,6 @@ class YunXiaoHandler(tornado.web.RequestHandler):
         self.set_status(204)
         self.finish()
 
-
-# @app.route('/v1/dailyInsight', methods=['GET'])
-def daily_insight():
-    my_map = read_tou_tiao_hot()
-    key, data = find_max_date_element(my_map)
-    # 检查请求是否成功
-    if len(data) > 0:
-        # 解析响应内容
-        return {
-            "message": "Successfully bought stock",
-            "response": data
-        }
-    else:
-        return {
-            "message": "Failed",
-            "response": "",
-        }
-
-
-# 将日期字符串转换为 datetime 对象，并找到最大日期
-def find_max_date_element(data_dict):
-    # 解析日期字符串为 datetime 对象
-    date_format = '%Y-%m-%d'
-    dates = {datetime.strptime(key, date_format): key for key, date_str in data_dict.items()}
-    # 找到最大日期
-    max_date = max(dates.keys())
-    # 获取最大日期对应的字典键
-    max_date_key = dates[max_date]
-    # 返回最大日期和对应的值
-    return max_date_key, data_dict[max_date_key]
 
 
 # WebSocket Handler
@@ -587,6 +457,7 @@ def make_app():
         (r"/ws", MyWebSocketHandler),  # 将 WebSocket 路径与 Handler 绑定
         (r"/v1/email/send", EmailSendHandler),  # 处理 HTTP 请求
         (r"/v1/upload", emails.EmailUploadHandler),  # 处理 HTTP 请求
+        (r"/v1/work/(create|update|query|delete|batchFinish|getALLFinish)", WorkListHandler),  # 处理 HTTP 请求
 
     ])
 

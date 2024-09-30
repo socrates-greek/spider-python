@@ -20,3 +20,9 @@ simba:
     # 连接到邮箱的IMAP服务器 (Gmail IMAP 服务器为imap.gmail.com)
     imap_server: "imap.mxhichina.com"
     smtp_server: "smtp.mxhichina.com"
+
+mysql:
+  url: "106.14.32.33"
+  username: "root"
+  password: "Wjlyp82nlf"
+  database: "nas"
