@@ -11,8 +11,7 @@ import tornado.web
 import yaml
 import os
 
-from src.config import Config
-
+from configs import Config
 
 # 设置上传文件的保存路径
 UPLOAD_FOLDER = 'uploads'
@@ -21,6 +20,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 
 def send_email(requestData):
+    sender_email = Config.get('simba')['username']
     attachFile = requestData.get("attachFile")  # 获取 "sender" 字段
     bodyImage = requestData.get("bodyImage")  # 获取 "sender" 字段
     body = requestData.get("body")  # 获取 "sender" 字段

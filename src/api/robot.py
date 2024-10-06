@@ -4,10 +4,9 @@ import json
 import threading
 
 import tornado
-import yaml
 
 from src import SparkApi
-from src.config import Config
+from src.configs import Config
 
 ganswer = []
 

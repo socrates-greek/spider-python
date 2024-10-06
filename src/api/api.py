@@ -1,8 +1,11 @@
 # @app.route('/v1/dailyInsight', methods=['GET'])
 from datetime import datetime
-from src.fileIo import read_tou_tiao_hot
 import tornado.web
 import tornado.websocket
+
+from src.fileIo import read_tou_tiao_hot
+
+
 # HTTP 处理器
 class DaliyHotHandler(tornado.web.RequestHandler):
     # 处理 GET 请求

@@ -4,12 +4,10 @@ import threading
 import yaml
 
 from Task import run_scheduler
-from WbsocketServer import make_app, fetch_emails_163, fetch_emails_simba
-from src.config import Config
+from src.WbsocketServer import make_app, fetch_emails_163, fetch_emails_simba
+from src.configs import Config
 from src.mysql.mysqldb import Database, load_file
 
-
-ymlConfig = {}
 
 def check_email_loop_163():
     fetch_emails_163()
@@ -23,7 +21,7 @@ def check_email_loop_simba():
 
 if __name__ == '__main__':
     # 这里可以加载配置
-    Config.load('./src/config.yaml')
+    Config.load('./config.yaml')
     # 访问配置项
     host = Config.get('host')
     port = Config.get('port')

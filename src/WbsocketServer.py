@@ -14,10 +14,10 @@ import email
 import ssl
 from datetime import datetime
 from email.header import decode_header
-from src.api.api import DaliyHotHandler
-from src.api.robot import RobotHandler
-from src.api.work import WorkListHandler
-from src.config import Config
+from api.api import DaliyHotHandler
+from api.robot import RobotHandler
+from api.work import WorkListHandler
+from src.configs import Config
 
 app = Flask(__name__)
 CORS(app)  # 允许所有来源的跨域请求
