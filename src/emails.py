@@ -11,13 +11,8 @@ import tornado.web
 import yaml
 import os
 
-with open('config.yaml', 'r', encoding='utf-8') as f:
-    config = yaml.safe_load(f)
-# 邮件发送配置
-smtp_server = config['simba']['smtp_server']
-port = 465  # 使用 TLS 的端口
-sender_email = config['simba']['username']
-password = config['simba']['password']
+from src.config import Config
+
 
 # 设置上传文件的保存路径
 UPLOAD_FOLDER = 'uploads'
@@ -135,6 +130,11 @@ def send_email(requestData):
     # 连接邮件服务器并发送邮件
     # 发送邮件
     try:
+        # 邮件发送配置
+        smtp_server = Config.get('simba')['smtp_server']
+        port = 465  # 使用 TLS 的端口
+        sender_email = Config.get('simba')['username']
+        password = Config.get('simba')['password']
         with smtplib.SMTP_SSL(smtp_server, port) as server:  # 替换为你的 SMTP 服务器地址和端口
             server.login(sender_email, password)  # 登录你的 SMTP 服务器
             server.sendmail(sender_email, receiver_emails, message.as_string())  # 发送邮件

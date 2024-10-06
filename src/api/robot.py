@@ -1,5 +1,4 @@
 
-
 # 读取 YAML 文件
 import json
 import threading
@@ -7,21 +6,10 @@ import threading
 import tornado
 import yaml
 
-import SparkApi
-
+from src import SparkApi
+from src.config import Config
 
 ganswer = []
-with open('config.yaml', 'r', encoding='utf-8') as f:
-    config = yaml.safe_load(f)
-
-# 访问配置项
-host = config['host']
-port = config['port']
-appid = config['spark']['appid']  # 填写控制台中获取的 APPID 信息
-api_secret = config['spark']['api_secret']  # 填写控制台中获取的 APISecret 信息
-api_key = config['spark']['api_key']  # 填写控制台中获取的 APIKey 信息
-domain = config['spark']['domain']  # v3.0版本
-Spark_url = config['spark']['spark_url']  # v3.5环服务地址
 
 
 # HTTP 处理器
@@ -32,7 +20,11 @@ class RobotHandler(tornado.web.RequestHandler):
         self.set_header("Content-Type", "text/event-stream")
         self.set_header("Cache-Control", "no-cache")
         self.set_header("Connection", "keep-alive")
-
+        appid = Config.get('spark')['appid']  # 填写控制台中获取的 APPID 信息
+        api_secret = Config.get('spark')['api_secret']  # 填写控制台中获取的 APISecret 信息
+        api_key = Config.get('spark')['api_key']  # 填写控制台中获取的 APIKey 信息
+        domain = Config.get('spark')['domain']  # v3.0版本
+        Spark_url = Config.get('spark')['spark_url']  # v3.5环服务地址
         # 读取 JSON 数据
         try:
             data = json.loads(self.request.body)  # 解析 JSON 数据

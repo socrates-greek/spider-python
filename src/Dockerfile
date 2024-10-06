@@ -9,7 +9,7 @@ RUN pip install tornado
 RUN pip install mysql-connector-python
 # 查看已安装的包
 RUN pip freeze
-COPY . .
+COPY .. .
 # 第二阶段：仅复制编译后的结果
 FROM python:3.10-slim
 WORKDIR /home/star

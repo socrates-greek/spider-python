@@ -5,7 +5,6 @@ import string
 import tornado.ioloop
 import tornado.web
 import tornado.websocket
-import yaml
 from flask import Flask
 from flask_cors import CORS
 import emails
@@ -15,19 +14,16 @@ import email
 import ssl
 from datetime import datetime
 from email.header import decode_header
-
 from src.api.api import DaliyHotHandler
 from src.api.robot import RobotHandler
 from src.api.work import WorkListHandler
+from src.config import Config
 
 app = Flask(__name__)
 CORS(app)  # 允许所有来源的跨域请求
 
 messages = []
 emailMessages = []
-
-with open('config.yaml', 'r', encoding='utf-8') as f:
-    config = yaml.safe_load(f)
 
 # 飞书消息
 class FeiShuHandler(tornado.web.RequestHandler):
@@ -251,18 +247,18 @@ def clean(text):
 
 
 def fetch_emails_simba():
-    username = config['simba']['username']
-    password = config['simba']['password']
+    username =  Config.get('simba')['username']
+    password =  Config.get('simba')['password']
     # 连接到邮箱的IMAP服务器 (Gmail IMAP 服务器为imap.gmail.com)
-    imap_server = config['simba']['imap_server']
+    imap_server =  Config.get('simba')['imap_server']
     fetch_emails(username, password, imap_server)
 
 
 def fetch_emails_163():
-    username = config['wangyi']['username']
-    password = config['wangyi']['password']
+    username =  Config.get('wangyi')['username']
+    password =  Config.get('wangyi')['password']
     # 连接到邮箱的IMAP服务器 (Gmail IMAP 服务器为imap.gmail.com)
-    imap_server = config['wangyi']['imap_server']
+    imap_server =  Config.get('wangyi')['imap_server']
     fetch_emails(username, password, imap_server)
 
 
