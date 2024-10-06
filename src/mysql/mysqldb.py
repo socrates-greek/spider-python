@@ -8,25 +8,45 @@ from mysql.connector import Error
 
 class Database:
     _connection = None
+    _config = {}
 
     @classmethod
     def connect(cls, host, user, password, database):
+        """连接到数据库并存储连接配置信息"""
+        cls._config = {'host': host, 'user': user, 'password': password, 'database': database}
         if cls._connection is None:
             try:
-                cls._connection = mysql.connector.connect(
-                    host=host,
-                    user=user,
-                    password=password,
-                    database=database
-                )
-                print("数据库连接成功")
+                cls._attempt_connect()
             except Error as e:
                 print(f"连接失败: {e}")
 
     @classmethod
+    def _attempt_connect(cls):
+        """尝试建立数据库连接"""
+        try:
+            cls._connection = mysql.connector.connect(
+                host=cls._config['host'],
+                user=cls._config['user'],
+                password=cls._config['password'],
+                database=cls._config['database']
+            )
+            if cls._connection.is_connected():
+                print("数据库连接成功")
+            else:
+                cls._connection = None
+                print("数据库连接失败")
+        except Error as e:
+            print(f"连接失败: {e}")
+            cls._connection = None
+
+    @classmethod
     def get_connection(cls):
-        if cls._connection is None:
-            raise Exception("数据库未连接，请先调用 connect() 方法")
+        """获取数据库连接，如果断开则尝试重新连接"""
+        if cls._connection is None or not cls._connection.is_connected():
+            print("连接已断开，正在尝试重连...")
+            cls._attempt_connect()
+            if cls._connection is None or not cls._connection.is_connected():
+                raise Exception("无法重新连接数据库，请检查配置或网络状态")
         return cls._connection
 
 

@@ -164,7 +164,6 @@ class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
             tp = data.get("type")
             msg_id = data.get("msgId")
             print(f"Received message type: {tp}, msgId: {msg_id}")
-
             # 处理不同类型的消息
             if tp == "read":
                 print(f"Processing read for msgId: {msg_id}")
