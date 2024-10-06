@@ -4,8 +4,8 @@ import threading
 import yaml
 
 from Task import run_scheduler
-from src.WbsocketServer import make_app, fetch_emails_163, fetch_emails_simba
-from src.configs import Config
+from src.WbSocketServer import make_app, fetch_emails_163, fetch_emails_simba
+from src.Configs import Config
 from src.mysql.mysqldb import Database, load_file
 
 

@@ -11,7 +11,7 @@ import tornado.web
 import yaml
 import os
 
-from configs import Config
+from Configs import Config
 
 # 设置上传文件的保存路径
 UPLOAD_FOLDER = 'uploads'

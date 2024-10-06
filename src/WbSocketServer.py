@@ -7,7 +7,7 @@ import tornado.web
 import tornado.websocket
 from flask import Flask
 from flask_cors import CORS
-import emails
+import Emails
 import imaplib
 import email
 # 邮箱账号信息
@@ -17,7 +17,7 @@ from email.header import decode_header
 from api.api import DaliyHotHandler
 from api.robot import RobotHandler
 from api.work import WorkListHandler
-from src.configs import Config
+from src.Configs import Config
 
 app = Flask(__name__)
 CORS(app)  # 允许所有来源的跨域请求
@@ -276,9 +276,10 @@ def fetch_emails(username, password, imap_server):
 
     # 获取邮件ID列表
     email_ids = eMsg[0].split()
-    print("获取邮件", email_ids)
+
     # 遍历所有邮件
     for mail_id in email_ids:
+        print("获取邮件", email_ids)
         status, msg_data = mail.fetch(mail_id, "(RFC822)")
         for response_part in msg_data:
             if isinstance(response_part, tuple):
@@ -422,7 +423,7 @@ class EmailSendHandler(tornado.web.RequestHandler):
         try:
             data = json.loads(self.request.body)  # 解析 JSON 数据
             print(data)
-            emails.send_email(data)
+            Emails.send_email(data)
             self.write({"code": 200, "message": "success", "data": ""})  # 返回成功响应
             self.flush()
         except  Exception as e:
@@ -451,7 +452,7 @@ def make_app():
         (r"/v1/yunxiao/msg", YunXiaoHandler),  # 处理 HTTP 请求
         (r"/ws", MyWebSocketHandler),  # 将 WebSocket 路径与 Handler 绑定
         (r"/v1/email/send", EmailSendHandler),  # 处理 HTTP 请求
-        (r"/v1/upload", emails.EmailUploadHandler),  # 处理 HTTP 请求
+        (r"/v1/upload", Emails.EmailUploadHandler),  # 处理 HTTP 请求
         (r"/v1/work/(create|update|query|delete|batchFinish|getALLFinish)", WorkListHandler),  # 处理 HTTP 请求
 
     ])

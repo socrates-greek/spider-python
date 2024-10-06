@@ -1,4 +1,4 @@
-# configs.py
+# Configs.py
 import yaml
 
 class Config:
