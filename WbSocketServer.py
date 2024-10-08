@@ -155,7 +155,7 @@ class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
 
     # 收到消息时调用
     def on_message(self, message):
-        print(f"Received message: {message}")
+        # print(f"Received message: {message}")
         try:
             data = json.loads(message)
             tp = data.get("type")
@@ -175,7 +175,8 @@ class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
                         print(f"Sent notification to another client: {msg_id}")
 
         except json.JSONDecodeError:
-            print("Failed to decode JSON")
+            # print("Failed to decode JSON")
+            pass
         except Exception as e:
             print(f"An error occurred: {e}")
 

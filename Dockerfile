@@ -13,6 +13,7 @@ RUN pip freeze
 COPY .. .
 # 第二阶段：仅复制编译后的结果
 FROM python:3.10-slim
+
 WORKDIR /home/star
 # 从 builder 阶段复制所有依赖包
 COPY --from=builder /usr/local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
