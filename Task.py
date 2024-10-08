@@ -1,6 +1,7 @@
 import datetime
 from datetime import datetime
 import requests
+from apscheduler.triggers.interval import IntervalTrigger
 
 from FileIo import read_tou_tiao_hot, write_tou_tiao_hot
 from apscheduler.schedulers.blocking import BlockingScheduler
@@ -32,8 +33,10 @@ def task3():
 scheduler = BlockingScheduler()
 
 # 每天14:30执行任务1
-scheduler.add_job(task1, 'cron', hour=6, minute=15)
+# scheduler.add_job(task1, 'cron', hour=6, minute=15)
 # scheduler.add_job(task1, IntervalTrigger(seconds=30))
+# 添加任务，每1小时执行一次
+scheduler.add_job(task1, IntervalTrigger(hours=1))
 
 # 每周一至周五的9:00执行任务2
 # scheduler.add_job(task2, 'cron', day_of_week='mon-fri', hour=9, minute=0)

@@ -36,7 +36,7 @@ def write_tou_tiao_hot(my_map):
     # 保存字典到 JSON 文件
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(my_map, f, ensure_ascii=False, indent=4)
-    print("字典已保存到 'data2.json'")
+    print("字典已保存到 'data.json'")
 
 
 # 设置上传文件的保存路径
