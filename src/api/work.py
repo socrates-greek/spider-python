@@ -6,7 +6,6 @@ import tornado.websocket
 
 from src.mysql.mysqldb import fetch_work, insert_work, update_work, delete_work, finish_work, getAll_finish_work
 
-
 class WorkListHandler(tornado.web.RequestHandler):
     # 处理请求前进行 Basic 认证
     def prepare(self):

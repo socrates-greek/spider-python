@@ -7,6 +7,7 @@ RUN pip install apscheduler -i  https://pypi.tuna.tsinghua.edu.cn/simple
 RUN pip install websocket-client
 RUN pip install tornado
 RUN pip install mysql-connector-python
+RUN pip install minio
 # 查看已安装的包
 RUN pip freeze
 COPY .. .

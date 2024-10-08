@@ -33,6 +33,7 @@ if __name__ == '__main__':
     database = Config.get('mysql')['database']
 
     Database.connect(url, username, password, database)
+
     # 在单独的线程中运行调度器
     scheduler_thread = threading.Thread(target=run_scheduler)
     scheduler_thread.start()

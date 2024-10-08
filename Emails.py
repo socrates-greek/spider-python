@@ -1,23 +1,14 @@
 import base64
 from datetime import datetime, timedelta
-import json
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import mimetypes
 from email.mime.application import MIMEApplication
 from email.header import Header
-import tornado.web
-import yaml
 import os
 
 from Configs import Config
-
-# 设置上传文件的保存路径
-UPLOAD_FOLDER = 'uploads'
-# 确保上传文件夹存在
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
 
 def send_email(requestData):
     sender_email = Config.get('simba')['username']
@@ -143,53 +134,6 @@ def send_email(requestData):
         print(f"Failed to send email: {e}")
 
 
-# 上传文件
-class EmailUploadHandler(tornado.web.RequestHandler):
-    # 处理 POST 请求
-    def post(self):
-        # 设置响应头
-        self.set_header("Content-Type", "application/json")
-        self.set_header("Cache-Control", "no-cache")
-        self.set_header("Connection", "keep-alive")
-        # 读取 JSON 数据
-        try:
-            if 'file' not in self.request.files or not self.request.files['file']:
-                self.write({"code": 400, "message": "No file provided"})
-                self.flush()
-                return
-
-            file = self.request.files['file'][0]  # 获取上传的文件
-
-            if file.filename == '':
-                self.write({"code": 400, "message": "No file selected"})
-                self.flush()
-                return
-
-            if allowed_file(file.filename):
-                file_path = os.path.join(UPLOAD_FOLDER, file.filename)
-                with open(file_path, 'wb') as f:
-                    f.write(file.body)
-                self.write({"code": 200, "message": "File uploaded successfully"})
-            else:
-                self.write({"code": 400, "message": "File type not allowed"})
-            self.flush()
-
-        except json.JSONDecodeError:
-            self.set_status(400)
-            self.write({"code": 400, "message": "Invalid JSON"})
-            self.flush()
-
-    # 处理 OPTIONS 请求（CORS 预检请求）
-    def options(self):
-        # 设置 CORS 头
-        self.set_header("Access-Control-Allow-Origin", "*")
-        self.set_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
-        self.set_header("Access-Control-Allow-Headers", "Content-Type")
-        # 返回状态码 204 表示成功但无内容
-        self.set_status(204)
-        self.finish()
-
-
 def get_week_range():
     # 获取当前时间
     today = datetime.today()
@@ -202,6 +146,3 @@ def get_week_range():
     return start_of_week, end_of_week
 
 
-def allowed_file(filename):
-    allowed_extensions = {'png', 'jpg', 'jpeg', 'gif', 'xlsx'}
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in allowed_extensions

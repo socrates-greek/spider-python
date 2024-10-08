@@ -26,3 +26,8 @@ mysql:
   username: "root"
   password: "Wjlyp82nlf"
   database: "nas"
+
+minio:
+  url: "106.14.32.33:9000"
+  userName: "eason"
+  password: "Wjlyp82nlf"

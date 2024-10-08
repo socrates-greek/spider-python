@@ -15,6 +15,7 @@ import ssl
 from datetime import datetime
 from email.header import decode_header
 from Configs import Config
+from FileIo import EmailUploadHandler, MinioUploadHandler
 from src.api.api import DaliyHotHandler
 from src.api.robot import RobotHandler
 from src.api.work import WorkListHandler
@@ -340,7 +341,6 @@ def generate_random_string(length=10):
     random_string = ''.join(random.choice(characters) for _ in range(length))
     return random_string
 
-
 # email测试
 class EmailHandler(tornado.web.RequestHandler):
     # 处理请求前进行 Basic 认证
@@ -452,7 +452,8 @@ def make_app():
         (r"/v1/yunxiao/msg", YunXiaoHandler),  # 处理 HTTP 请求
         (r"/ws", MyWebSocketHandler),  # 将 WebSocket 路径与 Handler 绑定
         (r"/v1/email/send", EmailSendHandler),  # 处理 HTTP 请求
-        (r"/v1/upload", Emails.EmailUploadHandler),  # 处理 HTTP 请求
+        (r"/v1/upload", EmailUploadHandler),  # 处理 HTTP 请求
+        (r"/v1/minioUpload", MinioUploadHandler),  # 处理 HTTP 请求
         (r"/v1/work/(create|update|query|delete|batchFinish|getALLFinish)", WorkListHandler),  # 处理 HTTP 请求
 
     ])
