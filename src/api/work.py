@@ -1,9 +1,7 @@
 import base64
 import json
-
 import tornado.web
 import tornado.websocket
-
 from src.mysql.mysqldb import fetch_work, insert_work, update_work, delete_work, finish_work, getAll_finish_work
 
 class WorkListHandler(tornado.web.RequestHandler):

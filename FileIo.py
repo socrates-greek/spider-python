@@ -1,7 +1,6 @@
 import os
 import tornado.web
 import json
-
 from Configs import Config
 from src.minios.minios import MinioStorage
 
@@ -135,7 +134,7 @@ class MinioUploadHandler(tornado.web.RequestHandler):
                 url = storage.upload_file('my-bucket-picture', file_path, file.filename)
                 if url:
                     print(f"可访问的 URL: {url}")
-                self.write({"errno": 0, "message": "File uploaded successfully", "data": {"url":url}})
+                self.write({"errno": 0, "message": "File uploaded successfully", "data": {"url": url}})
             else:
                 self.write({"code": 400, "message": "File type not allowed"})
             self.flush()

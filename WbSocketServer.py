@@ -18,6 +18,7 @@ from Configs import Config
 from FileIo import EmailUploadHandler, MinioUploadHandler
 from src.api.api import DaliyHotHandler
 from src.api.robot import RobotHandler
+from src.api.task import WorkUploadHandler
 from src.api.work import WorkListHandler
 
 app = Flask(__name__)
@@ -25,6 +26,7 @@ CORS(app)  # 允许所有来源的跨域请求
 
 messages = []
 emailMessages = []
+
 
 # 飞书消息
 class FeiShuHandler(tornado.web.RequestHandler):
@@ -140,7 +142,6 @@ class YunXiaoHandler(tornado.web.RequestHandler):
         self.finish()
 
 
-
 # WebSocket Handler
 class MyWebSocketHandler(tornado.websocket.WebSocketHandler):
     clients = set()
@@ -249,18 +250,18 @@ def clean(text):
 
 
 def fetch_emails_simba():
-    username =  Config.get('simba')['username']
-    password =  Config.get('simba')['password']
+    username = Config.get('simba')['username']
+    password = Config.get('simba')['password']
     # 连接到邮箱的IMAP服务器 (Gmail IMAP 服务器为imap.gmail.com)
-    imap_server =  Config.get('simba')['imap_server']
+    imap_server = Config.get('simba')['imap_server']
     fetch_emails(username, password, imap_server)
 
 
 def fetch_emails_163():
-    username =  Config.get('wangyi')['username']
-    password =  Config.get('wangyi')['password']
+    username = Config.get('wangyi')['username']
+    password = Config.get('wangyi')['password']
     # 连接到邮箱的IMAP服务器 (Gmail IMAP 服务器为imap.gmail.com)
-    imap_server =  Config.get('wangyi')['imap_server']
+    imap_server = Config.get('wangyi')['imap_server']
     fetch_emails(username, password, imap_server)
 
 
@@ -341,6 +342,7 @@ def generate_random_string(length=10):
     characters = string.ascii_letters + string.digits  # 包含字母和数字
     random_string = ''.join(random.choice(characters) for _ in range(length))
     return random_string
+
 
 # email测试
 class EmailHandler(tornado.web.RequestHandler):
@@ -454,6 +456,7 @@ def make_app():
         (r"/ws", MyWebSocketHandler),  # 将 WebSocket 路径与 Handler 绑定
         (r"/v1/email/send", EmailSendHandler),  # 处理 HTTP 请求
         (r"/v1/upload", EmailUploadHandler),  # 处理 HTTP 请求
+        (r"/v1/workUpload/(create|queryTaskCountByIteration|queryTaskListByIteration)", WorkUploadHandler),  # 处理 HTTP 请求
         (r"/v1/minioUpload", MinioUploadHandler),  # 处理 HTTP 请求
         (r"/v1/work/(create|update|query|delete|batchFinish|getALLFinish)", WorkListHandler),  # 处理 HTTP 请求
 
