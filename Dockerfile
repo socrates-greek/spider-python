@@ -8,9 +8,10 @@ RUN pip install websocket-client
 RUN pip install tornado
 RUN pip install mysql-connector-python
 RUN pip install minio
+RUN pip install pandas
 # 查看已安装的包
 RUN pip freeze
-COPY .. .
+COPY src/ ./src/
 # 第二阶段：仅复制编译后的结果
 FROM python:3.10-slim
 
@@ -20,4 +21,5 @@ COPY --from=builder /usr/local/lib/python3.10/site-packages /usr/local/lib/pytho
 COPY --from=builder /home/star /home/star
 # 暴露应用运行的端口
 EXPOSE 30999
-CMD ["python", "SparkPython.py"]
+CMD ["python", "-m", "src.main"]
+

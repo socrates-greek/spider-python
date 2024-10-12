@@ -7,15 +7,15 @@ import tornado.web
 import tornado.websocket
 from flask import Flask
 from flask_cors import CORS
-import Emails
 import imaplib
 import email
 # 邮箱账号信息
 import ssl
 from datetime import datetime
 from email.header import decode_header
-from Configs import Config
-from FileIo import EmailUploadHandler, MinioUploadHandler
+from src.config.Configs import Config
+from src.emails import Emails
+from src.fileio.FileIo import EmailUploadHandler, MinioUploadHandler
 from src.api.api import DaliyHotHandler
 from src.api.robot import RobotHandler
 from src.api.task import WorkUploadHandler

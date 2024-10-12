@@ -8,7 +8,7 @@ from email.mime.application import MIMEApplication
 from email.header import Header
 import os
 
-from Configs import Config
+from src.config.Configs import Config
 
 def send_email(requestData):
     sender_email = Config.get('simba')['username']

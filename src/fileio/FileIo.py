@@ -1,13 +1,13 @@
 import os
 import tornado.web
 import json
-from Configs import Config
+from src.config.Configs import Config
 from src.minios.minios import MinioStorage
 
 
 def read_tou_tiao_hot():
     # 读取 CSV 文件
-    file_name = 'data.json'
+    file_name = '../data.json'
     # 检查文件是否存在
     if not os.path.isfile(file_name):
         print(f"{file_name} 不存在，正在创建...")
@@ -33,7 +33,7 @@ def read_tou_tiao_hot():
 
 def write_tou_tiao_hot(my_map):
     # 保存字典到 JSON 文件
-    with open('data.json', 'w', encoding='utf-8') as f:
+    with open('../data.json', 'w', encoding='utf-8') as f:
         json.dump(my_map, f, ensure_ascii=False, indent=4)
     print("字典已保存到 'data.json'")
 

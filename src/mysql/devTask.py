@@ -1,8 +1,5 @@
 from src.mysql.mysqldb import Database
-from collections import defaultdict
 from datetime import datetime, timedelta
-import json
-
 
 class Task:
     def __init__(self, subject, description, charger, status, project, work_type, follower, iteration, priority,

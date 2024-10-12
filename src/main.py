@@ -1,12 +1,10 @@
 import tornado
 import threading
 
-import yaml
-
-from Task import run_scheduler
-from WbSocketServer import make_app, fetch_emails_163, fetch_emails_simba
-from Configs import Config
+from src.config.Configs import Config
 from src.mysql.mysqldb import Database
+from src.tasks.Task import run_scheduler
+from src.ws.WbSocketServer import fetch_emails_163, fetch_emails_simba, make_app
 
 
 def check_email_loop_163():

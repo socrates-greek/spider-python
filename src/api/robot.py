@@ -5,8 +5,8 @@ import threading
 
 import tornado
 
-import SparkApi
-from Configs import Config
+from src.spark import SparkApi
+from src.config.Configs import Config
 
 ganswer = []
 
