@@ -16,7 +16,7 @@ class WorkUploadHandler(tornado.web.RequestHandler):
         self.set_header("Content-Type", "application/json")
         self.set_header("Cache-Control", "no-cache")
         self.set_header("Connection", "keep-alive")
-        data = json.loads(self.request.body)  # 解析 JSON 数据
+        # data = json.loads(self.request.body)  # 解析 JSON 数据
         if path == "create":
             self.create_work()
         else:
@@ -66,6 +66,8 @@ class WorkUploadHandler(tornado.web.RequestHandler):
                     # 处理每个记录
                     subject = record.get("标题")  # 假设你有一个名为 'subject' 的列
                     description = record.get("描述")  # 假设你有一个名为 'description' 的列
+                    if pd.isna(description):
+                        description = ""  # 或者其他默认值
                     charger = record.get("负责人")
                     if pd.isna(charger):
                         charger = ""  # 或者其他默认值
