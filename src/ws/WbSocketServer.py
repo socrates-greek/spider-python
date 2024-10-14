@@ -13,6 +13,8 @@ import email
 import ssl
 from datetime import datetime
 from email.header import decode_header
+
+from src.api.reminder import ReminderListHandler
 from src.config.Configs import Config
 from src.emails import Emails
 from src.fileio.FileIo import EmailUploadHandler, MinioUploadHandler
@@ -459,7 +461,8 @@ def make_app():
         (r"/v1/workUpload/(create|queryTaskCountByIteration|queryTaskListByIteration)", WorkUploadHandler),  # 处理 HTTP 请求
         (r"/v1/minioUpload", MinioUploadHandler),  # 处理 HTTP 请求
         (r"/v1/work/(create|update|query|delete|batchFinish|getALLFinish)", WorkListHandler),  # 处理 HTTP 请求
-
+        (r"/v1/reminder/(create|queryUnexpired|delete)", ReminderListHandler),
+        # 处理 HTTP 请求
     ])
 
 
