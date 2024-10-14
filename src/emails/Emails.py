@@ -9,6 +9,8 @@ from email.header import Header
 import os
 
 from src.config.Configs import Config
+from src.fileio.FileIo import UPLOAD_FOLDER
+
 
 def send_email(requestData):
     sender_email = Config.get('simba')['username']
