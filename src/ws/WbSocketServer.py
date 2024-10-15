@@ -22,6 +22,7 @@ from src.api.api import DaliyHotHandler
 from src.api.robot import RobotHandler
 from src.api.task import WorkUploadHandler
 from src.api.work import WorkListHandler
+from src.mysql.reminderDb import getReminderUnExpiredNotify, update_reminder_notify
 
 app = Flask(__name__)
 CORS(app)  # 允许所有来源的跨域请求
@@ -251,6 +252,19 @@ def clean(text):
     return "".join(c if c.isalnum() else "_" for c in text)
 
 
+def fetch_reminderUnExpiredNotify():
+    results = getReminderUnExpiredNotify()
+    for result in results:
+        title = result.get('title')
+        rid = result.get('id')
+        startTime = result.get('start_time')
+        string_value = startTime.strftime('%Y-%m-%d %H:%M:%S')  # 转换为 '2024-10-15 14:27:36'
+        messages.append({"id": str(rid), "sender": "备忘录", "message": title, "sendTime": string_value, "type": "fs"})
+        # print(msg, sender, sendTime)
+        MyWebSocketHandler.send_message_to_clients()  # 推送消息到 WebSocket 客户端
+        update_reminder_notify(rid)
+
+
 def fetch_emails_simba():
     username = Config.get('simba')['username']
     password = Config.get('simba')['password']
@@ -458,7 +472,8 @@ def make_app():
         (r"/ws", MyWebSocketHandler),  # 将 WebSocket 路径与 Handler 绑定
         (r"/v1/email/send", EmailSendHandler),  # 处理 HTTP 请求
         (r"/v1/upload", EmailUploadHandler),  # 处理 HTTP 请求
-        (r"/v1/workUpload/(create|queryTaskCountByIteration|queryTaskListByIteration)", WorkUploadHandler),  # 处理 HTTP 请求
+        (r"/v1/workUpload/(create|queryTaskCountByIteration|queryTaskListByIteration)", WorkUploadHandler),
+        # 处理 HTTP 请求
         (r"/v1/minioUpload", MinioUploadHandler),  # 处理 HTTP 请求
         (r"/v1/work/(create|update|query|delete|batchFinish|getALLFinish)", WorkListHandler),  # 处理 HTTP 请求
         (r"/v1/reminder/(create|queryUnexpired|delete)", ReminderListHandler),

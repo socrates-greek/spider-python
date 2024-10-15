@@ -4,7 +4,7 @@ import threading
 from src.config.Configs import Config
 from src.mysql.mysqldb import Database
 from src.tasks.Task import run_scheduler
-from src.ws.WbSocketServer import fetch_emails_163, fetch_emails_simba, make_app
+from src.ws.WbSocketServer import fetch_emails_163, fetch_emails_simba, make_app, fetch_reminderUnExpiredNotify
 
 
 def check_email_loop_163():
@@ -15,6 +15,12 @@ def check_email_loop_163():
 def check_email_loop_simba():
     fetch_emails_simba()
     tornado.ioloop.IOLoop.current().call_later(30, check_email_loop_simba)
+
+
+def push_reminder_loop():
+    fetch_reminderUnExpiredNotify()
+    # 60秒
+    tornado.ioloop.IOLoop.current().call_later(5, push_reminder_loop)
 
 
 if __name__ == '__main__':
@@ -42,4 +48,5 @@ if __name__ == '__main__':
     # 在 IOLoop 中开始定时任务
     tornado.ioloop.IOLoop.current().call_later(0, check_email_loop_163)
     tornado.ioloop.IOLoop.current().call_later(0, check_email_loop_simba)
+    tornado.ioloop.IOLoop.current().call_later(0, push_reminder_loop)
     tornado.ioloop.IOLoop.current().start()
