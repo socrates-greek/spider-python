@@ -9,6 +9,16 @@ RUN pip install tornado
 RUN pip install mysql-connector-python
 RUN pip install minio
 RUN pip install pandas
+
+# 设置时区环境变量
+ENV TZ=Asia/Shanghai
+
+# 安装 tzdata 包并配置时区
+RUN apt-get update && \
+    apt-get install -y tzdata && \
+    ln -fs /usr/share/zoneinfo/$TZ /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata
+
 # 查看已安装的包
 RUN pip freeze
 COPY src/ ./src/
