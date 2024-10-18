@@ -1,0 +1,9 @@
+flask
+flask-cors
+spark_ai_python
+apscheduler
+websocket-client
+tornado
+mysql-connector-python
+minio
+pandas

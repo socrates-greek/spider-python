@@ -1,12 +1,13 @@
-
 # 读取 YAML 文件
 import json
 import threading
 
 import tornado
 
+from src.mysql.mysqldb import fetch_work
 from src.spark import SparkApi
 from src.config.Configs import Config
+import re
 
 ganswer = []
 
@@ -28,7 +29,9 @@ class RobotHandler(tornado.web.RequestHandler):
         try:
             data = json.loads(self.request.body)  # 解析 JSON 数据
             question = data.get("message")  # 获取 "message" 字段
-
+            works = getWeekData(question)
+            if works is not None:
+                question = question + ":" + works
             # 生成器
             print(question)
             question = SparkApi.checklen(SparkApi.getText("user", question))
@@ -83,3 +86,31 @@ class RobotHandler(tornado.web.RequestHandler):
         # 返回状态码 204 表示成功但无内容
         self.set_status(204)
         self.finish()
+
+
+def getWeekData(question):
+    # 正则表达式，确保同时包含“本周”和“工作总结”
+    pattern = r"(?=.*本周)(?=.*(工作总结|工作小结|本周小结))"
+    # 使用 re.search() 检查是否同时包含“本周”和“工作总结”
+    match = re.search(pattern, question)
+    if match:
+        print("匹配成功：字符串同时包含'本周'和'工作总结'")
+        result = fetch_work("0")
+        if len(result) > 0:
+            # 使用 json.loads() 进行反序列化
+            python_obj = json.loads(result)
+            # 创建一个列表来存储所有的 title
+            titles = []
+            # 遍历字典列表
+            for item in python_obj:
+                title = item.get("work")  # 获取字典中 "title" 的值
+                if title:  # 确保 title 不为空
+                    titles.append(title)  # 将 title 添加到列表中
+            # 使用 join() 方法将列表元素用逗号拼接成一个字符串
+            titles_str = ",".join(titles)
+            return titles_str
+        else:
+            return None
+    else:
+        return None
+        print("没有匹配到指定关键词")
